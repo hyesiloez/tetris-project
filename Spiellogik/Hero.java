@@ -17,7 +17,7 @@ public class Hero implements Tetromino {
     }
     public void goRight(){
         for (int i = 0; i < this.coords.length; i++){
-            this.coords[i].setX(this.coords[i].getX() + 1);
+            this.coords[i].setY(this.coords[i].getY() + 1);
         }
     }
     public void goLeft(){

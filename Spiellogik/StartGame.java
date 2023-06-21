@@ -18,6 +18,7 @@ public class StartGame {
     public void removeTet (){
         Coords [] coords = this.tet.getCoords();
         for (int i = 0; i < coords.length; i++){
+
             gameboard[coords[i].getX()][coords[i].getY()] = BoardStatus.AIR;
         }
     }
