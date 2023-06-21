@@ -11,6 +11,12 @@ public class StartGame {
                 gameboard[i][j] = BoardStatus.AIR;
             }
         }
+
+        this.gameboard[0][8] = BoardStatus.PLAYER;
+        this.gameboard[0][9] = BoardStatus.PLAYER;
+        this.gameboard[0][10] = BoardStatus.PLAYER;
+        this.gameboard[0][11] = BoardStatus.PLAYER;
+
     }
 
     public String toString(){
