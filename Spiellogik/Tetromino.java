@@ -3,4 +3,6 @@ public interface Tetromino {
     public void goLeft();
     public void turn();
     public void drop();
+
+    public Coords[] getCoords();
 }
