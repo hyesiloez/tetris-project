@@ -1,32 +1,71 @@
 public class Hero implements Tetromino {
-    Coords[] coords;
-    boolean on_ground;
+    private Coords[] coords;
+    private boolean on_ground;
+    private int turn_counter;
 
     public Hero() {
         this.coords = new Coords[4];
         this.on_ground = false;
+        this.turn_counter = 0;
 
-        this.coords[0] = new Coords(0,8);
-        this.coords[1] = new Coords(0,9);
-        this.coords[2] = new Coords(0,10);
-        this.coords[3] = new Coords(0,11);
+        this.coords[0] = new Coords(0,4);
+        this.coords[1] = new Coords(0,5);
+        this.coords[2] = new Coords(0,6);
+        this.coords[3] = new Coords(0,7);
     }
 
     public Coords[] getCoords(){
         return this.coords;
     }
     public void goRight(){
-        for (int i = 0; i < this.coords.length; i++){
-            this.coords[i].setY(this.coords[i].getY() + 1);
-        }
+        this.defaultGoRight(this.coords);
     }
     public void goLeft(){
-
+        this.defaultGoLeft(this.coords);
     }
     public void turn(){
-
+        switch(this.turn_counter % 4){
+            case 0:
+                this.coords[0].setX(this.coords[0].getX() - 2);
+                this.coords[0].setY(this.coords[0].getY() + 2);
+                this.coords[1].setX(this.coords[1].getX() - 1);
+                this.coords[1].setY(this.coords[1].getY() + 1);
+                this.coords[3].setX(this.coords[3].getX() + 1);
+                this.coords[3].setY(this.coords[3].getY() - 1);
+                this.turn_counter++;
+                break;
+            case 1:
+                this.coords[0].setX(this.coords[0].getX() + 2);
+                this.coords[0].setY(this.coords[0].getY() + 2);
+                this.coords[1].setX(this.coords[1].getX() + 1);
+                this.coords[1].setY(this.coords[1].getY() + 1);
+                this.coords[3].setX(this.coords[3].getX() - 1);
+                this.coords[3].setY(this.coords[3].getY() - 1);
+                this.turn_counter++;
+                break;
+            case 2:
+                this.coords[0].setX(this.coords[0].getX() + 2);
+                this.coords[0].setY(this.coords[0].getY() - 2);
+                this.coords[1].setX(this.coords[1].getX() + 1);
+                this.coords[1].setY(this.coords[1].getY() - 1);
+                this.coords[3].setX(this.coords[3].getX() - 1);
+                this.coords[3].setY(this.coords[3].getY() + 1);
+                this.turn_counter++;
+                break;
+            case 3:
+                this.coords[0].setX(this.coords[0].getX() - 2);
+                this.coords[0].setY(this.coords[0].getY() - 2);
+                this.coords[1].setX(this.coords[1].getX() - 1);
+                this.coords[1].setY(this.coords[1].getY() - 1);
+                this.coords[3].setX(this.coords[3].getX() + 1);
+                this.coords[3].setY(this.coords[3].getY() + 1);
+                this.turn_counter++;
+                break;
+            default:
+                return;
+        }
     }
     public void drop(){
-
+        this.defaultDrop(this.coords);
     }
 }

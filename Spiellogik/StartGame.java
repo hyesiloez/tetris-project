@@ -13,20 +13,28 @@ public class StartGame {
                 gameboard[i][j] = BoardStatus.AIR;
             }
         }
+        this.setTet();
     }
 
     public void removeTet (){
         Coords [] coords = this.tet.getCoords();
-        for (int i = 0; i < coords.length; i++){
-
-            gameboard[coords[i].getX()][coords[i].getY()] = BoardStatus.AIR;
+        for (int i = 0; i < coords.length; i++) {
+            if (coords[i].getX() >= 0 && coords[i].getX() <= this.gameboard.length) {
+                if (coords[i].getY() >= 0 && coords[i].getY() <= this.gameboard[0].length) {
+                    gameboard[coords[i].getX()][coords[i].getY()] = BoardStatus.AIR;
+                }
+            }
         }
     }
 
     public void setTet (){
         Coords [] coords = this.tet.getCoords();
         for (int i = 0; i < coords.length; i++){
-            gameboard[coords[i].getX()][coords[i].getY()] = BoardStatus.PLAYER;
+            if(coords[i].getX() >= 0 && coords[i].getX() <= this.gameboard.length){
+                if (coords[i].getY() >= 0 && coords[i].getY() <= this.gameboard[0].length){
+                    gameboard[coords[i].getX()][coords[i].getY()] = BoardStatus.PLAYER;
+                }
+            }
         }
     }
 
@@ -35,6 +43,26 @@ public class StartGame {
         this.tet.goRight();
         this.setTet();
     }
+
+    public void goLeft(){
+        this.removeTet();
+        this.tet.goLeft();
+        this.setTet();
+    }
+
+    public void drop(){
+        this.removeTet();
+        this.tet.drop();
+        this.setTet();
+    }
+
+    public void turn(){
+        this.removeTet();
+        this.tet.turn();
+        this.setTet();
+    }
+
+
     public String toString(){
         String end = "";
         for(int i = 0; i < this.gameboard.length; i++){
@@ -48,5 +76,34 @@ public class StartGame {
             end += "\n";
         }
         return end;
+    }
+
+    public void play(){
+        System.out.println(this);
+        this.goRight();
+        System.out.println(this);
+        this.goLeft();
+        System.out.println(this);
+        this.drop();
+        System.out.println(this);
+
+        for(int i = 0; i < 15; i++){
+            this.goRight();
+            //System.out.println(this);
+        }
+
+        for(int i = 0; i < 7; i++){
+            this.goLeft();
+            //System.out.println(this);
+        }
+
+        for(int i = 0; i < 4; i++){
+            this.drop();
+            //System.out.println(this);
+        }
+        for(int i = 0; i < 20; i++) {
+            this.turn();
+            System.out.println(this);
+        }
     }
 }
