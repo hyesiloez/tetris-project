@@ -81,10 +81,12 @@ public class MenuController {
 
     public void exit(ActionEvent e) {
         System.out.println("Exit");
+        System.exit(0);
     }
 
     public void back() throws IOException {
-        root = FXMLLoader.load(getClass().getResource("hello-gui.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("multiplayer.fxml"));
+        root = loader.load();
         scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
