@@ -42,24 +42,28 @@ public class StartGame {
         this.removeTet();
         this.tet.goRight();
         this.setTet();
+        this.isOnGround();
     }
 
     public void goLeft(){
         this.removeTet();
         this.tet.goLeft();
         this.setTet();
+        this.isOnGround();
     }
 
     public void drop(){
         this.removeTet();
         this.tet.drop();
         this.setTet();
+        this.isOnGround();
     }
 
     public void turn(){
         this.removeTet();
         this.tet.turn();
         this.setTet();
+        this.isOnGround();
     }
 
 
@@ -78,6 +82,24 @@ public class StartGame {
         return end;
     }
 
+    public void isOnGround(){
+        Coords[] coords = this.tet.getCoords();
+        for (int i = 0; i < coords.length; i++){
+            if (coords[i].getX() == 13 || this.gameboard[coords[i].getX() + 1][coords[i].getY()] == BoardStatus.SET){
+                this.tet.setOn_ground(true);
+                this.tetOnGround();
+            }
+        }
+    }
+
+    public void tetOnGround(){
+        Coords[] coords = this.tet.getCoords();
+        for (int i = 0; i < coords.length; i++){
+            this.gameboard[coords[i].getX()][coords[i].getY()] = BoardStatus.SET;
+        }
+
+    }
+
     public void play(){
         System.out.println(this);
         this.goRight();
@@ -89,21 +111,30 @@ public class StartGame {
 
         for(int i = 0; i < 15; i++){
             this.goRight();
-            //System.out.println(this);
+            System.out.println(this);
         }
 
-        for(int i = 0; i < 7; i++){
+        for(int i = 0; i < 3; i++){
             this.goLeft();
-            //System.out.println(this);
+            System.out.println(this);
         }
 
         for(int i = 0; i < 4; i++){
             this.drop();
-            //System.out.println(this);
+            System.out.println(this);
         }
         for(int i = 0; i < 20; i++) {
             this.turn();
             System.out.println(this);
         }
+
+        for (int i = 0; i < 6;i++){
+            while (!this.tet.getOn_ground()) {
+                this.drop();
+                System.out.println(this);
+            }
+            this.tet = new Hero();
+        }
     }
+
 }

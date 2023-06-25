@@ -14,6 +14,14 @@ public class Hero implements Tetromino {
         this.coords[3] = new Coords(0,7);
     }
 
+    public void setOn_ground(boolean a){
+        this.on_ground = a;
+    }
+
+    public boolean getOn_ground() {
+        return this.on_ground;
+    }
+
     public Coords[] getCoords(){
         return this.coords;
     }

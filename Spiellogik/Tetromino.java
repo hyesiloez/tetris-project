@@ -36,4 +36,8 @@ public interface Tetromino {
     }
     public void drop();
     public Coords[] getCoords();
+
+    public void setOn_ground(boolean a);
+
+    public boolean getOn_ground();
 }
