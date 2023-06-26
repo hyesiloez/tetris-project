@@ -33,39 +33,39 @@ public class TeeWee implements Tetromino {
     public void turn(){
         switch(this.turn_counter % 4){
             case 0:
-                this.coords[0].setX(this.coords[0].getX() + 1);
+                this.coords[0].setX(this.coords[0].getX() - 1);
                 this.coords[0].setY(this.coords[0].getY() + 1);
-                this.coords[2].setX(this.coords[2].getX() - 1);
+                this.coords[2].setX(this.coords[2].getX() + 1);
                 this.coords[2].setY(this.coords[2].getY() + 1);
-                this.coords[3].setX(this.coords[3].getX() - 1);
+                this.coords[3].setX(this.coords[3].getX() + 1);
                 this.coords[3].setY(this.coords[3].getY() - 1);
                 this.turn_counter++;
                 break;
             case 1:
                 this.coords[0].setX(this.coords[0].getX() + 1);
-                this.coords[0].setY(this.coords[0].getY() - 1);
+                this.coords[0].setY(this.coords[0].getY() + 1);
                 this.coords[2].setX(this.coords[2].getX() + 1);
-                this.coords[2].setY(this.coords[2].getY() + 1);
+                this.coords[2].setY(this.coords[2].getY() - 1);
                 this.coords[3].setX(this.coords[3].getX() - 1);
-                this.coords[3].setY(this.coords[3].getY() + 1);
+                this.coords[3].setY(this.coords[3].getY() - 1);
                 this.turn_counter++;
                 break;
             case 2:
-                this.coords[0].setX(this.coords[0].getX() - 1);
+                this.coords[0].setX(this.coords[0].getX() + 1);
                 this.coords[0].setY(this.coords[0].getY() - 1);
-                this.coords[2].setX(this.coords[2].getX() + 1);
+                this.coords[2].setX(this.coords[2].getX() - 1);
                 this.coords[2].setY(this.coords[2].getY() - 1);
-                this.coords[3].setX(this.coords[3].getX() + 1);
+                this.coords[3].setX(this.coords[3].getX() - 1);
                 this.coords[3].setY(this.coords[3].getY() + 1);
                 this.turn_counter++;
                 break;
             case 3:
                 this.coords[0].setX(this.coords[0].getX() - 1);
-                this.coords[0].setY(this.coords[0].getY() + 1);
+                this.coords[0].setY(this.coords[0].getY() - 1);
                 this.coords[2].setX(this.coords[2].getX() - 1);
-                this.coords[2].setY(this.coords[2].getY() - 1);
+                this.coords[2].setY(this.coords[2].getY() + 1);
                 this.coords[3].setX(this.coords[3].getX() + 1);
-                this.coords[3].setY(this.coords[3].getY() - 1);
+                this.coords[3].setY(this.coords[3].getY() + 1);
                 this.turn_counter++;
                 break;
             default:
