@@ -19,26 +19,6 @@ public class MenuApplication extends Application  {
             Parent root = loader.load();
             MenuController controller = loader.getController();
             Scene scene = new Scene(root, 1280, 720);
-
-            scene.setOnKeyPressed(new EventHandler<KeyEvent>() {
-                @Override
-                public void handle(KeyEvent keyEvent) {
-
-                    switch (keyEvent.getCode()) {
-                        case ESCAPE:
-                            try {
-                                controller.back();
-                            } catch (IOException e) {
-                                throw new RuntimeException(e);
-                            }
-                            break;
-                        default:
-                            break;
-                    }
-
-                }
-            });
-
             stage.setTitle("Tetris");
             stage.setScene(scene);
             stage.show();
