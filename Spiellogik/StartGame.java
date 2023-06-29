@@ -6,7 +6,7 @@ public class StartGame {
     public StartGame(int length, int height){
         this.gameboard = new BoardStatus[height][length];
         isGameOver = false;
-        tet = new CleveLandZ();
+        tet = new RhodeIslandZ();
 
         for(int i = 0; i < gameboard.length; i++){
             for (int j = 0; j < gameboard[i].length; j++){
@@ -133,7 +133,7 @@ public class StartGame {
                 this.drop();
                 System.out.println(this);
             }
-            this.tet = new CleveLandZ();
+            this.tet = new RhodeIslandZ();
         }
     }
 
