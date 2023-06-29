@@ -47,13 +47,13 @@ public class RhodeIslandZ implements Tetromino {
                 break;
             case 1:
                 coords[0].setX(coords[0].getX() + 1);
-                coords[0].setY(coords[0].getY() + 0);
+                coords[0].setY(coords[0].getY() - 1);
                 coords[1].setX(coords[1].getX() + 0);
-                coords[1].setY(coords[1].getY() - 1);
+                coords[1].setY(coords[1].getY() - 2);
                 coords[2].setX(coords[2].getX() + 1);
-                coords[2].setY(coords[2].getY() + 2);
+                coords[2].setY(coords[2].getY() + 1);
                 coords[3].setX(coords[3].getX() - 0);
-                coords[3].setY(coords[3].getY() + 1);
+                coords[3].setY(coords[3].getY() + 0);
                 turn_counter++;
                 break;
             case 2:
@@ -61,7 +61,7 @@ public class RhodeIslandZ implements Tetromino {
                 coords[0].setY(coords[0].getY() - 0);
                 coords[1].setX(coords[1].getX() - 1);
                 coords[1].setY(coords[1].getY() + 1);
-                coords[2].setX(coords[2].getX() - 2);
+                coords[2].setX(coords[2].getX() + 2);
                 coords[2].setY(coords[2].getY() + 0);
                 coords[3].setX(coords[3].getX() + 1);
                 coords[3].setY(coords[3].getY() + 1);

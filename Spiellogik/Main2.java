@@ -7,3 +7,4 @@ public class Main2 {
         test1.play();
     }
 }
+
