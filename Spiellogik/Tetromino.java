@@ -40,4 +40,6 @@ public interface Tetromino {
     public void setOn_ground(boolean a);
 
     public boolean getOn_ground();
+
+    public boolean CheckOutOfBounds (int x, int y);
 }
