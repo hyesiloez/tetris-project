@@ -30,40 +30,60 @@ public class OrangeRicky implements Tetromino{
         this.defaultGoLeft(this.coords);
     }
 
+    public boolean CheckOutOfBounds (int x , int y) {
+        return x >= 0 && x < 14 && y >= 0 && y <= 10;          //nicht  hardcoded wäre besser
+    }
+
     public void turn(){
         switch(this.turn_counter % 4){
             case 0:
-                this.coords[0].setX(this.coords[0].getX() - 1);
-                this.coords[0].setY(this.coords[0].getY() + 1);
-                this.coords[2].setX(this.coords[2].getX() + 2);
-                this.coords[3].setX(this.coords[3].getX() + 1);
-                this.coords[3].setY(this.coords[3].getY() - 1);
-                this.turn_counter++;
-                break;
+                if (    CheckOutOfBounds(coords[0].getX() - 1, coords[0].getY() + 1) &&
+                        CheckOutOfBounds(coords[2].getX() + 2, coords[2].getY() + 0) &&
+                        CheckOutOfBounds(coords[3].getX() + 1, coords[3].getY() - 1)) {
+                        this.coords[0].setX(this.coords[0].getX() - 1);
+                        this.coords[0].setY(this.coords[0].getY() + 1);
+                        this.coords[2].setX(this.coords[2].getX() + 2);
+                        this.coords[3].setX(this.coords[3].getX() + 1);
+                        this.coords[3].setY(this.coords[3].getY() - 1);
+                        this.turn_counter++;
+                        break;
+                    }
             case 1:
-                this.coords[0].setX(this.coords[0].getX() + 1);
-                this.coords[0].setY(this.coords[0].getY() + 1);
-                this.coords[2].setY(this.coords[2].getY() - 2);
-                this.coords[3].setX(this.coords[3].getX() - 1);
-                this.coords[3].setY(this.coords[3].getY() - 1);
-                this.turn_counter++;
-                break;
+                if (    CheckOutOfBounds(coords[0].getX() + 1, coords[0].getY() + 1) &&
+                        CheckOutOfBounds(coords[2].getX()  + 0, coords[2].getY() - 2) &&
+                        CheckOutOfBounds(coords[3].getX() - 1, coords[3].getY() - 1)) {
+                        this.coords[0].setX(this.coords[0].getX() + 1);
+                        this.coords[0].setY(this.coords[0].getY() + 1);
+                        this.coords[2].setY(this.coords[2].getY() - 2);
+                        this.coords[3].setX(this.coords[3].getX() - 1);
+                        this.coords[3].setY(this.coords[3].getY() - 1);
+                        this.turn_counter++;
+                        break;
+                    }
             case 2:
-                this.coords[0].setX(this.coords[0].getX() + 1);
-                this.coords[0].setY(this.coords[0].getY() - 1);
-                this.coords[2].setX(this.coords[2].getX() - 2);
-                this.coords[3].setX(this.coords[3].getX() - 1);
-                this.coords[3].setY(this.coords[3].getY() + 1);
-                this.turn_counter++;
-                break;
+                if (    CheckOutOfBounds(coords[0].getX() + 1, coords[0].getY() - 1) &&
+                        CheckOutOfBounds(coords[2].getX()  - 2, coords[2].getY() - 0) &&
+                        CheckOutOfBounds(coords[3].getX() - 1, coords[3].getY() + 1)) {
+                        this.coords[0].setX(this.coords[0].getX() + 1);
+                        this.coords[0].setY(this.coords[0].getY() - 1);
+                        this.coords[2].setX(this.coords[2].getX() - 2);
+                        this.coords[3].setX(this.coords[3].getX() - 1);
+                        this.coords[3].setY(this.coords[3].getY() + 1);
+                        this.turn_counter++;
+                        break;
+                }
             case 3:
-                this.coords[0].setX(this.coords[0].getX() - 1);
-                this.coords[0].setY(this.coords[0].getY() - 1);
-                this.coords[2].setY(this.coords[2].getY() + 2);
-                this.coords[3].setX(this.coords[3].getX() + 1);
-                this.coords[3].setY(this.coords[3].getY() + 1);
-                this.turn_counter++;
-                break;
+                if (    CheckOutOfBounds(coords[0].getX() - 1, coords[0].getY() - 1) &&
+                        CheckOutOfBounds(coords[2].getX()  - 0, coords[2].getY() - 2) &&
+                        CheckOutOfBounds(coords[3].getX() + 1, coords[3].getY() + 1)) {
+                        this.coords[0].setX(this.coords[0].getX() - 1);
+                        this.coords[0].setY(this.coords[0].getY() - 1);
+                        this.coords[2].setY(this.coords[2].getY() + 2);
+                        this.coords[3].setX(this.coords[3].getX() + 1);
+                        this.coords[3].setY(this.coords[3].getY() + 1);
+                        this.turn_counter++;
+                        break;
+                    }
             default:
                 return;
         }
