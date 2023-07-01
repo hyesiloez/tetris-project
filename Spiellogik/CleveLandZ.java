@@ -30,52 +30,75 @@ public class CleveLandZ implements Tetromino {
     public void goLeft(){
         this.defaultGoLeft(this.coords);
     }
+    public boolean CheckOutOfBounds (int x , int y) {
+        return x >= 0 && x < 14 && y >= 0 && y < 10;          //nicht  hardcoded wäre besser
+    }
     public void turn() {
         switch (turn_counter % 4) {
             case 0:
-                coords[0].setX(coords[0].getX() - 1);
-                coords[0].setY(coords[0].getY() + 2);
-                coords[1].setX(coords[1].getX() - 0);
-                coords[1].setY(coords[1].getY() + 1);
-                coords[2].setX(coords[2].getX() - 1);
-                coords[2].setY(coords[2].getY() - 0);
-                coords[3].setX(coords[3].getX() - 0);
-                coords[3].setY(coords[3].getY() - 1);
-                turn_counter++;
-                break;
+                if (    CheckOutOfBounds(coords[0].getX() - 1, coords[0].getY() + 2) &&
+                        CheckOutOfBounds(coords[1].getX() + 0  ,coords[1].getY() + 1 ) &&
+                        CheckOutOfBounds(coords[2].getX() - 1, coords[2].getY() + 0) &&
+                        CheckOutOfBounds(coords[3].getX() - 0, coords[3].getY() - 1)) {
+                        coords[0].setX(coords[0].getX() - 1);
+                        coords[0].setY(coords[0].getY() + 2);
+                        coords[1].setX(coords[1].getX() - 0);
+                        coords[1].setY(coords[1].getY() + 1);
+                        coords[2].setX(coords[2].getX() - 1);
+                        coords[2].setY(coords[2].getY() - 0);
+                        coords[3].setX(coords[3].getX() - 0);
+                        coords[3].setY(coords[3].getY() - 1);
+                        turn_counter++;
+                        break;
+                }
             case 1:
-                coords[0].setX(coords[0].getX() + 2);
-                coords[0].setY(coords[0].getY() + 1);
-                coords[1].setX(coords[1].getX() + 1);
-                coords[1].setY(coords[1].getY() + 0);
-                coords[2].setX(coords[2].getX() + 0);
-                coords[2].setY(coords[2].getY() + 1);
-                coords[3].setX(coords[3].getX() - 1);
-                coords[3].setY(coords[3].getY() - 0);
-                turn_counter++;
-                break;
+                if (    CheckOutOfBounds(coords[0].getX() + 2, coords[0].getY() + 1) &&
+                        CheckOutOfBounds(coords[1].getX() + 1 ,coords[1].getY() + 0 ) &&
+                        CheckOutOfBounds(coords[2].getX() - 0, coords[2].getY() + 1) &&
+                        CheckOutOfBounds(coords[3].getX() - 1, coords[3].getY() + 0)) {
+                        coords[0].setX(coords[0].getX() + 2);
+                        coords[0].setY(coords[0].getY() + 1);
+                        coords[1].setX(coords[1].getX() + 1);
+                        coords[1].setY(coords[1].getY() + 0);
+                        coords[2].setX(coords[2].getX() + 0);
+                        coords[2].setY(coords[2].getY() + 1);
+                        coords[3].setX(coords[3].getX() - 1);
+                        coords[3].setY(coords[3].getY() - 0);
+                        turn_counter++;
+                        break;
+                }
             case 2:
-                coords[0].setX(coords[0].getX() - 0);
-                coords[0].setY(coords[0].getY() - 1);
-                coords[1].setX(coords[1].getX() - 1);
-                coords[1].setY(coords[1].getY() + 0);
-                coords[2].setX(coords[2].getX() - 0);
-                coords[2].setY(coords[2].getY() + 1);
-                coords[3].setX(coords[3].getX() - 1);
-                coords[3].setY(coords[3].getY() + 2);
-                turn_counter++;
-                break;
+                if (    CheckOutOfBounds(coords[0].getX() + 0, coords[0].getY() - 1) &&
+                        CheckOutOfBounds(coords[1].getX() - 1 ,coords[1].getY() + 0 ) &&
+                        CheckOutOfBounds(coords[2].getX() - 0, coords[2].getY() + 1) &&
+                        CheckOutOfBounds(coords[3].getX() - 1, coords[3].getY() + 2)) {
+                        coords[0].setX(coords[0].getX() - 0);
+                        coords[0].setY(coords[0].getY() - 1);
+                        coords[1].setX(coords[1].getX() - 1);
+                        coords[1].setY(coords[1].getY() + 0);
+                        coords[2].setX(coords[2].getX() - 0);
+                        coords[2].setY(coords[2].getY() + 1);
+                        coords[3].setX(coords[3].getX() - 1);
+                        coords[3].setY(coords[3].getY() + 2);
+                        turn_counter++;
+                        break;
+                }
             case 3:
-                coords[0].setX(coords[0].getX() - 1);
-                coords[0].setY(coords[0].getY() - 1);
-                coords[1].setX(coords[1].getX() - 0);
-                coords[1].setY(coords[1].getY() + 0);
-                coords[2].setX(coords[2].getX() + 1);
-                coords[2].setY(coords[2].getY() - 1);
-                coords[3].setX(coords[3].getX() + 2);
-                coords[3].setY(coords[3].getY() - 0);
-                turn_counter++;
-                break;
+                if (    CheckOutOfBounds(coords[0].getX() - 1, coords[0].getY() - 1) &&
+                        CheckOutOfBounds(coords[1].getX() - 0 ,coords[1].getY() + 0 ) &&
+                        CheckOutOfBounds(coords[2].getX() + 1, coords[2].getY() - 1) &&
+                        CheckOutOfBounds(coords[3].getX() + 2, coords[3].getY() + 0)) {
+                        coords[0].setX(coords[0].getX() - 1);
+                        coords[0].setY(coords[0].getY() - 1);
+                        coords[1].setX(coords[1].getX() - 0);
+                        coords[1].setY(coords[1].getY() + 0);
+                        coords[2].setX(coords[2].getX() + 1);
+                        coords[2].setY(coords[2].getY() - 1);
+                        coords[3].setX(coords[3].getX() + 2);
+                        coords[3].setY(coords[3].getY() - 0);
+                        turn_counter++;
+                        break;
+                }
         }
     }
 
