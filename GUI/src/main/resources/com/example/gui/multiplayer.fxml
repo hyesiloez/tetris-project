@@ -16,9 +16,9 @@
                   <VBox VBox.vgrow="ALWAYS" />
                   <AnchorPane fx:id="scenePane" maxHeight="600.0" maxWidth="800.0" minHeight="600.0" minWidth="800.0" styleClass="backgroundColor" stylesheets="@Style.css" VBox.vgrow="ALWAYS">
                      <children>
-                        <Button layoutX="200.0" layoutY="256.0" mnemonicParsing="false" onAction="#toMainMenu" onKeyPressed="#back" prefHeight="88.0" prefWidth="402.0" text="Back" />
-                        <Button layoutX="200.0" layoutY="95.0" mnemonicParsing="false" prefHeight="88.0" prefWidth="402.0" text="Play" />
-                        <Button fx:id="lougoutButton" layoutX="200.0" layoutY="412.0" mnemonicParsing="false" onAction="#logout" prefHeight="88.0" prefWidth="402.0" text="Exit" />
+                        <Button layoutX="200.0" layoutY="256.0" mnemonicParsing="false" onAction="#toMainMenu" onKeyPressed="#back" prefHeight="88.0" prefWidth="402.0" text="Back" textFill="WHITE" />
+                        <Button layoutX="200.0" layoutY="95.0" mnemonicParsing="false" prefHeight="88.0" prefWidth="402.0" text="Play" textFill="WHITE" />
+                        <Button fx:id="lougoutButton" layoutX="200.0" layoutY="412.0" mnemonicParsing="false" onAction="#logout" prefHeight="88.0" prefWidth="402.0" text="Exit" textFill="WHITE" />
                      </children></AnchorPane>
                   <VBox VBox.vgrow="ALWAYS" />
                </children>
