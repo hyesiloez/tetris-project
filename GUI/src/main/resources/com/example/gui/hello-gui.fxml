@@ -4,6 +4,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
 <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" styleClass="backgroundImage" stylesheets="@Style.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.gui.MenuController">
    <children>
@@ -14,11 +15,20 @@
             <VBox maxWidth="600.0" HBox.hgrow="ALWAYS">
                <children>
                   <VBox VBox.vgrow="ALWAYS" />
-                  <AnchorPane fx:id="scenePane" maxHeight="600.0" maxWidth="800.0" minHeight="600.0" minWidth="800.0" styleClass="backgroundColor" stylesheets="@Style.css" VBox.vgrow="ALWAYS">
+                  <AnchorPane fx:id="scenePane" maxHeight="600.0" maxWidth="800.0" minHeight="600.0" minWidth="800.0" VBox.vgrow="ALWAYS">
                      <children>
-                        <Button layoutX="200.0" layoutY="95.0" mnemonicParsing="false" onAction="#singleplayer" prefHeight="88.0" prefWidth="402.0" text="Singleplayer" textFill="WHITE" />
-                        <Button layoutX="200.0" layoutY="256.0" mnemonicParsing="false" onAction="#multiplayer" prefHeight="88.0" prefWidth="402.0" text="Multiplayer" textFill="WHITE" />
-                        <Button fx:id="lougoutButton" layoutX="200.0" layoutY="412.0" mnemonicParsing="false" onAction="#logout" prefHeight="88.0" prefWidth="402.0" text="Exit" textFill="WHITE" />
+                        <Button layoutX="200.0" layoutY="95.0" mnemonicParsing="false" onAction="#singleplayer" opacity="0.7" prefHeight="88.0" prefWidth="402.0" text="Singleplayer" textFill="WHITE">
+                           <font>
+                              <Font size="40.0" />
+                           </font></Button>
+                        <Button layoutX="200.0" layoutY="256.0" mnemonicParsing="false" onAction="#multiplayer" opacity="0.7" prefHeight="88.0" prefWidth="402.0" text="Multiplayer" textFill="WHITE">
+                           <font>
+                              <Font size="40.0" />
+                           </font></Button>
+                        <Button fx:id="lougoutButton" layoutX="200.0" layoutY="412.0" mnemonicParsing="false" onAction="#logout" opacity="0.7" prefHeight="88.0" prefWidth="402.0" text="Exit" textFill="WHITE">
+                           <font>
+                              <Font size="40.0" />
+                           </font></Button>
                      </children></AnchorPane>
                   <VBox VBox.vgrow="ALWAYS" />
                </children>

@@ -4,6 +4,7 @@
 }
 .backgroundColor{
 -fx-background-color: #0054B3;
+-fx-background-radius : 30 30 30 30;
 }
 .button
 {

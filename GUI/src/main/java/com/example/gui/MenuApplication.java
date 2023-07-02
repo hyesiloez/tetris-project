@@ -21,7 +21,6 @@ public class MenuApplication extends Application  {
 
             FXMLLoader loader = new FXMLLoader(getClass().getResource("hello-gui.fxml"));
             Parent root = loader.load();
-            MenuController controller = loader.getController();
             Scene scene = new Scene(root, 1280, 720);
             Image icon = new Image(getClass().getResourceAsStream("/com/example/gui/icon.png"));
             stage.setMinHeight(700);
