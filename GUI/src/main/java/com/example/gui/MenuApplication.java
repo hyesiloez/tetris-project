@@ -23,12 +23,15 @@ public class MenuApplication extends Application  {
             Parent root = loader.load();
             MenuController controller = loader.getController();
             Scene scene = new Scene(root, 1280, 720);
-            Image icon = new Image("C:\\Tetris\\11\\GUI\\src\\main\\resources\\com\\example\\gui\\icon.png");
+            Image icon = new Image("D:\\Tetris\\11\\GUI\\src\\main\\resources\\com\\example\\gui\\icon.png");
             stage.getIcons().add(icon);
             stage.setTitle("Tetris");
             stage.setScene(scene);
             stage.show();
-            stage.setOnCloseRequest(event -> logout(stage));
+            stage.setOnCloseRequest(event -> {
+                event.consume();
+                logout(stage);
+            });
 
         } catch (Exception e) {
 

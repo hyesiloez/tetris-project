@@ -17,6 +17,7 @@
                   <AnchorPane maxHeight="600.0" maxWidth="400.0" minHeight="600.0" minWidth="400.0" styleClass="backgroundColor" stylesheets="@Style.css" VBox.vgrow="ALWAYS">
                      <children>
                         <Button layoutX="116.0" layoutY="259.0" mnemonicParsing="false" onAction="#toMainMenu" onKeyPressed="#back" prefHeight="82.0" prefWidth="169.0" text="back" />
+                        <Button fx:id="lougoutButton" layoutX="116.0" layoutY="370.0" mnemonicParsing="false" onAction="#logout" onKeyPressed="#back" prefHeight="82.0" prefWidth="169.0" text="Exit" />
                      </children></AnchorPane>
                   <VBox VBox.vgrow="ALWAYS" />
                </children>
