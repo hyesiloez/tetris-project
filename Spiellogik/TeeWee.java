@@ -32,7 +32,7 @@ public class TeeWee implements Tetromino {
     }
 
     public boolean CheckOutOfBounds (int x , int y) {
-        return x >= 0 && x < 14 && y >= 0 && y <= 10;          //nicht  hardcoded wäre besser
+        return x >= 0 && x < 14 && y >= 0 && y < 10;          //nicht  hardcoded wäre besser
     }
 
     public void turn(){

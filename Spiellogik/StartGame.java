@@ -6,7 +6,7 @@ public class StartGame {
     public StartGame(int length, int height){
         this.gameboard = new BoardStatus[height][length];
         isGameOver = false;
-        tet = new OrangeRicky ();
+        tet = new RhodeIslandZ();
 
         for(int i = 0; i < gameboard.length; i++){
             for (int j = 0; j < gameboard[i].length; j++){
@@ -82,6 +82,44 @@ public class StartGame {
         return end;
     }
 
+    /**
+     * Method checks if a given row is full
+     * @param int row: to check the row where the Tetromino is placed, migth consider multiple rows depending on Tetromino
+     * @return boolean: true if row full, false if not
+     * @version 02.07.2023
+     * */
+    public boolean FullRow (int row) {
+        //Coords[] coords = this.tet.getCoords();
+
+        for(int i = 0; i < this.gameboard[row].length; i++) {
+            if(this.gameboard[row][i] == BoardStatus.AIR) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    /**
+     * Method removes the row if its full by dragging every row above 1 row down
+     * row 0 has to be manually changed cause theres no row above to be dragged. Row 0 is always empty if TETRIS happens.
+     * @param int row: to check the row where the Tetromino is placed, migth consider multiple rows depending on Tetromino
+     * @return void
+     * @version 02.07.2023
+     * */
+    public void removeRow(int row ) {
+        if(this.FullRow(row))  {
+            for(int i = row; i > 0; i--) {
+                for(int j = 0; j < this.gameboard[row].length; j++) {
+                    this.gameboard[i][j] = this.gameboard[i - 1] [j];
+                }
+            }
+
+            for( int k = 0; k < this.gameboard[0].length;k++) {
+                this.gameboard[0][k] = BoardStatus.AIR;
+            }
+        }
+
+    }
     public void isOnGround(){
         Coords[] coords = this.tet.getCoords();
         for (int i = 0; i < coords.length; i++){
@@ -139,7 +177,7 @@ public class StartGame {
                 this.drop();
                 System.out.println(this);
             }
-            this.tet = new OrangeRicky ();
+            this.tet = new RhodeIslandZ();
         }
     }
 
