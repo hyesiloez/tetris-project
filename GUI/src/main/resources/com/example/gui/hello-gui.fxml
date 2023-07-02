@@ -11,14 +11,14 @@
       <HBox VBox.vgrow="ALWAYS">
          <children>
             <HBox HBox.hgrow="ALWAYS" />
-            <VBox maxWidth="400.0" HBox.hgrow="ALWAYS">
+            <VBox maxWidth="600.0" HBox.hgrow="ALWAYS">
                <children>
                   <VBox VBox.vgrow="ALWAYS" />
-                  <AnchorPane fx:id="scenePane" maxHeight="600.0" maxWidth="400.0" minHeight="600.0" minWidth="400.0" styleClass="backgroundColor" stylesheets="@Style.css" VBox.vgrow="ALWAYS">
+                  <AnchorPane fx:id="scenePane" maxHeight="600.0" maxWidth="800.0" minHeight="600.0" minWidth="800.0" styleClass="backgroundColor" stylesheets="@Style.css" VBox.vgrow="ALWAYS">
                      <children>
-                        <Button layoutX="126.0" layoutY="131.0" mnemonicParsing="false" onAction="#singleplayer" prefHeight="81.0" prefWidth="149.0" text="Singleplayer" />
-                        <Button layoutX="126.0" layoutY="237.0" mnemonicParsing="false" onAction="#multiplayer" prefHeight="81.0" prefWidth="149.0" text="Multiplayer" />
-                        <Button fx:id="lougoutButton" layoutX="126.0" layoutY="345.0" mnemonicParsing="false" onAction="#logout" prefHeight="81.0" prefWidth="149.0" text="Exit" />
+                        <Button layoutX="200.0" layoutY="95.0" mnemonicParsing="false" onAction="#singleplayer" prefHeight="88.0" prefWidth="402.0" text="Singleplayer" />
+                        <Button layoutX="200.0" layoutY="256.0" mnemonicParsing="false" onAction="#multiplayer" prefHeight="88.0" prefWidth="402.0" text="Multiplayer" />
+                        <Button fx:id="lougoutButton" layoutX="200.0" layoutY="412.0" mnemonicParsing="false" onAction="#logout" prefHeight="88.0" prefWidth="402.0" text="Exit" />
                      </children></AnchorPane>
                   <VBox VBox.vgrow="ALWAYS" />
                </children>
