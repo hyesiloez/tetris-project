@@ -7,14 +7,36 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Label;
-import javafx.scene.control.Menu;
+import javafx.scene.control.*;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
+import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import java.io.IOException;
 
 public class MenuController {
+
+
+    @FXML
+    private Button lougoutButton;
+    @FXML
+    private AnchorPane scenePane;
+
+    Stage stage;
+
+    public void logout(ActionEvent event) {
+
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setTitle("Exit");
+        alert.setHeaderText("Du bist dabei das Programm zu schließen");
+        alert.setContentText("Möchtest du das Programm schließen?:");
+
+        if(alert.showAndWait().get() == ButtonType.OK) {
+            stage = (Stage) scenePane.getScene().getWindow();
+            System.out.println("Log out!");
+            stage.close();
+        }
+    }
     @FXML
     void back(KeyEvent event) throws IOException {
         if(event.getCode() == KeyCode.ESCAPE){
@@ -27,7 +49,6 @@ public class MenuController {
             stage.show();
         }
     }
-    private Stage stage;
     private Scene scene;
     private Parent root;
 
@@ -58,10 +79,5 @@ public class MenuController {
         scene = new Scene(root, 1280, 720);
         stage.setScene(scene);
         stage.show();
-    }
-
-    public void exit(ActionEvent e) {
-        System.out.println("Exit");
-        javafx.application.Platform.exit();
     }
 }

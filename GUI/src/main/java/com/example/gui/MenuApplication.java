@@ -1,10 +1,13 @@
 package com.example.gui;
 
 import javafx.application.Application;
+import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonType;
 import javafx.scene.image.Image;
 import javafx.scene.input.KeyEvent;
 import javafx.stage.Stage;
@@ -20,15 +23,28 @@ public class MenuApplication extends Application  {
             Parent root = loader.load();
             MenuController controller = loader.getController();
             Scene scene = new Scene(root, 1280, 720);
-            Image icon = new Image("D:\\Tetris\\11\\GUI\\src\\main\\resources\\com\\example\\gui\\icon.png");
+            Image icon = new Image("C:\\Tetris\\11\\GUI\\src\\main\\resources\\com\\example\\gui\\icon.png");
             stage.getIcons().add(icon);
             stage.setTitle("Tetris");
             stage.setScene(scene);
             stage.show();
+            stage.setOnCloseRequest(event -> logout(stage));
 
         } catch (Exception e) {
 
             e.printStackTrace();
+        }
+    }
+    public void logout(Stage stage) {
+
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setTitle("Exit");
+        alert.setHeaderText("Du bist dabei das Programm zu schließen");
+        alert.setContentText("Möchtest du das Programm schließen?:");
+
+        if (alert.showAndWait().get() == ButtonType.OK) {
+            System.out.println("Log out!");
+            stage.close();
         }
     }
 
