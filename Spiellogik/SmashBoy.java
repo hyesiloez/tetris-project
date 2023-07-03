@@ -39,4 +39,8 @@ public class SmashBoy implements Tetromino {
     public void drop(){
         this.defaultDrop(this.coords);
     }
+
+    public boolean CheckOutOfBounds (int x , int y) {
+        return x >= 0 && x < 14 && y >= 0 && y < 10;          //nicht  hardcoded wäre besser
+    }
 }

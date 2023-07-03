@@ -1,13 +1,17 @@
+import java.util.Random;
 public class StartGame {
     private BoardStatus[][] gameboard;
     private boolean isGameOver;
     private Tetromino tet;
+    private Tetromino next_tet;
+    private int points;
 
     public StartGame(int length, int height){
         this.gameboard = new BoardStatus[height][length];
-        isGameOver = false;
-        tet = new RhodeIslandZ();
-
+        this.isGameOver = false;
+        this.tet = randomTet();
+        this.next_tet = randomTet();
+        this.points = 0;
         for(int i = 0; i < gameboard.length; i++){
             for (int j = 0; j < gameboard[i].length; j++){
                 gameboard[i][j] = BoardStatus.AIR;
@@ -15,7 +19,30 @@ public class StartGame {
         }
         this.setTet();
     }
+    public Tetromino randomTet(){
+        Random rand = new Random();
+        int random_int = rand.nextInt(7);
 
+        switch (random_int){
+            case 0:
+                return new TeeWee();
+            case 1:
+                return new BRicky();
+            case 2:
+                return new Hero();
+            case 3:
+                return new OrangeRicky();
+            case 4:
+                return new RhodeIslandZ();
+            case 5:
+                return new SmashBoy();
+            case 6:
+                return new CleveLandZ();
+            default:
+                return new Hero();
+        }
+
+    }
     public void removeTet (){
         Coords [] coords = this.tet.getCoords();
         for (int i = 0; i < coords.length; i++) {
@@ -108,6 +135,7 @@ public class StartGame {
      * */
     public void removeRow(int row ) {
         if(this.FullRow(row))  {
+            points += 40;
             for(int i = row; i > 0; i--) {
                 for(int j = 0; j < this.gameboard[row].length; j++) {
                     this.gameboard[i][j] = this.gameboard[i - 1] [j];
@@ -135,9 +163,17 @@ public class StartGame {
         for (int i = 0; i < coords.length; i++){
             this.gameboard[coords[i].getX()][coords[i].getY()] = BoardStatus.SET;
         }
+        this.isGameOver();
 
     }
-
+    public void isGameOver(){
+        for(int i = 0; i < this.gameboard[0].length; i++){
+            if(this.gameboard[1][i] == BoardStatus.SET){
+                this.isGameOver = true;
+                return;
+            }
+        }
+    }
     public void play(){
         System.out.println(this);
         this.goRight();
@@ -172,12 +208,13 @@ public class StartGame {
             System.out.println(this);
         }
 
-        for (int i = 0; i < 6;i++){
+        while(!this.isGameOver){
             while (!this.tet.getOn_ground()) {
                 this.drop();
                 System.out.println(this);
             }
-            this.tet = new RhodeIslandZ();
+            this.tet = next_tet;
+            this.next_tet = randomTet();
         }
     }
 
