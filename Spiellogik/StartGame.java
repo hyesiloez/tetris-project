@@ -6,7 +6,7 @@ public class StartGame {
     public StartGame(int length, int height){
         this.gameboard = new BoardStatus[height][length];
         isGameOver = false;
-        tet = new RhodeIslandZ();
+        tet = new Hero();
 
         for(int i = 0; i < gameboard.length; i++){
             for (int j = 0; j < gameboard[i].length; j++){
@@ -152,11 +152,7 @@ public class StartGame {
             System.out.println(this);
         }
 
-        //check if tetromino turns out of bounds
-        this.turn();
-        System.out.println(this);
-        this.turn();
-        System.out.println(this);
+
 
         for(int i = 0; i < 3; i++){
             this.goLeft();
@@ -177,7 +173,7 @@ public class StartGame {
                 this.drop();
                 System.out.println(this);
             }
-            this.tet = new RhodeIslandZ();
+            this.tet = new Hero();
         }
     }
 
