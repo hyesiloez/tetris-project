@@ -30,16 +30,19 @@ public class OrangeRicky implements Tetromino{
         this.defaultGoLeft(this.coords);
     }
 
-    public boolean CheckOutOfBounds (int x , int y) {
-        return x >= 0 && x < 14 && y >= 0 && y < 10;          //nicht  hardcoded wäre besser
-    }
+    public boolean CheckOutOfBounds (int x , int y, BoardStatus[][] gameboard) {
+        if(!(x >= 0 && x < 14 && y >= 0 && y < 10 )) return false;
 
-    public void turn(){
+        if(gameboard[x][y] == BoardStatus.SET) return false;
+
+        return true;
+    }
+    public void turn(BoardStatus[][] gameboard){
         switch(this.turn_counter % 4){
             case 0:
-                if (    CheckOutOfBounds(coords[0].getX() - 1, coords[0].getY() + 1) &&
-                        CheckOutOfBounds(coords[2].getX() + 2, coords[2].getY() + 0) &&
-                        CheckOutOfBounds(coords[3].getX() + 1, coords[3].getY() - 1)) {
+                if (    CheckOutOfBounds(coords[0].getX() - 1, coords[0].getY() + 1, gameboard) &&
+                        CheckOutOfBounds(coords[2].getX() + 2, coords[2].getY() + 0, gameboard) &&
+                        CheckOutOfBounds(coords[3].getX() + 1, coords[3].getY() - 1, gameboard)) {
                         this.coords[0].setX(this.coords[0].getX() - 1);
                         this.coords[0].setY(this.coords[0].getY() + 1);
                         this.coords[2].setX(this.coords[2].getX() + 2);
@@ -49,9 +52,9 @@ public class OrangeRicky implements Tetromino{
                         break;
                     }
             case 1:
-                if (    CheckOutOfBounds(coords[0].getX() + 1, coords[0].getY() + 1) &&
-                        CheckOutOfBounds(coords[2].getX()  + 0, coords[2].getY() - 2) &&
-                        CheckOutOfBounds(coords[3].getX() - 1, coords[3].getY() - 1)) {
+                if (    CheckOutOfBounds(coords[0].getX() + 1, coords[0].getY() + 1, gameboard) &&
+                        CheckOutOfBounds(coords[2].getX()  + 0, coords[2].getY() - 2, gameboard) &&
+                        CheckOutOfBounds(coords[3].getX() - 1, coords[3].getY() - 1, gameboard)) {
                         this.coords[0].setX(this.coords[0].getX() + 1);
                         this.coords[0].setY(this.coords[0].getY() + 1);
                         this.coords[2].setY(this.coords[2].getY() - 2);
@@ -61,9 +64,9 @@ public class OrangeRicky implements Tetromino{
                         break;
                     }
             case 2:
-                if (    CheckOutOfBounds(coords[0].getX() + 1, coords[0].getY() - 1) &&
-                        CheckOutOfBounds(coords[2].getX()  - 2, coords[2].getY() - 0) &&
-                        CheckOutOfBounds(coords[3].getX() - 1, coords[3].getY() + 1)) {
+                if (    CheckOutOfBounds(coords[0].getX() + 1, coords[0].getY() - 1, gameboard) &&
+                        CheckOutOfBounds(coords[2].getX()  - 2, coords[2].getY() - 0, gameboard) &&
+                        CheckOutOfBounds(coords[3].getX() - 1, coords[3].getY() + 1, gameboard)) {
                         this.coords[0].setX(this.coords[0].getX() + 1);
                         this.coords[0].setY(this.coords[0].getY() - 1);
                         this.coords[2].setX(this.coords[2].getX() - 2);
@@ -73,9 +76,9 @@ public class OrangeRicky implements Tetromino{
                         break;
                 }
             case 3:
-                if (    CheckOutOfBounds(coords[0].getX() - 1, coords[0].getY() - 1) &&
-                        CheckOutOfBounds(coords[2].getX()  - 0, coords[2].getY() - 2) &&
-                        CheckOutOfBounds(coords[3].getX() + 1, coords[3].getY() + 1)) {
+                if (    CheckOutOfBounds(coords[0].getX() - 1, coords[0].getY() - 1, gameboard) &&
+                        CheckOutOfBounds(coords[2].getX()  - 0, coords[2].getY() - 2, gameboard) &&
+                        CheckOutOfBounds(coords[3].getX() + 1, coords[3].getY() + 1, gameboard)) {
                         this.coords[0].setX(this.coords[0].getX() - 1);
                         this.coords[0].setY(this.coords[0].getY() - 1);
                         this.coords[2].setY(this.coords[2].getY() + 2);

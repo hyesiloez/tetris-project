@@ -32,16 +32,20 @@ public class Hero implements Tetromino {
         this.defaultGoLeft(this.coords);
     }
 
-    public boolean CheckOutOfBounds (int x , int y) {
-        return x >= 0 && x < 14 && y >= 0 && y < 10;          //nicht  hardcoded wäre besser
+    public boolean CheckOutOfBounds (int x , int y, BoardStatus[][] gameboard) {
+        if(!(x >= 0 && x < 14 && y >= 0 && y < 10 )) return false;
+
+        if(gameboard[x][y] == BoardStatus.SET) return false;
+
+        return true;
     }
 
-    public void turn(){
+    public void turn(BoardStatus[][] gameboard){
         switch(this.turn_counter % 4){
             case 0:
-                if (    CheckOutOfBounds(coords[0].getX() - 2 , coords[0].getY() + 2) &&
-                        CheckOutOfBounds(coords[1].getX() - 1  ,coords[1].getY() + 1 ) &&
-                        CheckOutOfBounds(coords[3].getX() + 1, coords[3].getY() - 1)) {
+                if (    CheckOutOfBounds(coords[0].getX() - 2 , coords[0].getY() + 2, gameboard) &&
+                        CheckOutOfBounds(coords[1].getX() - 1  ,coords[1].getY() + 1, gameboard) &&
+                        CheckOutOfBounds(coords[3].getX() + 1, coords[3].getY() - 1, gameboard)) {
                         this.coords[0].setX(this.coords[0].getX() - 2);
                         this.coords[0].setY(this.coords[0].getY() + 2);
                         this.coords[1].setX(this.coords[1].getX() - 1);
@@ -52,9 +56,9 @@ public class Hero implements Tetromino {
                         break;
                 }
             case 1:
-                if (    CheckOutOfBounds(coords[0].getX() + 2 , coords[0].getY() + 2) &&
-                        CheckOutOfBounds(coords[1].getX() + 1  ,coords[1].getY() + 1 ) &&
-                        CheckOutOfBounds(coords[3].getX() - 1, coords[3].getY() - 1)) {
+                if (    CheckOutOfBounds(coords[0].getX() + 2 , coords[0].getY() + 2, gameboard) &&
+                        CheckOutOfBounds(coords[1].getX() + 1 ,coords[1].getY() + 1, gameboard ) &&
+                        CheckOutOfBounds(coords[3].getX() - 1, coords[3].getY() - 1, gameboard)) {
                         this.coords[0].setX(this.coords[0].getX() + 2);
                         this.coords[0].setY(this.coords[0].getY() + 2);
                         this.coords[1].setX(this.coords[1].getX() + 1);
@@ -65,9 +69,9 @@ public class Hero implements Tetromino {
                         break;
                 }
             case 2:
-                if (    CheckOutOfBounds(coords[0].getX() + 2 , coords[0].getY() - 2) &&
-                        CheckOutOfBounds(coords[1].getX() + 1  ,coords[1].getY() - 1 ) &&
-                        CheckOutOfBounds(coords[3].getX() - 1, coords[3].getY() + 1)) {
+                if (    CheckOutOfBounds(coords[0].getX() + 2 , coords[0].getY() - 2, gameboard) &&
+                        CheckOutOfBounds(coords[1].getX() + 1  ,coords[1].getY() - 1, gameboard) &&
+                        CheckOutOfBounds(coords[3].getX() - 1, coords[3].getY() + 1, gameboard)) {
                         this.coords[0].setX(this.coords[0].getX() + 2);
                         this.coords[0].setY(this.coords[0].getY() - 2);
                         this.coords[1].setX(this.coords[1].getX() + 1);
@@ -78,9 +82,9 @@ public class Hero implements Tetromino {
                         break;
                 }
             case 3:
-                if (    CheckOutOfBounds(coords[0].getX() - 2 , coords[0].getY() - 2) &&
-                        CheckOutOfBounds(coords[1].getX() - 1 ,coords[1].getY() - 1 ) &&
-                        CheckOutOfBounds(coords[3].getX() + 1, coords[3].getY() + 1)) {
+                if (    CheckOutOfBounds(coords[0].getX() - 2 , coords[0].getY() - 2, gameboard) &&
+                        CheckOutOfBounds(coords[1].getX() - 1 ,coords[1].getY() - 1, gameboard ) &&
+                        CheckOutOfBounds(coords[3].getX() + 1, coords[3].getY() + 1, gameboard)) {
                         this.coords[0].setX(this.coords[0].getX() - 2);
                         this.coords[0].setY(this.coords[0].getY() - 2);
                         this.coords[1].setX(this.coords[1].getX() - 1);

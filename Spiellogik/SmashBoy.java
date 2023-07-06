@@ -30,7 +30,7 @@ public class SmashBoy implements Tetromino {
         this.defaultGoLeft(this.coords);
     }
 
-    public void turn(){
+    public void turn(BoardStatus[][] gameboard){
         switch(this.turn_counter % 4){
             default:
                 return;
@@ -40,7 +40,11 @@ public class SmashBoy implements Tetromino {
         this.defaultDrop(this.coords);
     }
 
-    public boolean CheckOutOfBounds (int x , int y) {
-        return x >= 0 && x < 14 && y >= 0 && y < 10;          //nicht  hardcoded wäre besser
+    public boolean CheckOutOfBounds (int x , int y, BoardStatus[][] gameboard) {
+        if(!(x >= 0 && x < 14 && y >= 0 && y < 10 )) return false;
+
+        if(gameboard[x][y] == BoardStatus.SET) return false;
+
+        return true;
     }
 }

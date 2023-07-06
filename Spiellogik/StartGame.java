@@ -86,9 +86,9 @@ public class StartGame {
         this.isOnGround();
     }
 
-    public void turn(){
+    public void turn( BoardStatus[][] gameboard){
         this.removeTet();
-        this.tet.turn();
+        this.tet.turn(gameboard);
         this.setTet();
         this.isOnGround();
     }
@@ -189,9 +189,9 @@ public class StartGame {
         }
 
         //check if tetromino turns out of bounds
-        this.turn();
+        this.turn(gameboard);
         System.out.println(this);
-        this.turn();
+        this.turn(gameboard);
         System.out.println(this);
 
         for(int i = 0; i < 3; i++){
@@ -204,7 +204,7 @@ public class StartGame {
             System.out.println(this);
         }
         for(int i = 0; i < 20; i++) {
-            this.turn();
+            this.turn(gameboard);
             System.out.println(this);
         }
 

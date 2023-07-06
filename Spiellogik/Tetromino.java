@@ -27,7 +27,7 @@ public interface Tetromino {
     public void goLeft();
 
 
-    public void turn();
+    public void turn(BoardStatus[][] gameboard);
 
     default void defaultDrop(Coords[] coords){
         for (int i = 0; i < coords.length; i++){
@@ -41,5 +41,7 @@ public interface Tetromino {
 
     public boolean getOn_ground();
 
-    public boolean CheckOutOfBounds (int x, int y);
+    public boolean CheckOutOfBounds (int x, int y, BoardStatus[][] gameboard);
+
+
 }
