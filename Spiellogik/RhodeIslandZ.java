@@ -55,8 +55,9 @@ public class RhodeIslandZ implements Tetromino {
                           coords[3].setX(coords[3].getX() - 0);
                           coords[3].setY(coords[3].getY() - 0);
                           turn_counter++;
-                          break;
+
                 }
+                break;
             case 1:
 
                 if (    CheckOutOfBounds(coords[0].getX() + 1, coords[0].getY() -1, gameboard) &&
@@ -72,8 +73,9 @@ public class RhodeIslandZ implements Tetromino {
                         coords[3].setX(coords[3].getX() - 0);
                         coords[3].setY(coords[3].getY() + 0);
                         turn_counter++;
-                        break;
+
                 }
+                break;
             case 2:
                 if (    CheckOutOfBounds(coords[0].getX() + 0, coords[0].getY() + 0, gameboard) &&
                         CheckOutOfBounds(coords[1].getX() - 1  ,coords[1].getY() + 1, gameboard ) &&
@@ -88,9 +90,9 @@ public class RhodeIslandZ implements Tetromino {
                         coords[3].setX(coords[3].getX() + 1);
                         coords[3].setY(coords[3].getY() + 1);
                         turn_counter++;
-                        break;
 
                 }
+                break;
             case 3:
                 if (    CheckOutOfBounds(coords[0].getX() + 0, coords[0].getY() + 0, gameboard) &&
                         CheckOutOfBounds(coords[1].getX() + 1  ,coords[1].getY() + 1, gameboard) &&
@@ -105,8 +107,9 @@ public class RhodeIslandZ implements Tetromino {
                         coords[3].setX(coords[3].getX() + 1);
                         coords[3].setY(coords[3].getY() - 1);
                         turn_counter++;
-                        break;
+
                 }
+                break;
         }
     }
 

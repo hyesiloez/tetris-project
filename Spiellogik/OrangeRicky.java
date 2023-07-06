@@ -49,8 +49,9 @@ public class OrangeRicky implements Tetromino{
                         this.coords[3].setX(this.coords[3].getX() + 1);
                         this.coords[3].setY(this.coords[3].getY() - 1);
                         this.turn_counter++;
-                        break;
+
                     }
+                    break;
             case 1:
                 if (    CheckOutOfBounds(coords[0].getX() + 1, coords[0].getY() + 1, gameboard) &&
                         CheckOutOfBounds(coords[2].getX()  + 0, coords[2].getY() - 2, gameboard) &&
@@ -61,8 +62,9 @@ public class OrangeRicky implements Tetromino{
                         this.coords[3].setX(this.coords[3].getX() - 1);
                         this.coords[3].setY(this.coords[3].getY() - 1);
                         this.turn_counter++;
-                        break;
+
                     }
+                    break;
             case 2:
                 if (    CheckOutOfBounds(coords[0].getX() + 1, coords[0].getY() - 1, gameboard) &&
                         CheckOutOfBounds(coords[2].getX()  - 2, coords[2].getY() - 0, gameboard) &&
@@ -73,8 +75,9 @@ public class OrangeRicky implements Tetromino{
                         this.coords[3].setX(this.coords[3].getX() - 1);
                         this.coords[3].setY(this.coords[3].getY() + 1);
                         this.turn_counter++;
-                        break;
-                }
+
+                     }
+                     break;
             case 3:
                 if (    CheckOutOfBounds(coords[0].getX() - 1, coords[0].getY() - 1, gameboard) &&
                         CheckOutOfBounds(coords[2].getX()  - 0, coords[2].getY() - 2, gameboard) &&
@@ -85,8 +88,9 @@ public class OrangeRicky implements Tetromino{
                         this.coords[3].setX(this.coords[3].getX() + 1);
                         this.coords[3].setY(this.coords[3].getY() + 1);
                         this.turn_counter++;
-                        break;
+
                     }
+                    break;
             default:
                 return;
         }

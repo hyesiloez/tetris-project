@@ -53,8 +53,9 @@ public class CleveLandZ implements Tetromino {
                         coords[3].setX(coords[3].getX() - 0);
                         coords[3].setY(coords[3].getY() - 1);
                         turn_counter++;
-                        break;
+
                 }
+                break;
             case 1:
                 if (    CheckOutOfBounds(coords[0].getX() + 2, coords[0].getY() + 1, gameboard) &&
                         CheckOutOfBounds(coords[1].getX() + 1 ,coords[1].getY() + 0, gameboard) &&
@@ -69,8 +70,9 @@ public class CleveLandZ implements Tetromino {
                         coords[3].setX(coords[3].getX() - 1);
                         coords[3].setY(coords[3].getY() - 0);
                         turn_counter++;
-                        break;
+
                 }
+                break;
             case 2:
                 if (    CheckOutOfBounds(coords[0].getX() + 0, coords[0].getY() - 1, gameboard) &&
                         CheckOutOfBounds(coords[1].getX() - 1 ,coords[1].getY() + 0, gameboard) &&
@@ -85,8 +87,9 @@ public class CleveLandZ implements Tetromino {
                         coords[3].setX(coords[3].getX() - 1);
                         coords[3].setY(coords[3].getY() + 2);
                         turn_counter++;
-                        break;
+
                 }
+                break;
             case 3:
                 if (    CheckOutOfBounds(coords[0].getX() - 1, coords[0].getY() - 1, gameboard) &&
                         CheckOutOfBounds(coords[1].getX() - 0 ,coords[1].getY() + 0, gameboard) &&
@@ -101,8 +104,9 @@ public class CleveLandZ implements Tetromino {
                         coords[3].setX(coords[3].getX() + 2);
                         coords[3].setY(coords[3].getY() - 0);
                         turn_counter++;
-                        break;
+
                 }
+                break;
         }
     }
 

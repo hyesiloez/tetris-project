@@ -53,8 +53,9 @@ public class Hero implements Tetromino {
                         this.coords[3].setX(this.coords[3].getX() + 1);
                         this.coords[3].setY(this.coords[3].getY() - 1);
                         this.turn_counter++;
-                        break;
+
                 }
+                break;
             case 1:
                 if (    CheckOutOfBounds(coords[0].getX() + 2 , coords[0].getY() + 2, gameboard) &&
                         CheckOutOfBounds(coords[1].getX() + 1 ,coords[1].getY() + 1, gameboard ) &&
@@ -66,8 +67,9 @@ public class Hero implements Tetromino {
                         this.coords[3].setX(this.coords[3].getX() - 1);
                         this.coords[3].setY(this.coords[3].getY() - 1);
                         this.turn_counter++;
-                        break;
+
                 }
+                break;
             case 2:
                 if (    CheckOutOfBounds(coords[0].getX() + 2 , coords[0].getY() - 2, gameboard) &&
                         CheckOutOfBounds(coords[1].getX() + 1  ,coords[1].getY() - 1, gameboard) &&
@@ -79,8 +81,9 @@ public class Hero implements Tetromino {
                         this.coords[3].setX(this.coords[3].getX() - 1);
                         this.coords[3].setY(this.coords[3].getY() + 1);
                         this.turn_counter++;
-                        break;
+
                 }
+                break;
             case 3:
                 if (    CheckOutOfBounds(coords[0].getX() - 2 , coords[0].getY() - 2, gameboard) &&
                         CheckOutOfBounds(coords[1].getX() - 1 ,coords[1].getY() - 1, gameboard ) &&
@@ -92,8 +95,9 @@ public class Hero implements Tetromino {
                         this.coords[3].setX(this.coords[3].getX() + 1);
                         this.coords[3].setY(this.coords[3].getY() + 1);
                         this.turn_counter++;
-                        break;
+
                 }
+                break;
             default:
                 return;
         }
