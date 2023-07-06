@@ -1,8 +1,13 @@
+import java.util.concurrent.Executors;
+import java.util.concurrent.ScheduledExecutorService;
+import java.util.concurrent.TimeUnit;
 import java.util.Random;
+
 public class StartGame {
     private BoardStatus[][] gameboard;
     private boolean isGameOver;
     private Tetromino tet;
+    private ScheduledExecutorService scheduler = Executors.newSingleThreadScheduledExecutor();
     private Tetromino next_tet;
     private int points;
 
@@ -93,6 +98,29 @@ public class StartGame {
         this.isOnGround();
     }
 
+    public void tetFall(StartGame a){
+        //scheduler = Executors.newSingleThreadScheduledExecutor();
+        scheduler.scheduleAtFixedRate(new Runnable(){
+            public void run() {
+                if (!a.tet.getOn_ground()) {
+                    a.drop();
+                    System.out.println(a);
+                    //a.isOnGround();
+                    //a.isGameOver();
+                } else if (!a.isGameOver){
+                    a.tet = next_tet;
+                    a.setTet();
+                    a.next_tet = randomTet();
+                } else {
+                    scheduler.shutdown();
+                    System.out.println("GAME OVER");
+                }
+
+            }
+        }, 0, 200, TimeUnit.MILLISECONDS);
+
+    }
+
 
     public String toString(){
         String end = "";
@@ -175,47 +203,15 @@ public class StartGame {
         }
     }
     public void play(){
-        System.out.println(this);
-        this.goRight();
-        System.out.println(this);
-        this.goLeft();
-        System.out.println(this);
-        this.drop();
-        System.out.println(this);
 
-        for(int i = 0; i < 15; i++){
-            this.goRight();
-            System.out.println(this);
-        }
-
-        //check if tetromino turns out of bounds
-        this.turn(gameboard);
-        System.out.println(this);
-        this.turn(gameboard);
-        System.out.println(this);
-
-        for(int i = 0; i < 3; i++){
-            this.goLeft();
-            System.out.println(this);
-        }
-
-        for(int i = 0; i < 4; i++){
-            this.drop();
-            System.out.println(this);
-        }
-        for(int i = 0; i < 20; i++) {
-            this.turn(gameboard);
-            System.out.println(this);
-        }
-
+        tetFall(this);
         while(!this.isGameOver){
-            while (!this.tet.getOn_ground()) {
-                this.drop();
-                System.out.println(this);
+            if(!this.isGameOver){
+                break;
             }
-            this.tet = next_tet;
-            this.next_tet = randomTet();
         }
+        System.out.println("GAME OVER!!!");
+
     }
 
 }
