@@ -1,0 +1,167 @@
+Index: GUI/src/main/java/com/example/gui/MenuController.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.example.gui;\r\n\r\nimport javafx.event.ActionEvent;\r\nimport javafx.event.EventHandler;\r\nimport javafx.fxml.FXML;\r\nimport javafx.fxml.FXMLLoader;\r\nimport javafx.scene.Node;\r\nimport javafx.scene.Parent;\r\nimport javafx.scene.Scene;\r\nimport javafx.scene.control.*;\r\nimport javafx.scene.input.KeyCode;\r\nimport javafx.scene.input.KeyEvent;\r\nimport javafx.scene.layout.AnchorPane;\r\nimport javafx.stage.Stage;\r\nimport java.io.IOException;\r\n\r\npublic class MenuController {\r\n\r\n\r\n    @FXML\r\n    private Button lougoutButton;\r\n    @FXML\r\n    private AnchorPane scenePane;\r\n\r\n    Stage stage;\r\n\r\n    public void logout(ActionEvent event) {\r\n\r\n        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);\r\n        alert.setTitle(\"Exit\");\r\n        alert.setHeaderText(\"Du bist dabei das Programm zu schließen\");\r\n        alert.setContentText(\"Möchtest du das Programm schließen?:\");\r\n\r\n        if(alert.showAndWait().get() == ButtonType.OK) {\r\n            stage = (Stage) scenePane.getScene().getWindow();\r\n            System.out.println(\"Log out!\");\r\n            stage.close();\r\n        }\r\n    }\r\n    @FXML\r\n    void back(KeyEvent event) throws IOException {\r\n        if(event.getCode() == KeyCode.ESCAPE){\r\n            System.out.println(\"Escape pressed!\");\r\n            FXMLLoader loader = new FXMLLoader(getClass().getResource(\"hello-gui.fxml\"));\r\n            root = loader.load();\r\n            stage = (Stage) ((Node) event.getSource()).getScene().getWindow();\r\n            scene = new Scene(root, 1280, 720);\r\n            stage.setScene(scene);\r\n            stage.show();\r\n        }\r\n    }\r\n    private Scene scene;\r\n    private Parent root;\r\n\r\n    public void singleplayer(ActionEvent e) throws IOException {\r\n        System.out.println(\"Singleplayer\");\r\n        FXMLLoader loader = new FXMLLoader(getClass().getResource(\"singleplayer.fxml\"));\r\n        root = loader.load();\r\n        stage = (Stage) ((Node) e.getSource()).getScene().getWindow();\r\n        scene = new Scene(root, 1280, 720);\r\n        stage.setScene(scene);\r\n        stage.show();\r\n    }\r\n\r\n    public void multiplayer(ActionEvent e) throws IOException {\r\n        System.out.println(\"Multiplayer\");\r\n        FXMLLoader loader = new FXMLLoader(getClass().getResource(\"multiplayer.fxml\"));\r\n        root = loader.load();\r\n        stage = (Stage) ((Node) e.getSource()).getScene().getWindow();\r\n        scene = new Scene(root, 1280, 720);\r\n        stage.setScene(scene);\r\n        stage.show();\r\n    }\r\n    public void toMainMenu(ActionEvent e) throws IOException {\r\n        System.out.println(\"TO Main Menu\");\r\n        FXMLLoader loader = new FXMLLoader(getClass().getResource(\"hello-gui.fxml\"));\r\n        root = loader.load();\r\n        stage = (Stage) ((Node) e.getSource()).getScene().getWindow();\r\n        scene = new Scene(root, 1280, 720);\r\n        stage.setScene(scene);\r\n        stage.show();\r\n    }\r\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/GUI/src/main/java/com/example/gui/MenuController.java b/GUI/src/main/java/com/example/gui/MenuController.java
+--- a/GUI/src/main/java/com/example/gui/MenuController.java	(revision 5089a87b599b65d3ef44f97070bd563f844f5ae6)
++++ b/GUI/src/main/java/com/example/gui/MenuController.java	(date 1688731615815)
+@@ -11,6 +11,7 @@
+ import javafx.scene.input.KeyCode;
+ import javafx.scene.input.KeyEvent;
+ import javafx.scene.layout.AnchorPane;
++import javafx.scene.layout.GridPane;
+ import javafx.stage.Stage;
+ import java.io.IOException;
+ 
+@@ -21,6 +22,8 @@
+     private Button lougoutButton;
+     @FXML
+     private AnchorPane scenePane;
++    @FXML
++    private GridPane gridPane;
+ 
+     Stage stage;
+ 
+@@ -44,7 +47,7 @@
+             FXMLLoader loader = new FXMLLoader(getClass().getResource("hello-gui.fxml"));
+             root = loader.load();
+             stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+-            scene = new Scene(root, 1280, 720);
++            scene = new Scene(root, stage.getWidth(), stage.getHeight());
+             stage.setScene(scene);
+             stage.show();
+         }
+@@ -57,7 +60,7 @@
+         FXMLLoader loader = new FXMLLoader(getClass().getResource("singleplayer.fxml"));
+         root = loader.load();
+         stage = (Stage) ((Node) e.getSource()).getScene().getWindow();
+-        scene = new Scene(root, 1280, 720);
++        scene = new Scene(root, stage.getWidth(), stage.getHeight());
+         stage.setScene(scene);
+         stage.show();
+     }
+@@ -67,7 +70,7 @@
+         FXMLLoader loader = new FXMLLoader(getClass().getResource("multiplayer.fxml"));
+         root = loader.load();
+         stage = (Stage) ((Node) e.getSource()).getScene().getWindow();
+-        scene = new Scene(root, 1280, 720);
++        scene = new Scene(root, stage.getWidth(), stage.getHeight());
+         stage.setScene(scene);
+         stage.show();
+     }
+@@ -76,8 +79,19 @@
+         FXMLLoader loader = new FXMLLoader(getClass().getResource("hello-gui.fxml"));
+         root = loader.load();
+         stage = (Stage) ((Node) e.getSource()).getScene().getWindow();
+-        scene = new Scene(root, 1280, 720);
++        scene = new Scene(root, stage.getWidth(), stage.getHeight());
++        stage.setScene(scene);
++        stage.show();
++    }
++
++    public void playSingle (ActionEvent e) throws IOException {
++        System.out.println("Play Singleplayer");
++        FXMLLoader loader = new FXMLLoader(getClass().getResource("play_single.fxml"));
++        root = loader.load();
++        stage = (Stage) ((Node) e.getSource()).getScene().getWindow();
++        scene = new Scene(root, stage.getWidth(), stage.getHeight());
+         stage.setScene(scene);
+         stage.show();
++
+     }
+ }
+\ No newline at end of file
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"AutoImportSettings\">\r\n    <option name=\"autoReloadType\" value=\"SELECTIVE\" />\r\n  </component>\r\n  <component name=\"ChangeListManager\">\r\n    <list default=\"true\" id=\"220209df-59ba-4661-a75c-f0da5ee61152\" name=\"Changes\" comment=\"Exit update for multi- and singleplayer\">\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/workspace.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/workspace.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/GUI/src/main/java/com/example/gui/MenuApplication.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/GUI/src/main/java/com/example/gui/MenuApplication.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/GUI/src/main/resources/com/example/gui/39632.png\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/GUI/src/main/resources/com/example/gui/backgroundimage.png\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/GUI/src/main/resources/com/example/gui/Style.css\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/GUI/src/main/resources/com/example/gui/Style.css\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/GUI/src/main/resources/com/example/gui/hello-gui.fxml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/GUI/src/main/resources/com/example/gui/hello-gui.fxml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/GUI/src/main/resources/com/example/gui/icon.png\" beforeDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/GUI/src/main/resources/com/example/gui/multiplayer.fxml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/GUI/src/main/resources/com/example/gui/multiplayer.fxml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/GUI/src/main/resources/com/example/gui/singleplayer.fxml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/GUI/src/main/resources/com/example/gui/singleplayer.fxml\" afterDir=\"false\" />\r\n    </list>\r\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\r\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\r\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\r\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\r\n  </component>\r\n  <component name=\"Git.Settings\">\r\n    <option name=\"RECENT_BRANCH_BY_REPOSITORY\">\r\n      <map>\r\n        <entry key=\"$PROJECT_DIR$\" value=\"main\" />\r\n      </map>\r\n    </option>\r\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\r\n  </component>\r\n  <component name=\"MarkdownSettingsMigration\">\r\n    <option name=\"stateVersion\" value=\"1\" />\r\n  </component>\r\n  <component name=\"MavenImportPreferences\">\r\n    <option name=\"generalSettings\">\r\n      <MavenGeneralSettings>\r\n        <option name=\"useMavenConfig\" value=\"true\" />\r\n      </MavenGeneralSettings>\r\n    </option>\r\n  </component>\r\n  <component name=\"ProjectId\" id=\"2RhaPoz6u0Vwd8QMbu3APuiNRgJ\" />\r\n  <component name=\"ProjectViewState\">\r\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\r\n    <option name=\"showLibraryContents\" value=\"true\" />\r\n  </component>\r\n  <component name=\"PropertiesComponent\">{\r\n  &quot;keyToString&quot;: {\r\n    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,\r\n    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,\r\n    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,\r\n    &quot;last_opened_file_path&quot;: &quot;D:/Tetris/11/GUI/src/main/resources/com/example/gui&quot;,\r\n    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,\r\n    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,\r\n    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;\r\n  }\r\n}</component>\r\n  <component name=\"RecentsManager\">\r\n    <key name=\"CopyFile.RECENT_KEYS\">\r\n      <recent name=\"D:\\Tetris\\11\\GUI\\src\\main\\resources\\com\\example\\gui\" />\r\n      <recent name=\"D:\\Tetris\\11\\GUI\\src\\main\\resources\\image\" />\r\n    </key>\r\n    <key name=\"MoveFile.RECENT_KEYS\">\r\n      <recent name=\"D:\\Tetris\\11\\GUI\\src\\main\\resources\\com\\example\\gui\" />\r\n      <recent name=\"D:\\Tetris\\11\\GUI\\src\\main\\java\\com\\example\\gui\" />\r\n    </key>\r\n  </component>\r\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\r\n  <component name=\"TaskManager\">\r\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\r\n      <changelist id=\"220209df-59ba-4661-a75c-f0da5ee61152\" name=\"Changes\" comment=\"\" />\r\n      <created>1687704753734</created>\r\n      <option name=\"number\" value=\"Default\" />\r\n      <option name=\"presentableId\" value=\"Default\" />\r\n      <updated>1687704753734</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00001\" summary=\"GUI\">\r\n      <created>1687717747296</created>\r\n      <option name=\"number\" value=\"00001\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00001\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1687717747296</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00002\" summary=\"GUI\">\r\n      <created>1687717760384</created>\r\n      <option name=\"number\" value=\"00002\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00002\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1687717760384</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00003\" summary=\"GUI update\">\r\n      <created>1687723993468</created>\r\n      <option name=\"number\" value=\"00003\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00003\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1687723993469</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00004\" summary=\"GUI update\">\r\n      <created>1687726837220</created>\r\n      <option name=\"number\" value=\"00004\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00004\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1687726837220</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00005\" summary=\"GUI update\">\r\n      <created>1687731381465</created>\r\n      <option name=\"number\" value=\"00005\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00005\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1687731381465</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00006\" summary=\"GUI update\">\r\n      <created>1688311653493</created>\r\n      <option name=\"number\" value=\"00006\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00006\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1688311653493</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00007\" summary=\"Exit update for multi- and singleplayer\">\r\n      <created>1688314882865</created>\r\n      <option name=\"number\" value=\"00007\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00007\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1688314882865</updated>\r\n    </task>\r\n    <option name=\"localTasksCounter\" value=\"8\" />\r\n    <servers />\r\n  </component>\r\n  <component name=\"Vcs.Log.Tabs.Properties\">\r\n    <option name=\"TAB_STATES\">\r\n      <map>\r\n        <entry key=\"MAIN\">\r\n          <value>\r\n            <State>\r\n              <option name=\"FILTERS\">\r\n                <map>\r\n                  <entry key=\"branch\">\r\n                    <value>\r\n                      <list>\r\n                        <option value=\"origin/GUI\" />\r\n                      </list>\r\n                    </value>\r\n                  </entry>\r\n                </map>\r\n              </option>\r\n            </State>\r\n          </value>\r\n        </entry>\r\n      </map>\r\n    </option>\r\n  </component>\r\n  <component name=\"VcsManagerConfiguration\">\r\n    <MESSAGE value=\"GUI\" />\r\n    <MESSAGE value=\"GUI update\" />\r\n    <MESSAGE value=\"Exit update for multi- and singleplayer\" />\r\n    <option name=\"LAST_COMMIT_MESSAGE\" value=\"Exit update for multi- and singleplayer\" />\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	(revision 5089a87b599b65d3ef44f97070bd563f844f5ae6)
++++ b/.idea/workspace.xml	(date 1688731923143)
+@@ -4,25 +4,27 @@
+     <option name="autoReloadType" value="SELECTIVE" />
+   </component>
+   <component name="ChangeListManager">
+-    <list default="true" id="220209df-59ba-4661-a75c-f0da5ee61152" name="Changes" comment="Exit update for multi- and singleplayer">
++    <list default="true" id="220209df-59ba-4661-a75c-f0da5ee61152" name="Changes" comment="Button Design">
+       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/GUI/src/main/java/com/example/gui/MenuApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/src/main/java/com/example/gui/MenuApplication.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/GUI/src/main/resources/com/example/gui/39632.png" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/src/main/resources/com/example/gui/backgroundimage.png" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/GUI/src/main/resources/com/example/gui/Style.css" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/src/main/resources/com/example/gui/Style.css" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/GUI/src/main/resources/com/example/gui/hello-gui.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/src/main/resources/com/example/gui/hello-gui.fxml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/GUI/src/main/resources/com/example/gui/icon.png" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/GUI/src/main/resources/com/example/gui/multiplayer.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/src/main/resources/com/example/gui/multiplayer.fxml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/GUI/src/main/java/com/example/gui/MenuController.java" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/src/main/java/com/example/gui/MenuController.java" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/GUI/src/main/resources/com/example/gui/singleplayer.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/src/main/resources/com/example/gui/singleplayer.fxml" afterDir="false" />
+     </list>
+     <option name="SHOW_DIALOG" value="false" />
+     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+     <option name="LAST_RESOLUTION" value="IGNORE" />
++  </component>
++  <component name="FileTemplateManagerImpl">
++    <option name="RECENT_TEMPLATES">
++      <list>
++        <option value="FxmlFile" />
++      </list>
++    </option>
+   </component>
+   <component name="Git.Settings">
+     <option name="RECENT_BRANCH_BY_REPOSITORY">
+       <map>
+-        <entry key="$PROJECT_DIR$" value="main" />
++        <entry key="$PROJECT_DIR$" value="GUI" />
+       </map>
+     </option>
+     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+@@ -121,7 +123,14 @@
+       <option name="project" value="LOCAL" />
+       <updated>1688314882865</updated>
+     </task>
+-    <option name="localTasksCounter" value="8" />
++    <task id="LOCAL-00008" summary="Button Design">
++      <created>1688323302444</created>
++      <option name="number" value="00008" />
++      <option name="presentableId" value="LOCAL-00008" />
++      <option name="project" value="LOCAL" />
++      <updated>1688323302444</updated>
++    </task>
++    <option name="localTasksCounter" value="9" />
+     <servers />
+   </component>
+   <component name="Vcs.Log.Tabs.Properties">
+@@ -151,6 +160,7 @@
+     <MESSAGE value="GUI" />
+     <MESSAGE value="GUI update" />
+     <MESSAGE value="Exit update for multi- and singleplayer" />
+-    <option name="LAST_COMMIT_MESSAGE" value="Exit update for multi- and singleplayer" />
++    <MESSAGE value="Button Design" />
++    <option name="LAST_COMMIT_MESSAGE" value="Button Design" />
+   </component>
+ </project>
+\ No newline at end of file
+Index: GUI/src/main/resources/com/example/gui/singleplayer.fxml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n\r\n<?import javafx.scene.control.Button?>\r\n<?import javafx.scene.layout.AnchorPane?>\r\n<?import javafx.scene.layout.HBox?>\r\n<?import javafx.scene.layout.VBox?>\r\n\r\n<VBox maxHeight=\"-Infinity\" maxWidth=\"-Infinity\" minHeight=\"-Infinity\" minWidth=\"-Infinity\" prefHeight=\"720.0\" prefWidth=\"1280.0\" styleClass=\"backgroundImage\" stylesheets=\"@Style.css\" xmlns=\"http://javafx.com/javafx/20.0.1\" xmlns:fx=\"http://javafx.com/fxml/1\" fx:controller=\"com.example.gui.MenuController\">\r\n   <children>\r\n      <HBox maxHeight=\"100.0\" VBox.vgrow=\"ALWAYS\" />\r\n      <HBox VBox.vgrow=\"ALWAYS\">\r\n         <children>\r\n            <HBox HBox.hgrow=\"ALWAYS\" />\r\n            <VBox maxWidth=\"800.0\" HBox.hgrow=\"ALWAYS\">\r\n               <children>\r\n                  <VBox VBox.vgrow=\"ALWAYS\" />\r\n                  <AnchorPane fx:id=\"scenePane\" maxHeight=\"600.0\" maxWidth=\"800.0\" minHeight=\"600.0\" minWidth=\"800.0\" styleClass=\"backgroundColor\" stylesheets=\"@Style.css\" VBox.vgrow=\"ALWAYS\">\r\n                     <children>\r\n                        <Button layoutX=\"200.0\" layoutY=\"256.0\" mnemonicParsing=\"false\" onAction=\"#toMainMenu\" onKeyPressed=\"#back\" prefHeight=\"88.0\" prefWidth=\"402.0\" text=\"Back\" />\r\n                        <Button fx:id=\"lougoutButton\" layoutX=\"200.0\" layoutY=\"412.0\" mnemonicParsing=\"false\" onAction=\"#logout\" prefHeight=\"88.0\" prefWidth=\"402.0\" text=\"Exit\" />\r\n                        <Button layoutX=\"200.0\" layoutY=\"95.0\" mnemonicParsing=\"false\" prefHeight=\"88.0\" prefWidth=\"402.0\" text=\"Play\" textFill=\"WHITE\" />\r\n                     </children></AnchorPane>\r\n                  <VBox VBox.vgrow=\"ALWAYS\" />\r\n               </children>\r\n            </VBox>\r\n            <HBox HBox.hgrow=\"ALWAYS\" />\r\n         </children>\r\n      </HBox>\r\n      <HBox maxHeight=\"100.0\" VBox.vgrow=\"ALWAYS\" />\r\n   </children>\r\n</VBox>\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/GUI/src/main/resources/com/example/gui/singleplayer.fxml b/GUI/src/main/resources/com/example/gui/singleplayer.fxml
+--- a/GUI/src/main/resources/com/example/gui/singleplayer.fxml	(revision 5089a87b599b65d3ef44f97070bd563f844f5ae6)
++++ b/GUI/src/main/resources/com/example/gui/singleplayer.fxml	(date 1688731648632)
+@@ -18,7 +18,7 @@
+                      <children>
+                         <Button layoutX="200.0" layoutY="256.0" mnemonicParsing="false" onAction="#toMainMenu" onKeyPressed="#back" prefHeight="88.0" prefWidth="402.0" text="Back" />
+                         <Button fx:id="lougoutButton" layoutX="200.0" layoutY="412.0" mnemonicParsing="false" onAction="#logout" prefHeight="88.0" prefWidth="402.0" text="Exit" />
+-                        <Button layoutX="200.0" layoutY="95.0" mnemonicParsing="false" prefHeight="88.0" prefWidth="402.0" text="Play" textFill="WHITE" />
++                        <Button layoutX="200.0" layoutY="95.0" mnemonicParsing="false" onAction="#playSingle" prefHeight="88.0" prefWidth="402.0" text="Play" textFill="WHITE" />
+                      </children></AnchorPane>
+                   <VBox VBox.vgrow="ALWAYS" />
+                </children>
