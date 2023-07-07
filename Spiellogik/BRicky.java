@@ -8,10 +8,10 @@ public class BRicky implements Tetromino{
         this.on_ground = false;
         this.turn_counter = 0;
 
-        this.coords[0] = new Coords(1,4);
-        this.coords[1] = new Coords(1,5);
-        this.coords[2] = new Coords(0,4);
-        this.coords[3] = new Coords(1,6);
+        this.coords[0] = new Coords(0,4);
+        this.coords[1] = new Coords(0,5);
+        this.coords[2] = new Coords(-1,4);
+        this.coords[3] = new Coords(0,6);
     }
 
 

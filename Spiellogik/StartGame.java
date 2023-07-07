@@ -100,16 +100,34 @@ public class StartGame {
 
     public void tetFall(StartGame a){
         //scheduler = Executors.newSingleThreadScheduledExecutor();
+
         scheduler.scheduleAtFixedRate(new Runnable(){
             public void run() {
+                Random rand = new Random();
+                int counter = rand.nextInt(4);
+
                 if (!a.tet.getOn_ground()) {
                     a.drop();
                     System.out.println(a);
-                    //a.isOnGround();
-                    //a.isGameOver();
+                    if (counter == 0 && !a.tet.getOn_ground()){
+                        a.turn(a.gameboard);
+                        System.out.println(a);
+                    } else if (counter == 1 && !a.tet.getOn_ground()){
+                        a.drop();
+                        System.out.println(a);
+                    } else if (counter == 2 && !a.tet.getOn_ground()){
+                        a.goLeft();
+                        System.out.println(a);
+                    } else if (counter == 3 && !a.tet.getOn_ground()){
+                        a.goRight();
+                        System.out.println(a);
+                    }
+
+
                 } else if (!a.isGameOver){
                     a.tet = next_tet;
                     a.setTet();
+                    System.out.println(a);
                     a.next_tet = randomTet();
                 } else {
                     scheduler.shutdown();
@@ -117,7 +135,7 @@ public class StartGame {
                 }
 
             }
-        }, 0, 200, TimeUnit.MILLISECONDS);
+        }, 0, 500, TimeUnit.MILLISECONDS);
 
     }
 
@@ -126,10 +144,12 @@ public class StartGame {
         String end = "";
         for(int i = 0; i < this.gameboard.length; i++){
             for (int j = 0; j < this.gameboard[i].length; j++){
-                if(this.gameboard[i][j].getIsSet()){
+                if(this.gameboard[i][j] == BoardStatus.SET){
                     end += "1";
-                } else {
+                } else if (this.gameboard[i][j] == BoardStatus.AIR){
                     end += "0";
+                } else {
+                    end += "2";
                 }
             }
             end += "\n";
@@ -203,14 +223,14 @@ public class StartGame {
         }
     }
     public void play(){
-
+        System.out.println(this);
         tetFall(this);
         while(!this.isGameOver){
             if(!this.isGameOver){
                 break;
             }
         }
-        System.out.println("GAME OVER!!!");
+        System.out.println("Wieso steht das hier ganz oben im Terminal?"); // ehrlich wieso
 
     }
 
