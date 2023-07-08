@@ -5,26 +5,53 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="220209df-59ba-4661-a75c-f0da5ee61152" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apiguardian_apiguardian_api_1_1_2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_junit_jupiter_junit_jupiter_api_5_9_2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_junit_jupiter_junit_jupiter_engine_5_9_2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_junit_platform_junit_platform_commons_1_9_2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_junit_platform_junit_platform_engine_1_9_2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_openjfx_javafx_base_17_0_6.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_openjfx_javafx_base_win_17_0_6.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_openjfx_javafx_controls_17_0_6.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_openjfx_javafx_controls_win_17_0_6.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_openjfx_javafx_fxml_17_0_6.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_openjfx_javafx_fxml_win_17_0_6.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_openjfx_javafx_graphics_17_0_6.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_openjfx_javafx_graphics_win_17_0_6.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_opentest4j_opentest4j_1_2_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GUI/src/main/java/Spiellogik/BRicky.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GUI/src/main/java/Spiellogik/BRicky.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GUI/src/main/java/Spiellogik/BoardStatus.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GUI/src/main/java/Spiellogik/BoardStatus.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GUI/src/main/java/Spiellogik/CleveLandZ.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GUI/src/main/java/Spiellogik/CleveLandZ.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GUI/src/main/java/Spiellogik/Coords.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GUI/src/main/java/Spiellogik/Coords.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GUI/src/main/java/Spiellogik/Hero.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GUI/src/main/java/Spiellogik/Hero.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GUI/src/main/java/Spiellogik/Main2.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GUI/src/main/java/Spiellogik/Main2.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GUI/src/main/java/Spiellogik/OrangeRicky.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GUI/src/main/java/Spiellogik/OrangeRicky.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GUI/src/main/java/Spiellogik/RhodeIslandZ.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GUI/src/main/java/Spiellogik/RhodeIslandZ.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GUI/src/main/java/Spiellogik/SmashBoy.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GUI/src/main/java/Spiellogik/SmashBoy.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GUI/src/main/java/Spiellogik/StartGame.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GUI/src/main/java/Spiellogik/StartGame.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GUI/src/main/java/Spiellogik/TeeWee.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GUI/src/main/java/Spiellogik/TeeWee.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GUI/src/main/java/Spiellogik/Tetromino.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GUI/src/main/java/Spiellogik/Tetromino.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apiguardian_apiguardian_api_1_1_2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_junit_jupiter_junit_jupiter_api_5_9_2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_junit_jupiter_junit_jupiter_engine_5_9_2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_junit_platform_junit_platform_commons_1_9_2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_junit_platform_junit_platform_engine_1_9_2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_openjfx_javafx_base_17_0_6.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_openjfx_javafx_base_win_17_0_6.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_openjfx_javafx_controls_17_0_6.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_openjfx_javafx_controls_win_17_0_6.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_openjfx_javafx_fxml_17_0_6.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_openjfx_javafx_fxml_win_17_0_6.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_openjfx_javafx_graphics_17_0_6.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_openjfx_javafx_graphics_win_17_0_6.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_opentest4j_opentest4j_1_2_0.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_02_07_2023_20_36__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_02_07_2023_20_36__Changes_.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_02_07_2023_20_37__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_02_07_2023_20_37__Changes_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_07_07_2023_14_27__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_07_07_2023_14_27__Changes_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_07_07_2023_14_27__Changes_2.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_07_07_2023_14_27__Changes_2.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_07_07_2023_14_17__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_07_07_2023_14_17__Changes_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_07_07_2023_14_27__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_07_07_2023_14_27__Changes_.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/GUI/src/main/java/com/example/gui/MenuController.java" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/src/main/java/com/example/gui/MenuController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GUI/src/main/resources/com/example/gui/multiplayer.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/src/main/resources/com/example/gui/multiplayer.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GUI/src/main/resources/com/example/gui/singleplayer.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/src/main/resources/com/example/gui/singleplayer.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GUI/src/main/resources/com/example/gui/play_single.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/src/main/resources/com/example/gui/play_single.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -35,6 +62,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="FxmlFile" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -66,7 +94,7 @@
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/Tetris/11/GUI/src/main/resources/com/example/gui&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/Tetris/11/GUI&quot;,
     &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;
@@ -74,10 +102,12 @@
 }</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Tetris\11\GUI" />
       <recent name="D:\Tetris\11\GUI\src\main\resources\com\example\gui" />
       <recent name="D:\Tetris\11\GUI\src\main\resources\image" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\Tetris\11\GUI\src\main\java" />
       <recent name="D:\Tetris\11\GUI\src\main\resources\com\example\gui" />
       <recent name="D:\Tetris\11\GUI\src\main\java\com\example\gui" />
     </key>

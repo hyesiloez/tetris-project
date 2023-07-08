@@ -16,7 +16,6 @@ import java.io.IOException;
 
 public class MenuController {
 
-
     @FXML
     private Button lougoutButton;
     @FXML
