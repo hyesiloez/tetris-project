@@ -9,7 +9,7 @@ public class StartGame {
     public BoardStatus[][] gameboard;
     public boolean isGameOver;
     private Tetromino tet;
-    private ScheduledExecutorService scheduler = Executors.newSingleThreadScheduledExecutor();
+    //private ScheduledExecutorService scheduler = Executors.newSingleThreadScheduledExecutor();
     private Tetromino next_tet;
     private int points;
 
@@ -25,6 +25,24 @@ public class StartGame {
             }
         }
         this.setTet();
+    }
+
+    public Tetromino getNext_tet(){
+        return this.next_tet;
+    }
+
+    public Tetromino getTet(){
+        return this.tet;
+    }
+    public void changeTet(Tetromino a){
+        this.tet = a;
+    }
+    public void changenext_tet(Tetromino a){
+        this.next_tet = a;
+    }
+
+    public boolean getIsGameOver(){
+        return this.isGameOver;
     }
     public Tetromino randomTet(){
         Random rand = new Random();
@@ -53,8 +71,8 @@ public class StartGame {
     public void removeTet (){
         Coords [] coords = this.tet.getCoords();
         for (int i = 0; i < coords.length; i++) {
-            if (coords[i].getX() >= 0 && coords[i].getX() <= this.gameboard.length) {
-                if (coords[i].getY() >= 0 && coords[i].getY() <= this.gameboard[0].length) {
+            if (coords[i].getX() >= 0 && coords[i].getX() < this.gameboard.length) {
+                if (coords[i].getY() >= 0 && coords[i].getY() < this.gameboard[0].length) {
                     gameboard[coords[i].getX()][coords[i].getY()] = BoardStatus.AIR;
                 }
             }
@@ -64,8 +82,8 @@ public class StartGame {
     public void setTet (){
         Coords [] coords = this.tet.getCoords();
         for (int i = 0; i < coords.length; i++){
-            if(coords[i].getX() >= 0 && coords[i].getX() <= this.gameboard.length){
-                if (coords[i].getY() >= 0 && coords[i].getY() <= this.gameboard[0].length){
+            if(coords[i].getX() >= 0 && coords[i].getX() < this.gameboard.length){
+                if (coords[i].getY() >= 0 && coords[i].getY() < this.gameboard[0].length){
                     gameboard[coords[i].getX()][coords[i].getY()] = BoardStatus.PLAYER;
                 }
             }
@@ -73,6 +91,14 @@ public class StartGame {
     }
 
     public void goRight(){
+        Coords[] a = this.tet.getCoords();
+        for(int i = 0; i < 4; i++){
+            if(a[i].getY() == 9){
+                return;
+            } else if(this.gameboard[a[i].getX()][a[i].getY() + 1] == BoardStatus.SET ){
+                return;
+            }
+        }
         this.removeTet();
         this.tet.goRight();
         this.setTet();
@@ -80,6 +106,15 @@ public class StartGame {
     }
 
     public void goLeft(){
+        Coords[] a = this.tet.getCoords();
+        for(int i = 0; i < 4; i++){
+            if(a[i].getY() == 0){
+                return;
+            } else if(this.gameboard[a[i].getX()][a[i].getY() - 1] == BoardStatus.SET ){
+                return;
+            }
+        }
+
         this.removeTet();
         this.tet.goLeft();
         this.setTet();
@@ -87,6 +122,7 @@ public class StartGame {
     }
 
     public void drop(){
+
         this.removeTet();
         this.tet.drop();
         this.setTet();
@@ -100,46 +136,29 @@ public class StartGame {
         this.isOnGround();
     }
 
-    public void tetFall(StartGame a){
-        //scheduler = Executors.newSingleThreadScheduledExecutor();
+    /*public void tetFall(StartGame a){
+        scheduler = Executors.newSingleThreadScheduledExecutor();
 
         scheduler.scheduleAtFixedRate(new Runnable(){
             public void run() {
-                Random rand = new Random();
-                int counter = rand.nextInt(4);
 
                 if (!a.tet.getOn_ground()) {
                     a.drop();
                     System.out.println(a);
-                    if (counter == 0 && !a.tet.getOn_ground()){
-                        a.turn(a.gameboard);
-                        System.out.println(a);
-                    } else if (counter == 1 && !a.tet.getOn_ground()){
-                        a.drop();
-                        System.out.println(a);
-                    } else if (counter == 2 && !a.tet.getOn_ground()){
-                        a.goLeft();
-                        System.out.println(a);
-                    } else if (counter == 3 && !a.tet.getOn_ground()){
-                        a.goRight();
-                        System.out.println(a);
-                    }
-
-
                 } else if (!a.isGameOver){
                     a.tet = next_tet;
                     a.setTet();
                     System.out.println(a);
                     a.next_tet = randomTet();
                 } else {
-                    scheduler.shutdown();
+                    //scheduler.shutdown();
                     System.out.println("GAME OVER");
                 }
 
             }
         }, 0, 2000, TimeUnit.MILLISECONDS);
 
-    }
+    }*/
 
 
     public String toString(){
@@ -225,15 +244,13 @@ public class StartGame {
         }
     }
     public void play(){
-        System.out.println(this);
-        tetFall(this);
+        /*System.out.println(this);
+        //tetFall(this);
         while(!this.isGameOver){
             if(!this.isGameOver){
                 break;
             }
-        }
-        System.out.println("Wieso steht das hier ganz oben im Terminal?"); // ehrlich wieso
-
+        }*/
     }
     public boolean[][] convertToBooleanArray() {
         boolean[][] res = new boolean[14][10];
@@ -248,5 +265,6 @@ public class StartGame {
         }
         return res;
     }
+
 
 }

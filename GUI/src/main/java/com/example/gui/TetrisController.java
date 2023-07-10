@@ -15,6 +15,10 @@ import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.util.concurrent.TimeUnit;
+//Für das automatische Fallen
+import java.util.concurrent.Executors;
+import java.util.concurrent.ScheduledExecutorService;
 
 public class TetrisController {
     @FXML
@@ -57,9 +61,11 @@ public class TetrisController {
     }
     @FXML
     public void startGame() {
-            game.play();
+            tetFall(game);
             updateGrid();
     }
+
+
     public void singlePlayer(ActionEvent e) throws IOException {
         System.out.println("Singleplayer");
         FXMLLoader loader = new FXMLLoader(getClass().getResource("singleplayer.fxml"));
@@ -101,8 +107,42 @@ public class TetrisController {
 
     public void dropTet(ActionEvent event) {
         System.out.println("Drop!");
+        if (game.getIsGameOver()){
+            return;
+        }
+        if (!(game.getTet().getOn_ground())) {
+            game.drop();
+            game.isOnGround();
+            updateGrid();
+        } else if (!game.getIsGameOver()){
+            game.changeTet(game.getNext_tet());
+            game.setTet();
+            game.changenext_tet(game.randomTet());
+        }
         game.drop();
         updateGrid();
     }
+    public void tetFall(StartGame a){
+        ScheduledExecutorService scheduler = Executors.newSingleThreadScheduledExecutor();
 
+        scheduler.scheduleAtFixedRate(new Runnable(){
+            public void run() {
+
+                if (!(a.getTet().getOn_ground())) {
+                    a.drop();
+                    a.isOnGround();
+                    updateGrid();
+                } else if (!a.getIsGameOver()){
+                    a.changeTet(a.getNext_tet());
+                    a.setTet();
+                    a.changenext_tet(a.randomTet());
+                } else {
+                    scheduler.shutdown();
+                    System.out.println("GAME OVER");
+                }
+
+            }
+        }, 0, 1000, TimeUnit.MILLISECONDS);
+
+    }
 }
