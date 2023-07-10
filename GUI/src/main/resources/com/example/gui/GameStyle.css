@@ -1,0 +1,20 @@
+.backgroundImage{
+-fx-background-image:url('backgroundimage.png');
+-fx-background-size:cover;
+}
+.buttonc
+{
+
+    -fx-background-color : #000000;
+    -fx-background-radius : 30 30 30 30;
+}
+.buttonc:hover
+{
+     -fx-background-color : #2A2929;
+     -fx-background-radius : 30 30 30 30;
+}
+.buttonc:pressed
+{
+    -fx-background-color : #02042E;
+    -fx-background-radius : 30 30 30 30;
+}
