@@ -87,7 +87,7 @@ public class TetrisController {
         updateGrid();
 
     }
-    public void moveRight(ActionEvent eventt)  {
+    public void moveRight(ActionEvent event)  {
         System.out.println("Right!");
         game.goRight();
         updateGrid();
