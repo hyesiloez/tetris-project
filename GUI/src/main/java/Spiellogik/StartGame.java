@@ -122,7 +122,13 @@ public class StartGame {
     }
 
     public void drop(){
+        Coords[] coords = this.tet.getCoords();
 
+        for (int i = 0; i < coords.length; i++){
+            if(coords[i].getX() == 13 || gameboard[coords[i].getX()+1][coords[i].getY()] == BoardStatus.SET){
+                return;
+            }
+        }
         this.removeTet();
         this.tet.drop();
         this.setTet();
@@ -229,8 +235,14 @@ public class StartGame {
 
     public void tetOnGround(){
         Coords[] coords = this.tet.getCoords();
-        for (int i = 0; i < coords.length; i++){
+        for (int i = 0; i < coords.length; i++) {
             this.gameboard[coords[i].getX()][coords[i].getY()] = BoardStatus.SET;
+        }
+
+        for (int j = 0; j < gameboard.length; j++){
+            if (FullRow(j)){
+                removeRow(j);
+            }
         }
         this.isGameOver();
 
@@ -258,7 +270,9 @@ public class StartGame {
             for (int j = 0; j < this.gameboard[i].length; j++) {
                 if (this.gameboard[i][j] == BoardStatus.AIR) {
                     res[i][j] = false;
-                } else {
+                } else if (this.gameboard[i][j] == BoardStatus.SET){
+                    res[i][j] = true;
+                } else if(this.gameboard[i][j] == BoardStatus.PLAYER){
                     res[i][j] = true;
                 }
             }

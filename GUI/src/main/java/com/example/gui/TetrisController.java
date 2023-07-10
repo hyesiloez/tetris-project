@@ -91,18 +91,21 @@ public class TetrisController {
         System.out.println("Rotate!");
         game.turn(game.gameboard);
         updateGrid();
+        System.out.println(game);
 
     }
     public void moveRight(ActionEvent event)  {
         System.out.println("Right!");
         game.goRight();
         updateGrid();
+        System.out.println(game);
     }
 
     public void moveLeft(ActionEvent event) {
         System.out.println("Left!");
         game.goLeft();
         updateGrid();
+        System.out.println(game);
     }
 
     public void dropTet(ActionEvent event) {
@@ -120,6 +123,7 @@ public class TetrisController {
             game.changenext_tet(game.randomTet());
         }
         game.drop();
+        System.out.println(game);
         updateGrid();
     }
     public void tetFall(StartGame a){
@@ -130,6 +134,7 @@ public class TetrisController {
 
                 if (!(a.getTet().getOn_ground())) {
                     a.drop();
+                    System.out.println(a);
                     a.isOnGround();
                     updateGrid();
                 } else if (!a.getIsGameOver()){
