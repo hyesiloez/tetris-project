@@ -4,53 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="220209df-59ba-4661-a75c-f0da5ee61152" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/GUI/src/main/java/Spiellogik/BRicky.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GUI/src/main/java/Spiellogik/BRicky.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GUI/src/main/java/Spiellogik/BoardStatus.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GUI/src/main/java/Spiellogik/BoardStatus.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GUI/src/main/java/Spiellogik/CleveLandZ.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GUI/src/main/java/Spiellogik/CleveLandZ.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GUI/src/main/java/Spiellogik/Coords.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GUI/src/main/java/Spiellogik/Coords.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GUI/src/main/java/Spiellogik/Hero.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GUI/src/main/java/Spiellogik/Hero.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GUI/src/main/java/Spiellogik/Main2.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GUI/src/main/java/Spiellogik/Main2.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GUI/src/main/java/Spiellogik/OrangeRicky.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GUI/src/main/java/Spiellogik/OrangeRicky.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GUI/src/main/java/Spiellogik/RhodeIslandZ.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GUI/src/main/java/Spiellogik/RhodeIslandZ.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GUI/src/main/java/Spiellogik/SmashBoy.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GUI/src/main/java/Spiellogik/SmashBoy.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GUI/src/main/java/Spiellogik/StartGame.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GUI/src/main/java/Spiellogik/StartGame.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GUI/src/main/java/Spiellogik/TeeWee.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GUI/src/main/java/Spiellogik/TeeWee.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GUI/src/main/java/Spiellogik/Tetromino.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GUI/src/main/java/Spiellogik/Tetromino.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apiguardian_apiguardian_api_1_1_2.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_junit_jupiter_junit_jupiter_api_5_9_2.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_junit_jupiter_junit_jupiter_engine_5_9_2.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_junit_platform_junit_platform_commons_1_9_2.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_junit_platform_junit_platform_engine_1_9_2.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_openjfx_javafx_base_17_0_6.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_openjfx_javafx_base_win_17_0_6.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_openjfx_javafx_controls_17_0_6.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_openjfx_javafx_controls_win_17_0_6.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_openjfx_javafx_fxml_17_0_6.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_openjfx_javafx_fxml_win_17_0_6.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_openjfx_javafx_graphics_17_0_6.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_openjfx_javafx_graphics_win_17_0_6.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_opentest4j_opentest4j_1_2_0.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_02_07_2023_20_36__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_02_07_2023_20_36__Changes_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_02_07_2023_20_37__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_02_07_2023_20_37__Changes_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_07_07_2023_14_27__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_07_07_2023_14_27__Changes_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_07_07_2023_14_27__Changes_2.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_07_07_2023_14_27__Changes_2.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_07_07_2023_14_17__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_07_07_2023_14_17__Changes_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_07_07_2023_14_27__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_07_07_2023_14_27__Changes_.xml" afterDir="false" />
+    <list default="true" id="220209df-59ba-4661-a75c-f0da5ee61152" name="Changes" comment="GUI is connected to the logic">
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_02_07_2023_20_37_[Changes]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_02_07_2023_20_37__Changes_.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GUI/src/main/java/com/example/gui/MenuController.java" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/src/main/java/com/example/gui/MenuController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GUI/src/main/java/Spiellogik/StartGame.java" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/src/main/java/Spiellogik/StartGame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GUI/src/main/java/com/example/gui/TetrisController.java" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/src/main/java/com/example/gui/TetrisController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/GUI/src/main/resources/com/example/gui/play_single.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/src/main/resources/com/example/gui/play_single.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -191,7 +150,14 @@
       <option name="project" value="LOCAL" />
       <updated>1688327367726</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="GUI is connected to the logic">
+      <created>1688850883851</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1688850883851</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -223,6 +189,7 @@
     <MESSAGE value="Exit update for multi- and singleplayer" />
     <MESSAGE value="New icon image, exit buttons for singleplayer and multiplayer" />
     <MESSAGE value="New color for some buttons" />
-    <option name="LAST_COMMIT_MESSAGE" value="New color for some buttons" />
+    <MESSAGE value="GUI is connected to the logic" />
+    <option name="LAST_COMMIT_MESSAGE" value="GUI is connected to the logic" />
   </component>
 </project>

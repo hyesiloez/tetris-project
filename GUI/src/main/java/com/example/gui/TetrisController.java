@@ -81,5 +81,28 @@ public class TetrisController {
             stage.show();
         }
     }
+    public void rotate(ActionEvent event) {
+        System.out.println("Rotate!");
+        game.turn(game.gameboard);
+        updateGrid();
+
+    }
+    public void moveRight(ActionEvent eventt)  {
+        System.out.println("Right!");
+        game.goRight();
+        updateGrid();
+    }
+
+    public void moveLeft(ActionEvent event) {
+        System.out.println("Left!");
+        game.goLeft();
+        updateGrid();
+    }
+
+    public void dropTet(ActionEvent event) {
+        System.out.println("Drop!");
+        game.drop();
+        updateGrid();
+    }
 
 }

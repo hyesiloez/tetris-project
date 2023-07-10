@@ -6,7 +6,7 @@ import java.util.concurrent.TimeUnit;
 import java.util.Random;
 
 public class StartGame {
-    private BoardStatus[][] gameboard;
+    public BoardStatus[][] gameboard;
     public boolean isGameOver;
     private Tetromino tet;
     private ScheduledExecutorService scheduler = Executors.newSingleThreadScheduledExecutor();
@@ -137,7 +137,7 @@ public class StartGame {
                 }
 
             }
-        }, 0, 500, TimeUnit.MILLISECONDS);
+        }, 0, 2000, TimeUnit.MILLISECONDS);
 
     }
 
