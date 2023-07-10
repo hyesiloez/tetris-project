@@ -39,6 +39,7 @@ public class MenuApplication extends Application  {
             e.printStackTrace();
         }
     }
+
     public void logout(Stage stage) {
 
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);

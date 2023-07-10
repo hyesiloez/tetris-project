@@ -2,6 +2,7 @@ package com.example.gui;
 
 import Spiellogik.*;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
@@ -15,6 +16,7 @@ import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.security.Key;
 import java.util.concurrent.TimeUnit;
 //Für das automatische Fallen
 import java.util.concurrent.Executors;
@@ -62,7 +64,6 @@ public class TetrisController {
     @FXML
     public void startGame() {
             tetFall(game);
-            updateGrid();
     }
 
 
@@ -94,7 +95,20 @@ public class TetrisController {
         System.out.println(game);
 
     }
+    public void rotate2() {
+        System.out.println("Rotate!");
+        game.turn(game.gameboard);
+        updateGrid();
+        System.out.println(game);
+
+    }
     public void moveRight(ActionEvent event)  {
+        System.out.println("Right!");
+        game.goRight();
+        updateGrid();
+        System.out.println(game);
+    }
+    public void moveRight2()  {
         System.out.println("Right!");
         game.goRight();
         updateGrid();
@@ -107,8 +121,32 @@ public class TetrisController {
         updateGrid();
         System.out.println(game);
     }
+    public void moveLeft2() {
+        System.out.println("Left!");
+        game.goLeft();
+        updateGrid();
+        System.out.println(game);
+    }
 
     public void dropTet(ActionEvent event) {
+        System.out.println("Drop!");
+        if (game.getIsGameOver()){
+            return;
+        }
+        if (!(game.getTet().getOn_ground())) {
+            game.drop();
+            game.isOnGround();
+            updateGrid();
+        } else if (!game.getIsGameOver()){
+            game.changeTet(game.getNext_tet());
+            game.setTet();
+            game.changenext_tet(game.randomTet());
+        }
+        game.drop();
+        System.out.println(game);
+        updateGrid();
+    }
+    public void dropTet2() {
         System.out.println("Drop!");
         if (game.getIsGameOver()){
             return;

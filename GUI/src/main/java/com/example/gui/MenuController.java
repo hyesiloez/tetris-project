@@ -21,6 +21,7 @@ public class MenuController {
     @FXML
     private AnchorPane scenePane;
 
+    TetrisController tetrisController;
     Stage stage;
 
     public void logout(ActionEvent event) {
@@ -114,6 +115,29 @@ public class MenuController {
         scene = new Scene(root, stage.getWidth(), stage.getHeight());
         stage.setScene(scene);
         stage.show();
+        tetrisController = loader.getController();
+        scene.setOnKeyPressed(new EventHandler<KeyEvent>(){
+            @Override
+            public void handle(KeyEvent keyEvent) {
+                switch (keyEvent.getCode()){
+                    case W:
+                        tetrisController.rotate2();
+                        break;
+                    case S:
+                        tetrisController.dropTet2();
+                        break;
+                    case A:
+                        tetrisController.moveLeft2();
+                        break;
+                    case D :
+                        tetrisController.moveRight2();
+                        break;
+                    default:
+                        break;
+                }
+
+            }
+        });
     }
 
     public void playMulti (ActionEvent e) throws IOException {
