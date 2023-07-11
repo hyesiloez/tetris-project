@@ -47,7 +47,6 @@ public class StartGame {
     public Tetromino randomTet(){
         Random rand = new Random();
         int random_int = rand.nextInt(7);
-
         switch (random_int){
             case 0:
                 return new TeeWee();
@@ -66,7 +65,6 @@ public class StartGame {
             default:
                 return new Hero();
         }
-
     }
     public void removeTet (){
         Coords [] coords = this.tet.getCoords();
@@ -229,6 +227,7 @@ public class StartGame {
             if (coords[i].getX() == 13 || this.gameboard[coords[i].getX() + 1][coords[i].getY()] == BoardStatus.SET){
                 this.tet.setOn_ground(true);
                 this.tetOnGround();
+                return;
             }
         }
     }

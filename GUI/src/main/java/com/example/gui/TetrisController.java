@@ -63,7 +63,8 @@ public class TetrisController {
     }
     @FXML
     public void startGame() {
-            tetFall(game);
+        game = new StartGame(10,14);
+        tetFall(game);
     }
 
 
@@ -135,14 +136,13 @@ public class TetrisController {
         }
         if (!(game.getTet().getOn_ground())) {
             game.drop();
-            game.isOnGround();
+            //game.isOnGround();
             updateGrid();
         } else if (!game.getIsGameOver()){
             game.changeTet(game.getNext_tet());
             game.setTet();
             game.changenext_tet(game.randomTet());
         }
-        game.drop();
         System.out.println(game);
         updateGrid();
     }
@@ -153,14 +153,14 @@ public class TetrisController {
         }
         if (!(game.getTet().getOn_ground())) {
             game.drop();
-            game.isOnGround();
+            //game.isOnGround();
             updateGrid();
         } else if (!game.getIsGameOver()){
             game.changeTet(game.getNext_tet());
             game.setTet();
             game.changenext_tet(game.randomTet());
         }
-        game.drop();
+
         System.out.println(game);
         updateGrid();
     }
@@ -173,7 +173,7 @@ public class TetrisController {
                 if (!(a.getTet().getOn_ground())) {
                     a.drop();
                     System.out.println(a);
-                    a.isOnGround();
+                    //a.isOnGround();
                     updateGrid();
                 } else if (!a.getIsGameOver()){
                     a.changeTet(a.getNext_tet());
