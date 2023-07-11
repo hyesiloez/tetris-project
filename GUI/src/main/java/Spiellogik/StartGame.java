@@ -221,6 +221,27 @@ public class StartGame {
         }
 
     }
+    public void addRow(){
+        Random rand = new Random();
+        int random_int = rand.nextInt(10);
+        for(int i = 0; i < this.gameboard.length - 1; i++ ){
+            for (int j = 0; j < this.gameboard[i].length; j++){
+                if(this.gameboard[i+1][j] != BoardStatus.PLAYER && this.gameboard[i][j] != BoardStatus.PLAYER){
+                    this.gameboard[i][j] = this.gameboard[i+1][j];
+                }
+
+            }
+        }
+        for (int k = 0; k < this.gameboard[13].length; k++){
+            if ( random_int != k){
+                this.gameboard[13][k] = BoardStatus.SET;
+            } else {
+                this.gameboard[13][k] = BoardStatus.AIR;
+            }
+        }
+        this.isOnGround();
+
+    }
     public void isOnGround(){
         Coords[] coords = this.tet.getCoords();
         for (int i = 0; i < coords.length; i++){

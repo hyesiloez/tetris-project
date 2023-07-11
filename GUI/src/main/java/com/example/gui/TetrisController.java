@@ -101,7 +101,8 @@ public class TetrisController {
         game.turn(game.gameboard);
         updateGrid();
         System.out.println(game);
-
+        game.addRow();
+        updateGrid();
     }
     public void moveRight(ActionEvent event)  {
         System.out.println("Right!");
@@ -141,7 +142,9 @@ public class TetrisController {
         } else if (!game.getIsGameOver()){
             game.changeTet(game.getNext_tet());
             game.setTet();
+            updateGrid();
             game.changenext_tet(game.randomTet());
+            updateGrid();
         }
         System.out.println(game);
         updateGrid();
@@ -157,8 +160,10 @@ public class TetrisController {
             updateGrid();
         } else if (!game.getIsGameOver()){
             game.changeTet(game.getNext_tet());
+            updateGrid();
             game.setTet();
             game.changenext_tet(game.randomTet());
+            updateGrid();
         }
 
         System.out.println(game);
