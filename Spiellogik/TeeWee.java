@@ -32,7 +32,7 @@ public class TeeWee implements Tetromino {
     }
 
     public boolean CheckOutOfBounds (int x , int y, BoardStatus[][] gameboard) {
-        if(!(x >= 0 && x < 14 && y >= 0 && y < 10 )) return false;
+        if(!(x >=  -2 && x < 14 && y >= 0 && y < 10 )) return false;
 
         if(gameboard[x][y] == BoardStatus.SET) return false;
 
