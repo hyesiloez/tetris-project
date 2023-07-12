@@ -12,6 +12,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Menu;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 
@@ -23,6 +24,8 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 
 public class TetrisController {
+    @FXML
+    private AnchorPane gameOverPopUp;
     @FXML
     private GridPane gridPane;
     private StartGame game;
@@ -68,9 +71,9 @@ public class TetrisController {
     }
 
 
-    public void singlePlayer(ActionEvent e) throws IOException {
-        System.out.println("Singleplayer");
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("singleplayer.fxml"));
+    public void toMainMenu(ActionEvent e) throws IOException {
+        System.out.println("TO Main Menu");
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("hello-gui.fxml"));
         root = loader.load();
         stage = (Stage) ((Node) e.getSource()).getScene().getWindow();
         scene = new Scene(root, stage.getWidth(), stage.getHeight());
@@ -78,10 +81,10 @@ public class TetrisController {
         stage.show();
     }
     @FXML
-    void backToSingleplayer(KeyEvent event) throws IOException {
+    void backToMainMenu(KeyEvent event) throws IOException {
         if(event.getCode() == KeyCode.ESCAPE){
             System.out.println("Escape pressed!");
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("singleplayer.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("hello-gui.fxml"));
             root = loader.load();
             stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             scene = new Scene(root, stage.getWidth(), stage.getHeight());
@@ -89,20 +92,17 @@ public class TetrisController {
             stage.show();
         }
     }
-    public void rotate(ActionEvent event) {
+    public void rotate(ActionEvent event) throws IOException {
         System.out.println("Rotate!");
         game.turn(game.gameboard);
         updateGrid();
         System.out.println(game);
-
     }
     public void rotate2() {
         System.out.println("Rotate!");
         game.turn(game.gameboard);
         updateGrid();
         System.out.println(game);
-        game.addRow();
-        updateGrid();
     }
     public void moveRight(ActionEvent event)  {
         System.out.println("Right!");
@@ -133,6 +133,7 @@ public class TetrisController {
     public void dropTet(ActionEvent event) {
         System.out.println("Drop!");
         if (game.getIsGameOver()){
+            gameOverPopUp.setVisible(true);
             return;
         }
         if (!(game.getTet().getOn_ground())) {
@@ -152,6 +153,7 @@ public class TetrisController {
     public void dropTet2() {
         System.out.println("Drop!");
         if (game.getIsGameOver()){
+            gameOverPopUp.setVisible(true);
             return;
         }
         if (!(game.getTet().getOn_ground())) {
@@ -186,6 +188,7 @@ public class TetrisController {
                     a.changenext_tet(a.randomTet());
                 } else {
                     scheduler.shutdown();
+                    gameOverPopUp.setVisible(true);
                     System.out.println("GAME OVER");
                 }
 

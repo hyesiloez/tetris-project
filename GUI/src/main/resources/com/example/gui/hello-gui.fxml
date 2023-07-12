@@ -17,11 +17,11 @@
                   <VBox VBox.vgrow="ALWAYS" />
                   <AnchorPane fx:id="scenePane" maxHeight="600.0" maxWidth="800.0" minHeight="600.0" minWidth="800.0" VBox.vgrow="ALWAYS">
                      <children>
-                        <Button layoutX="200.0" layoutY="95.0" mnemonicParsing="false" onAction="#singleplayer" opacity="0.7" prefHeight="88.0" prefWidth="402.0" text="Singleplayer" textFill="WHITE">
+                        <Button layoutX="200.0" layoutY="95.0" mnemonicParsing="false" onAction="#playSingle" opacity="0.7" prefHeight="88.0" prefWidth="402.0" text="Singleplayer" textFill="WHITE">
                            <font>
                               <Font size="40.0" />
                            </font></Button>
-                        <Button layoutX="200.0" layoutY="256.0" mnemonicParsing="false" onAction="#multiplayer" opacity="0.7" prefHeight="88.0" prefWidth="402.0" text="Multiplayer" textFill="WHITE">
+                        <Button layoutX="200.0" layoutY="256.0" mnemonicParsing="false" opacity="0.7" prefHeight="88.0" prefWidth="402.0" text="Multiplayer" textFill="WHITE">
                            <font>
                               <Font size="40.0" />
                            </font></Button>

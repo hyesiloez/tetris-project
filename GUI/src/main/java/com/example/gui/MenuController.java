@@ -37,76 +37,8 @@ public class MenuController {
             stage.close();
         }
     }
-    @FXML
-    void backToMainMenu(KeyEvent event) throws IOException {
-        if(event.getCode() == KeyCode.ESCAPE){
-            System.out.println("Escape pressed!");
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("hello-gui.fxml"));
-            root = loader.load();
-            stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-            scene = new Scene(root, stage.getWidth(), stage.getHeight());
-            stage.setScene(scene);
-            stage.show();
-        }
-    }
-
-    public void toMainMenu(ActionEvent e) throws IOException {
-        System.out.println("TO Main Menu");
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("hello-gui.fxml"));
-        root = loader.load();
-        stage = (Stage) ((Node) e.getSource()).getScene().getWindow();
-        scene = new Scene(root, stage.getWidth(), stage.getHeight());
-        stage.setScene(scene);
-        stage.show();
-    }
-
-    @FXML
-    void backToSingleplayer(KeyEvent event) throws IOException {
-        if(event.getCode() == KeyCode.ESCAPE){
-            System.out.println("Escape pressed!");
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("singleplayer.fxml"));
-            root = loader.load();
-            stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-            scene = new Scene(root, stage.getWidth(), stage.getHeight());
-            stage.setScene(scene);
-            stage.show();
-        }
-    }
-    @FXML
-    void backToMultiplayer(KeyEvent event) throws IOException {
-        if(event.getCode() == KeyCode.ESCAPE){
-            System.out.println("Escape pressed!");
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("multiplayer.fxml"));
-            root = loader.load();
-            stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-            scene = new Scene(root, stage.getWidth(), stage.getHeight());
-            stage.setScene(scene);
-            stage.show();
-        }
-    }
     private Scene scene;
     private Parent root;
-
-    public void singleplayer(ActionEvent e) throws IOException {
-        System.out.println("Singleplayer");
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("singleplayer.fxml"));
-        root = loader.load();
-        stage = (Stage) ((Node) e.getSource()).getScene().getWindow();
-        scene = new Scene(root, stage.getWidth(), stage.getHeight());
-        stage.setScene(scene);
-        stage.show();
-    }
-
-    public void multiplayer(ActionEvent e) throws IOException {
-        System.out.println("Multiplayer");
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("multiplayer.fxml"));
-        root = loader.load();
-        stage = (Stage) ((Node) e.getSource()).getScene().getWindow();
-        scene = new Scene(root, stage.getWidth(), stage.getHeight());
-        stage.setScene(scene);
-        stage.show();
-    }
-
     public void playSingle (ActionEvent e) throws IOException {
         System.out.println("Play Singleplayer");
         FXMLLoader loader = new FXMLLoader(getClass().getResource("play_single.fxml"));
