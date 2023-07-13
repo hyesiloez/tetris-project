@@ -9,6 +9,7 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.Menu;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
@@ -28,12 +29,16 @@ public class TetrisController {
     private AnchorPane gameOverPopUp;
     @FXML
     private GridPane gridPane;
+    @FXML
+    private Label scoreLabel;
     private StartGame game;
     private Button[][] gridButtons;
     MenuController menuController;
     Stage stage;
     private Scene scene;
     private Parent root;
+
+    private int score = 0;
 
     public void initialize() {
         game = new StartGame(10, 14);
@@ -63,6 +68,7 @@ public class TetrisController {
                 }
             }
         }
+        updateScore();
     }
     @FXML
     public void startGame() {
@@ -195,5 +201,19 @@ public class TetrisController {
             }
         }, 0, 1000, TimeUnit.MILLISECONDS);
 
+    }
+
+    public void updateScore () {
+
+        if (game.isFullRowPoints) {
+            score += 100;
+            game.isFullRowPoints = false;
+        }
+        if (game.isTetOnGround) {
+            score += 10;
+            game.isTetOnGround = false;
+        }
+
+        scoreLabel.setText("Score: " + score);
     }
 }

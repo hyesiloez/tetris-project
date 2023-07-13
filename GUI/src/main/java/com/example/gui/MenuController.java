@@ -36,6 +36,7 @@ public class MenuController {
             stage = (Stage) scenePane.getScene().getWindow();
             System.out.println("Log out!");
             stage.close();
+            System.exit(0);
         }
     }
     private Scene scene;

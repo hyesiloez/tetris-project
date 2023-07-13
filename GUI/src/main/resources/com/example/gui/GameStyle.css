@@ -18,3 +18,8 @@
     -fx-background-color : #02042E;
     -fx-background-radius : 30 30 30 30;
 }
+#scoreLabel
+{
+    -fx-background-color : #000000;
+    -fx-background-radius : 30 30 30 30;
+}

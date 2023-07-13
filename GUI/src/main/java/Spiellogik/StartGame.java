@@ -12,6 +12,8 @@ public class StartGame {
     //private ScheduledExecutorService scheduler = Executors.newSingleThreadScheduledExecutor();
     private Tetromino next_tet;
     private int points;
+    public boolean isTetOnGround = false;
+    public boolean isFullRowPoints = false;
 
     public StartGame(int length, int height){
         this.gameboard = new BoardStatus[height][length];
@@ -248,6 +250,7 @@ public class StartGame {
             if (coords[i].getX() == 13 || this.gameboard[coords[i].getX() + 1][coords[i].getY()] == BoardStatus.SET){
                 this.tet.setOn_ground(true);
                 this.tetOnGround();
+                this.isTetOnGround = true;
                 return;
             }
         }
@@ -262,6 +265,7 @@ public class StartGame {
         for (int j = 0; j < gameboard.length; j++){
             if (FullRow(j)){
                 removeRow(j);
+                this.isFullRowPoints = true;
             }
         }
         this.isGameOver();
