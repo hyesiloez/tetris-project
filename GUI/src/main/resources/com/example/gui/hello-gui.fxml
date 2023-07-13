@@ -21,7 +21,7 @@
                            <font>
                               <Font size="40.0" />
                            </font></Button>
-                        <Button layoutX="200.0" layoutY="256.0" mnemonicParsing="false" opacity="0.7" prefHeight="88.0" prefWidth="402.0" text="Multiplayer" textFill="WHITE">
+                        <Button layoutX="200.0" layoutY="256.0" mnemonicParsing="false" onAction="#playMulti" opacity="0.7" prefHeight="88.0" prefWidth="402.0" text="Multiplayer" textFill="WHITE">
                            <font>
                               <Font size="40.0" />
                            </font></Button>

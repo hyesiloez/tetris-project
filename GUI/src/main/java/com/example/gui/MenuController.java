@@ -22,6 +22,7 @@ public class MenuController {
     private AnchorPane scenePane;
 
     TetrisController tetrisController;
+    MultiplayerController multiplayerController;
     Stage stage;
 
     public void logout(ActionEvent event) {
@@ -44,7 +45,7 @@ public class MenuController {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("play_single.fxml"));
         root = loader.load();
         stage = (Stage) ((Node) e.getSource()).getScene().getWindow();
-        scene = new Scene(root, stage.getWidth(), stage.getHeight());
+        scene = new Scene(root, stage.getScene().getWidth(), stage.getScene().getHeight());
         stage.setScene(scene);
         stage.show();
         tetrisController = loader.getController();
@@ -77,9 +78,32 @@ public class MenuController {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("play_multi.fxml"));
         root = loader.load();
         stage = (Stage) ((Node) e.getSource()).getScene().getWindow();
-        scene = new Scene(root, stage.getWidth(), stage.getHeight());
+        scene = new Scene(root, stage.getScene().getWidth(), stage.getScene().getHeight());
         stage.setScene(scene);
         stage.show();
+        multiplayerController = loader.getController();
+        scene.setOnKeyPressed(new EventHandler<KeyEvent>(){
+            @Override
+            public void handle(KeyEvent keyEvent) {
+                switch (keyEvent.getCode()){
+                    case W:
+                        multiplayerController.rotate2();
+                        break;
+                    case S:
+                        multiplayerController.dropTet2();
+                        break;
+                    case A:
+                        multiplayerController.moveLeft2();
+                        break;
+                    case D :
+                        multiplayerController.moveRight2();
+                        break;
+                    default:
+                        break;
+                }
+
+            }
+        });
 
     }
 }

@@ -23,36 +23,51 @@ import java.util.concurrent.TimeUnit;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 
-public class TetrisController {
+public class MultiplayerController {
     @FXML
     private AnchorPane gameOverPopUp;
     @FXML
-    private GridPane gridPane;
-    private StartGame game;
+    private GridPane gridPaneP1;
+    @FXML
+    private GridPane gridPaneP2;
+    private StartGame gameP1;
+    private StartGame gameP2;
     private Button[][] gridButtons;
+    private Button[][] gridButtonsP2;
     MenuController menuController;
     Stage stage;
     private Scene scene;
     private Parent root;
 
     public void initialize() {
-        game = new StartGame(10, 14);
+        gameP1 = new StartGame(10, 14);
+        gameP2 = new StartGame(10, 14);
         gridButtons = new Button[14][10];
-        gridPane.getRowConstraints().clear();
-        gridPane.getColumnConstraints().clear();
+        gridButtonsP2 = new Button[14][10];
+        gridPaneP1.getRowConstraints().clear();
+        gridPaneP1.getColumnConstraints().clear();
+        gridPaneP2.getRowConstraints().clear();
+        gridPaneP2.getColumnConstraints().clear();
         for (int i = 0; i < 14; i++) {
             for (int j = 0; j < 10; j++) {
                 Button button = new Button();
                 button.setPrefSize(30, 30);
-                gridPane.add(button, j, i);
+                gridPaneP1.add(button, j, i);
                 gridButtons[i][j] = button;
+            }
+        }
+        for (int x = 0; x < 14; x++) {
+            for (int y = 0; y < 10; y++) {
+                Button button = new Button();
+                button.setPrefSize(30, 30);
+                gridPaneP2.add(button, y, x);
+                gridButtonsP2[x][y] = button;
             }
         }
     }
 
-
     private void updateGrid() {
-        boolean[][] board = game.convertToBooleanArray();
+        boolean[][] board = gameP1.convertToBooleanArray();
 
         for (int i = 0; i < 14; i++) {
             for (int j = 0; j < 10; j++) {
@@ -66,8 +81,8 @@ public class TetrisController {
     }
     @FXML
     public void startGame() {
-        game = new StartGame(10,14);
-        tetFall(game);
+        gameP1 = new StartGame(10,14);
+        tetFall(gameP1);
     }
 
 
@@ -94,81 +109,79 @@ public class TetrisController {
     }
     public void rotate(ActionEvent event) throws IOException {
         System.out.println("Rotate!");
-        game.turn(game.gameboard);
+        gameP1.turn(gameP1.gameboard);
         updateGrid();
-        System.out.println(game);
+        System.out.println(gameP1);
     }
     public void rotate2() {
         System.out.println("Rotate!");
-        game.turn(game.gameboard);
+        gameP1.turn(gameP1.gameboard);
         updateGrid();
-        System.out.println(game);
+        System.out.println(gameP1);
     }
     public void moveRight(ActionEvent event)  {
         System.out.println("Right!");
-        game.goRight();
+        gameP1.goRight();
         updateGrid();
-        System.out.println(game);
+        System.out.println(gameP1);
     }
     public void moveRight2()  {
         System.out.println("Right!");
-        game.goRight();
+        gameP1.goRight();
         updateGrid();
-        System.out.println(game);
+        System.out.println(gameP1);
     }
 
     public void moveLeft(ActionEvent event) {
         System.out.println("Left!");
-        game.goLeft();
+        gameP1.goLeft();
         updateGrid();
-        System.out.println(game);
+        System.out.println(gameP1);
     }
     public void moveLeft2() {
         System.out.println("Left!");
-        game.goLeft();
+        gameP1.goLeft();
         updateGrid();
-        System.out.println(game);
+        System.out.println(gameP1);
     }
 
     public void dropTet(ActionEvent event) {
         System.out.println("Drop!");
-        if (game.getIsGameOver()){
-            gameOverPopUp.setVisible(true);
+        if (gameP1.getIsGameOver()){
             return;
         }
-        if (!(game.getTet().getOn_ground())) {
-            game.drop();
+        if (!(gameP1.getTet().getOn_ground())) {
+            gameP1.drop();
             //game.isOnGround();
             updateGrid();
-        } else if (!game.getIsGameOver()){
-            game.changeTet(game.getNext_tet());
-            game.setTet();
+        } else if (!gameP1.getIsGameOver()){
+            gameP1.changeTet(gameP1.getNext_tet());
+            gameP1.setTet();
             updateGrid();
-            game.changenext_tet(game.randomTet());
+            gameP1.changenext_tet(gameP1.randomTet());
             updateGrid();
         }
-        System.out.println(game);
+        System.out.println(gameP1);
         updateGrid();
     }
     public void dropTet2() {
         System.out.println("Drop!");
-        if (game.getIsGameOver()){
-            gameOverPopUp.setVisible(true);
+        if (gameP1.getIsGameOver()){
             return;
         }
-        if (!(game.getTet().getOn_ground())) {
-            game.drop();
+        if (!(gameP1.getTet().getOn_ground())) {
+            gameP1.drop();
             //game.isOnGround();
             updateGrid();
-        } else if (!game.getIsGameOver()){
-            game.changeTet(game.getNext_tet());
+        } else if (!gameP1.getIsGameOver()){
+            gameP1.changeTet(gameP1.getNext_tet());
             updateGrid();
-            game.setTet();
-            game.changenext_tet(game.randomTet());
+            gameP1.setTet();
+            gameP1.changenext_tet(gameP1.randomTet());
             updateGrid();
         }
 
-        System.out.println(game);
+        System.out.println(gameP1);
         updateGrid();
     }
     public void tetFall(StartGame a){
@@ -188,7 +201,6 @@ public class TetrisController {
                     a.changenext_tet(a.randomTet());
                 } else {
                     scheduler.shutdown();
-                    gameOverPopUp.setVisible(true);
                     System.out.println("GAME OVER");
                 }
 
