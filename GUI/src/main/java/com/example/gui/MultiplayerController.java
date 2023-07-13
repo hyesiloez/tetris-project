@@ -107,7 +107,7 @@ public class MultiplayerController {
             stage.show();
         }
     }
-    public void rotate(ActionEvent event) throws IOException {
+    public void rotate() {
         System.out.println("Rotate!");
         gameP1.turn(gameP1.gameboard);
         updateGrid();
@@ -119,7 +119,7 @@ public class MultiplayerController {
         updateGrid();
         System.out.println(gameP1);
     }
-    public void moveRight(ActionEvent event)  {
+    public void moveRight()  {
         System.out.println("Right!");
         gameP1.goRight();
         updateGrid();
@@ -132,7 +132,7 @@ public class MultiplayerController {
         System.out.println(gameP1);
     }
 
-    public void moveLeft(ActionEvent event) {
+    public void moveLeft() {
         System.out.println("Left!");
         gameP1.goLeft();
         updateGrid();
@@ -145,7 +145,7 @@ public class MultiplayerController {
         System.out.println(gameP1);
     }
 
-    public void dropTet(ActionEvent event) {
+    public void dropTet() {
         System.out.println("Drop!");
         if (gameP1.getIsGameOver()){
             return;

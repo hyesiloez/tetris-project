@@ -41,26 +41,6 @@
                                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                                     </rowConstraints>
                                 </GridPane>
-                                <Button layoutX="365.0" layoutY="334.0" mnemonicParsing="false" onAction="#rotate" opacity="0.7" prefHeight="40.0" prefWidth="70.0" styleClass="buttonc" text="W" textFill="WHITE">
-                                    <font>
-                                        <Font size="18.0" />
-                                    </font>
-                                </Button>
-                                <Button layoutX="412.0" layoutY="390.0" mnemonicParsing="false" onAction="#moveRight" opacity="0.7" prefHeight="40.0" prefWidth="70.0" styleClass="buttonc" stylesheets="@GameStyle.css" text="D" textFill="WHITE">
-                                    <font>
-                                        <Font size="18.0" />
-                                    </font>
-                                </Button>
-                                <Button layoutX="318.0" layoutY="390.0" mnemonicParsing="false" onAction="#moveLeft" opacity="0.7" prefHeight="40.0" prefWidth="70.0" styleClass="buttonc" text="A" textFill="WHITE">
-                                    <font>
-                                        <Font size="18.0" />
-                                    </font>
-                                </Button>
-                                <Button layoutX="365.0" layoutY="446.0" mnemonicParsing="false" onAction="#dropTet" opacity="0.7" prefHeight="40.0" prefWidth="70.0" styleClass="buttonc" text="S" textFill="WHITE">
-                                    <font>
-                                        <Font size="18.0" />
-                                    </font>
-                                </Button>
                         <GridPane fx:id="gridPaneP2" alignment="CENTER" layoutX="502.0" layoutY="79.0" opacity="0.7">
                            <columnConstraints>
                               <ColumnConstraints hgrow="SOMETIMES" maxWidth="200.0" minWidth="10.0" prefWidth="200.0" />

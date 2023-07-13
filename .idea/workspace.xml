@@ -4,11 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="220209df-59ba-4661-a75c-f0da5ee61152" name="Changes" comment="GameOver first version added">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GUI/src/main/java/com/example/gui/MenuController.java" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/src/main/java/com/example/gui/MenuController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GUI/src/main/java/com/example/gui/TetrisController.java" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/src/main/java/com/example/gui/TetrisController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GUI/src/main/resources/com/example/gui/hello-gui.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/src/main/resources/com/example/gui/hello-gui.fxml" afterDir="false" />
+    <list default="true" id="220209df-59ba-4661-a75c-f0da5ee61152" name="Changes" comment="Multiplayer AlphaTest">
+      <change beforePath="$PROJECT_DIR$/GUI/src/main/java/com/example/gui/MultiplayerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/src/main/java/com/example/gui/MultiplayerController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/GUI/src/main/resources/com/example/gui/play_multi.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/src/main/resources/com/example/gui/play_multi.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -198,7 +195,14 @@
       <option name="project" value="LOCAL" />
       <updated>1689124953018</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="Multiplayer AlphaTest">
+      <created>1689214058511</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1689214058511</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -234,7 +238,8 @@
     <MESSAGE value="Update 2 GUI is connected to the logic" />
     <MESSAGE value="Bug Fixing" />
     <MESSAGE value="GameOver first version added" />
-    <option name="LAST_COMMIT_MESSAGE" value="GameOver first version added" />
+    <MESSAGE value="Multiplayer AlphaTest" />
+    <option name="LAST_COMMIT_MESSAGE" value="Multiplayer AlphaTest" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
