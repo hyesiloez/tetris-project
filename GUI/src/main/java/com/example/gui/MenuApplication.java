@@ -50,6 +50,7 @@ public class MenuApplication extends Application  {
         if (alert.showAndWait().get() == ButtonType.OK) {
             System.out.println("Log out!");
             stage.close();
+            System.exit(0);
         }
     }
 

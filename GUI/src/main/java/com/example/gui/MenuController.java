@@ -88,16 +88,28 @@ public class MenuController {
             public void handle(KeyEvent keyEvent) {
                 switch (keyEvent.getCode()){
                     case W:
-                        multiplayerController.rotate2();
+                        multiplayerController.rotateP1();
+                        break;
+                    case I:
+                        multiplayerController.rotateP2();
                         break;
                     case S:
-                        multiplayerController.dropTet2();
+                        multiplayerController.dropTetP1();
+                        break;
+                    case K:
+                        multiplayerController.dropTetP2();
                         break;
                     case A:
-                        multiplayerController.moveLeft2();
+                        multiplayerController.moveLeftP1();
+                        break;
+                    case J:
+                        multiplayerController.moveLeftP2();
                         break;
                     case D :
-                        multiplayerController.moveRight2();
+                        multiplayerController.moveRightP1();
+                        break;
+                    case L:
+                        multiplayerController.moveRightP2();
                         break;
                     default:
                         break;

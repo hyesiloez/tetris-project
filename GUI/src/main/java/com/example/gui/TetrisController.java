@@ -202,7 +202,6 @@ public class TetrisController {
         }, 0, 1000, TimeUnit.MILLISECONDS);
 
     }
-
     public void updateScore () {
 
         if (game.isFullRowPoints) {
@@ -214,6 +213,6 @@ public class TetrisController {
             game.isTetOnGround = false;
         }
 
-        scoreLabel.setText("Score: " + score);
+        scoreLabel.setText("  Score:  " + score);
     }
 }
