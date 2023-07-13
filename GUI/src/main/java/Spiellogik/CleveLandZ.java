@@ -33,10 +33,10 @@ public class CleveLandZ implements Tetromino {
         this.defaultGoLeft(this.coords);
     }
     public boolean CheckOutOfBounds (int x , int y, BoardStatus[][] gameboard) {
-        if(!(x >= 0 && x < 14 && y >= 0 && y < 10 )) return false;
-
-        if(gameboard[x][y] == BoardStatus.SET) return false;
-
+        if(!(x >= -2 && x < 14 && y >= 0 && y < 10 )) return false;
+        if(x >= 0 && x < 14 && y >= 0 && y < 10){
+            if(gameboard[x][y] == BoardStatus.SET) return false;
+        }
         return true;
     }
     public void turn(BoardStatus[][] gameboard) {

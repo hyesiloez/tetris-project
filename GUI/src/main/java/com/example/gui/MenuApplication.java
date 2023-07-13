@@ -39,6 +39,7 @@ public class MenuApplication extends Application  {
             e.printStackTrace();
         }
     }
+
     public void logout(Stage stage) {
 
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
@@ -49,6 +50,7 @@ public class MenuApplication extends Application  {
         if (alert.showAndWait().get() == ButtonType.OK) {
             System.out.println("Log out!");
             stage.close();
+            System.exit(0);
         }
     }
 

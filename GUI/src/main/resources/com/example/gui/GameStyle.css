@@ -18,3 +18,25 @@
     -fx-background-color : #02042E;
     -fx-background-radius : 30 30 30 30;
 }
+.scoreLabel
+{
+    -fx-background-color : #000000;
+    -fx-background-radius : 30 30 30 30;
+}
+.buttonGameOver
+{
+    -fx-background-color : #0C0C0C;
+    -fx-border-color : #04196C;
+    -fx-border-radius : 30 30 30 30;
+    -fx-background-radius : 30 30 30 30;
+}
+.buttonGameOver:hover
+{
+     -fx-background-color : #2A2929;
+     -fx-background-radius : 30 30 30 30;
+}
+.buttonGameOver:pressed
+{
+    -fx-background-color : #02042E;
+    -fx-background-radius : 30 30 30 30;
+}

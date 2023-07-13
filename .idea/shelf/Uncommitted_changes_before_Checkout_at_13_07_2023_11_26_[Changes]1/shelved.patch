@@ -1,0 +1,351 @@
+Index: .idea/libraries/Maven__org_openjfx_javafx_base_win_17_0_6.xml
+===================================================================
+diff --git a/.idea/libraries/Maven__org_openjfx_javafx_base_win_17_0_6.xml b/.idea/libraries/Maven__org_openjfx_javafx_base_win_17_0_6.xml
+deleted file mode 100644
+--- a/.idea/libraries/Maven__org_openjfx_javafx_base_win_17_0_6.xml	
++++ /dev/null	
+@@ -1,14 +0,0 @@
+-<component name="libraryTable">
+-  <library name="Maven: org.openjfx:javafx-base:win:17.0.6" type="java-imported" external-system-id="Maven">
+-    <properties groupId="org.openjfx" artifactId="javafx-base" version="17.0.6" classifier="win" />
+-    <CLASSES>
+-      <root url="jar://$MAVEN_REPOSITORY$/org/openjfx/javafx-base/17.0.6/javafx-base-17.0.6-win.jar!/" />
+-    </CLASSES>
+-    <JAVADOC>
+-      <root url="jar://$MAVEN_REPOSITORY$/org/openjfx/javafx-base/17.0.6/javafx-base-17.0.6-javadoc.jar!/" />
+-    </JAVADOC>
+-    <SOURCES>
+-      <root url="jar://$MAVEN_REPOSITORY$/org/openjfx/javafx-base/17.0.6/javafx-base-17.0.6-sources.jar!/" />
+-    </SOURCES>
+-  </library>
+-</component>
+\ No newline at end of file
+Index: .idea/libraries/Maven__org_openjfx_javafx_controls_win_17_0_6.xml
+===================================================================
+diff --git a/.idea/libraries/Maven__org_openjfx_javafx_controls_win_17_0_6.xml b/.idea/libraries/Maven__org_openjfx_javafx_controls_win_17_0_6.xml
+deleted file mode 100644
+--- a/.idea/libraries/Maven__org_openjfx_javafx_controls_win_17_0_6.xml	
++++ /dev/null	
+@@ -1,14 +0,0 @@
+-<component name="libraryTable">
+-  <library name="Maven: org.openjfx:javafx-controls:win:17.0.6" type="java-imported" external-system-id="Maven">
+-    <properties groupId="org.openjfx" artifactId="javafx-controls" version="17.0.6" classifier="win" />
+-    <CLASSES>
+-      <root url="jar://$MAVEN_REPOSITORY$/org/openjfx/javafx-controls/17.0.6/javafx-controls-17.0.6-win.jar!/" />
+-    </CLASSES>
+-    <JAVADOC>
+-      <root url="jar://$MAVEN_REPOSITORY$/org/openjfx/javafx-controls/17.0.6/javafx-controls-17.0.6-javadoc.jar!/" />
+-    </JAVADOC>
+-    <SOURCES>
+-      <root url="jar://$MAVEN_REPOSITORY$/org/openjfx/javafx-controls/17.0.6/javafx-controls-17.0.6-sources.jar!/" />
+-    </SOURCES>
+-  </library>
+-</component>
+\ No newline at end of file
+Index: .idea/libraries/Maven__org_apiguardian_apiguardian_api_1_1_2.xml
+===================================================================
+diff --git a/.idea/libraries/Maven__org_apiguardian_apiguardian_api_1_1_2.xml b/.idea/libraries/Maven__org_apiguardian_apiguardian_api_1_1_2.xml
+deleted file mode 100644
+--- a/.idea/libraries/Maven__org_apiguardian_apiguardian_api_1_1_2.xml	
++++ /dev/null	
+@@ -1,14 +0,0 @@
+-<component name="libraryTable">
+-  <library name="Maven: org.apiguardian:apiguardian-api:1.1.2" type="java-imported" external-system-id="Maven">
+-    <properties groupId="org.apiguardian" artifactId="apiguardian-api" version="1.1.2" />
+-    <CLASSES>
+-      <root url="jar://$MAVEN_REPOSITORY$/org/apiguardian/apiguardian-api/1.1.2/apiguardian-api-1.1.2.jar!/" />
+-    </CLASSES>
+-    <JAVADOC>
+-      <root url="jar://$MAVEN_REPOSITORY$/org/apiguardian/apiguardian-api/1.1.2/apiguardian-api-1.1.2-javadoc.jar!/" />
+-    </JAVADOC>
+-    <SOURCES>
+-      <root url="jar://$MAVEN_REPOSITORY$/org/apiguardian/apiguardian-api/1.1.2/apiguardian-api-1.1.2-sources.jar!/" />
+-    </SOURCES>
+-  </library>
+-</component>
+\ No newline at end of file
+Index: .idea/libraries/Maven__org_openjfx_javafx_graphics_17_0_6.xml
+===================================================================
+diff --git a/.idea/libraries/Maven__org_openjfx_javafx_graphics_17_0_6.xml b/.idea/libraries/Maven__org_openjfx_javafx_graphics_17_0_6.xml
+deleted file mode 100644
+--- a/.idea/libraries/Maven__org_openjfx_javafx_graphics_17_0_6.xml	
++++ /dev/null	
+@@ -1,14 +0,0 @@
+-<component name="libraryTable">
+-  <library name="Maven: org.openjfx:javafx-graphics:17.0.6" type="java-imported" external-system-id="Maven">
+-    <properties groupId="org.openjfx" artifactId="javafx-graphics" version="17.0.6" />
+-    <CLASSES>
+-      <root url="jar://$MAVEN_REPOSITORY$/org/openjfx/javafx-graphics/17.0.6/javafx-graphics-17.0.6.jar!/" />
+-    </CLASSES>
+-    <JAVADOC>
+-      <root url="jar://$MAVEN_REPOSITORY$/org/openjfx/javafx-graphics/17.0.6/javafx-graphics-17.0.6-javadoc.jar!/" />
+-    </JAVADOC>
+-    <SOURCES>
+-      <root url="jar://$MAVEN_REPOSITORY$/org/openjfx/javafx-graphics/17.0.6/javafx-graphics-17.0.6-sources.jar!/" />
+-    </SOURCES>
+-  </library>
+-</component>
+\ No newline at end of file
+Index: .idea/libraries/Maven__org_opentest4j_opentest4j_1_2_0.xml
+===================================================================
+diff --git a/.idea/libraries/Maven__org_opentest4j_opentest4j_1_2_0.xml b/.idea/libraries/Maven__org_opentest4j_opentest4j_1_2_0.xml
+deleted file mode 100644
+--- a/.idea/libraries/Maven__org_opentest4j_opentest4j_1_2_0.xml	
++++ /dev/null	
+@@ -1,14 +0,0 @@
+-<component name="libraryTable">
+-  <library name="Maven: org.opentest4j:opentest4j:1.2.0" type="java-imported" external-system-id="Maven">
+-    <properties groupId="org.opentest4j" artifactId="opentest4j" version="1.2.0" />
+-    <CLASSES>
+-      <root url="jar://$MAVEN_REPOSITORY$/org/opentest4j/opentest4j/1.2.0/opentest4j-1.2.0.jar!/" />
+-    </CLASSES>
+-    <JAVADOC>
+-      <root url="jar://$MAVEN_REPOSITORY$/org/opentest4j/opentest4j/1.2.0/opentest4j-1.2.0-javadoc.jar!/" />
+-    </JAVADOC>
+-    <SOURCES>
+-      <root url="jar://$MAVEN_REPOSITORY$/org/opentest4j/opentest4j/1.2.0/opentest4j-1.2.0-sources.jar!/" />
+-    </SOURCES>
+-  </library>
+-</component>
+\ No newline at end of file
+Index: .idea/libraries/Maven__org_openjfx_javafx_graphics_win_17_0_6.xml
+===================================================================
+diff --git a/.idea/libraries/Maven__org_openjfx_javafx_graphics_win_17_0_6.xml b/.idea/libraries/Maven__org_openjfx_javafx_graphics_win_17_0_6.xml
+deleted file mode 100644
+--- a/.idea/libraries/Maven__org_openjfx_javafx_graphics_win_17_0_6.xml	
++++ /dev/null	
+@@ -1,14 +0,0 @@
+-<component name="libraryTable">
+-  <library name="Maven: org.openjfx:javafx-graphics:win:17.0.6" type="java-imported" external-system-id="Maven">
+-    <properties groupId="org.openjfx" artifactId="javafx-graphics" version="17.0.6" classifier="win" />
+-    <CLASSES>
+-      <root url="jar://$MAVEN_REPOSITORY$/org/openjfx/javafx-graphics/17.0.6/javafx-graphics-17.0.6-win.jar!/" />
+-    </CLASSES>
+-    <JAVADOC>
+-      <root url="jar://$MAVEN_REPOSITORY$/org/openjfx/javafx-graphics/17.0.6/javafx-graphics-17.0.6-javadoc.jar!/" />
+-    </JAVADOC>
+-    <SOURCES>
+-      <root url="jar://$MAVEN_REPOSITORY$/org/openjfx/javafx-graphics/17.0.6/javafx-graphics-17.0.6-sources.jar!/" />
+-    </SOURCES>
+-  </library>
+-</component>
+\ No newline at end of file
+Index: .idea/libraries/Maven__org_junit_platform_junit_platform_commons_1_9_2.xml
+===================================================================
+diff --git a/.idea/libraries/Maven__org_junit_platform_junit_platform_commons_1_9_2.xml b/.idea/libraries/Maven__org_junit_platform_junit_platform_commons_1_9_2.xml
+deleted file mode 100644
+--- a/.idea/libraries/Maven__org_junit_platform_junit_platform_commons_1_9_2.xml	
++++ /dev/null	
+@@ -1,14 +0,0 @@
+-<component name="libraryTable">
+-  <library name="Maven: org.junit.platform:junit-platform-commons:1.9.2" type="java-imported" external-system-id="Maven">
+-    <properties groupId="org.junit.platform" artifactId="junit-platform-commons" version="1.9.2" />
+-    <CLASSES>
+-      <root url="jar://$MAVEN_REPOSITORY$/org/junit/platform/junit-platform-commons/1.9.2/junit-platform-commons-1.9.2.jar!/" />
+-    </CLASSES>
+-    <JAVADOC>
+-      <root url="jar://$MAVEN_REPOSITORY$/org/junit/platform/junit-platform-commons/1.9.2/junit-platform-commons-1.9.2-javadoc.jar!/" />
+-    </JAVADOC>
+-    <SOURCES>
+-      <root url="jar://$MAVEN_REPOSITORY$/org/junit/platform/junit-platform-commons/1.9.2/junit-platform-commons-1.9.2-sources.jar!/" />
+-    </SOURCES>
+-  </library>
+-</component>
+\ No newline at end of file
+Index: .idea/libraries/Maven__org_openjfx_javafx_fxml_17_0_6.xml
+===================================================================
+diff --git a/.idea/libraries/Maven__org_openjfx_javafx_fxml_17_0_6.xml b/.idea/libraries/Maven__org_openjfx_javafx_fxml_17_0_6.xml
+deleted file mode 100644
+--- a/.idea/libraries/Maven__org_openjfx_javafx_fxml_17_0_6.xml	
++++ /dev/null	
+@@ -1,14 +0,0 @@
+-<component name="libraryTable">
+-  <library name="Maven: org.openjfx:javafx-fxml:17.0.6" type="java-imported" external-system-id="Maven">
+-    <properties groupId="org.openjfx" artifactId="javafx-fxml" version="17.0.6" />
+-    <CLASSES>
+-      <root url="jar://$MAVEN_REPOSITORY$/org/openjfx/javafx-fxml/17.0.6/javafx-fxml-17.0.6.jar!/" />
+-    </CLASSES>
+-    <JAVADOC>
+-      <root url="jar://$MAVEN_REPOSITORY$/org/openjfx/javafx-fxml/17.0.6/javafx-fxml-17.0.6-javadoc.jar!/" />
+-    </JAVADOC>
+-    <SOURCES>
+-      <root url="jar://$MAVEN_REPOSITORY$/org/openjfx/javafx-fxml/17.0.6/javafx-fxml-17.0.6-sources.jar!/" />
+-    </SOURCES>
+-  </library>
+-</component>
+\ No newline at end of file
+Index: .idea/libraries/Maven__org_openjfx_javafx_controls_17_0_6.xml
+===================================================================
+diff --git a/.idea/libraries/Maven__org_openjfx_javafx_controls_17_0_6.xml b/.idea/libraries/Maven__org_openjfx_javafx_controls_17_0_6.xml
+deleted file mode 100644
+--- a/.idea/libraries/Maven__org_openjfx_javafx_controls_17_0_6.xml	
++++ /dev/null	
+@@ -1,14 +0,0 @@
+-<component name="libraryTable">
+-  <library name="Maven: org.openjfx:javafx-controls:17.0.6" type="java-imported" external-system-id="Maven">
+-    <properties groupId="org.openjfx" artifactId="javafx-controls" version="17.0.6" />
+-    <CLASSES>
+-      <root url="jar://$MAVEN_REPOSITORY$/org/openjfx/javafx-controls/17.0.6/javafx-controls-17.0.6.jar!/" />
+-    </CLASSES>
+-    <JAVADOC>
+-      <root url="jar://$MAVEN_REPOSITORY$/org/openjfx/javafx-controls/17.0.6/javafx-controls-17.0.6-javadoc.jar!/" />
+-    </JAVADOC>
+-    <SOURCES>
+-      <root url="jar://$MAVEN_REPOSITORY$/org/openjfx/javafx-controls/17.0.6/javafx-controls-17.0.6-sources.jar!/" />
+-    </SOURCES>
+-  </library>
+-</component>
+\ No newline at end of file
+Index: .idea/libraries/Maven__org_openjfx_javafx_fxml_win_17_0_6.xml
+===================================================================
+diff --git a/.idea/libraries/Maven__org_openjfx_javafx_fxml_win_17_0_6.xml b/.idea/libraries/Maven__org_openjfx_javafx_fxml_win_17_0_6.xml
+deleted file mode 100644
+--- a/.idea/libraries/Maven__org_openjfx_javafx_fxml_win_17_0_6.xml	
++++ /dev/null	
+@@ -1,14 +0,0 @@
+-<component name="libraryTable">
+-  <library name="Maven: org.openjfx:javafx-fxml:win:17.0.6" type="java-imported" external-system-id="Maven">
+-    <properties groupId="org.openjfx" artifactId="javafx-fxml" version="17.0.6" classifier="win" />
+-    <CLASSES>
+-      <root url="jar://$MAVEN_REPOSITORY$/org/openjfx/javafx-fxml/17.0.6/javafx-fxml-17.0.6-win.jar!/" />
+-    </CLASSES>
+-    <JAVADOC>
+-      <root url="jar://$MAVEN_REPOSITORY$/org/openjfx/javafx-fxml/17.0.6/javafx-fxml-17.0.6-javadoc.jar!/" />
+-    </JAVADOC>
+-    <SOURCES>
+-      <root url="jar://$MAVEN_REPOSITORY$/org/openjfx/javafx-fxml/17.0.6/javafx-fxml-17.0.6-sources.jar!/" />
+-    </SOURCES>
+-  </library>
+-</component>
+\ No newline at end of file
+Index: .idea/libraries/Maven__org_junit_jupiter_junit_jupiter_api_5_9_2.xml
+===================================================================
+diff --git a/.idea/libraries/Maven__org_junit_jupiter_junit_jupiter_api_5_9_2.xml b/.idea/libraries/Maven__org_junit_jupiter_junit_jupiter_api_5_9_2.xml
+deleted file mode 100644
+--- a/.idea/libraries/Maven__org_junit_jupiter_junit_jupiter_api_5_9_2.xml	
++++ /dev/null	
+@@ -1,14 +0,0 @@
+-<component name="libraryTable">
+-  <library name="Maven: org.junit.jupiter:junit-jupiter-api:5.9.2" type="java-imported" external-system-id="Maven">
+-    <properties groupId="org.junit.jupiter" artifactId="junit-jupiter-api" version="5.9.2" />
+-    <CLASSES>
+-      <root url="jar://$MAVEN_REPOSITORY$/org/junit/jupiter/junit-jupiter-api/5.9.2/junit-jupiter-api-5.9.2.jar!/" />
+-    </CLASSES>
+-    <JAVADOC>
+-      <root url="jar://$MAVEN_REPOSITORY$/org/junit/jupiter/junit-jupiter-api/5.9.2/junit-jupiter-api-5.9.2-javadoc.jar!/" />
+-    </JAVADOC>
+-    <SOURCES>
+-      <root url="jar://$MAVEN_REPOSITORY$/org/junit/jupiter/junit-jupiter-api/5.9.2/junit-jupiter-api-5.9.2-sources.jar!/" />
+-    </SOURCES>
+-  </library>
+-</component>
+\ No newline at end of file
+Index: .idea/shelf/Uncommitted_changes_before_Checkout_at_02_07_2023_20_37__Changes_.xml
+===================================================================
+diff --git a/.idea/shelf/Uncommitted_changes_before_Checkout_at_02_07_2023_20_37__Changes_.xml b/.idea/shelf/Uncommitted_changes_before_Checkout_at_02_07_2023_20_37__Changes_.xml
+deleted file mode 100644
+--- a/.idea/shelf/Uncommitted_changes_before_Checkout_at_02_07_2023_20_37__Changes_.xml	
++++ /dev/null	
+@@ -1,4 +0,0 @@
+-<changelist name="Uncommitted_changes_before_Checkout_at_02_07_2023_20_37_[Changes]" date="1688323062339" recycled="true" deleted="true">
+-  <option name="PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_02_07_2023_20_37_[Changes]/shelved.patch" />
+-  <option name="DESCRIPTION" value="Uncommitted changes before Checkout at 02.07.2023 20:37 [Changes]" />
+-</changelist>
+\ No newline at end of file
+Index: .idea/libraries/Maven__org_junit_jupiter_junit_jupiter_engine_5_9_2.xml
+===================================================================
+diff --git a/.idea/libraries/Maven__org_junit_jupiter_junit_jupiter_engine_5_9_2.xml b/.idea/libraries/Maven__org_junit_jupiter_junit_jupiter_engine_5_9_2.xml
+deleted file mode 100644
+--- a/.idea/libraries/Maven__org_junit_jupiter_junit_jupiter_engine_5_9_2.xml	
++++ /dev/null	
+@@ -1,14 +0,0 @@
+-<component name="libraryTable">
+-  <library name="Maven: org.junit.jupiter:junit-jupiter-engine:5.9.2" type="java-imported" external-system-id="Maven">
+-    <properties groupId="org.junit.jupiter" artifactId="junit-jupiter-engine" version="5.9.2" />
+-    <CLASSES>
+-      <root url="jar://$MAVEN_REPOSITORY$/org/junit/jupiter/junit-jupiter-engine/5.9.2/junit-jupiter-engine-5.9.2.jar!/" />
+-    </CLASSES>
+-    <JAVADOC>
+-      <root url="jar://$MAVEN_REPOSITORY$/org/junit/jupiter/junit-jupiter-engine/5.9.2/junit-jupiter-engine-5.9.2-javadoc.jar!/" />
+-    </JAVADOC>
+-    <SOURCES>
+-      <root url="jar://$MAVEN_REPOSITORY$/org/junit/jupiter/junit-jupiter-engine/5.9.2/junit-jupiter-engine-5.9.2-sources.jar!/" />
+-    </SOURCES>
+-  </library>
+-</component>
+\ No newline at end of file
+Index: .idea/libraries/Maven__org_junit_platform_junit_platform_engine_1_9_2.xml
+===================================================================
+diff --git a/.idea/libraries/Maven__org_junit_platform_junit_platform_engine_1_9_2.xml b/.idea/libraries/Maven__org_junit_platform_junit_platform_engine_1_9_2.xml
+deleted file mode 100644
+--- a/.idea/libraries/Maven__org_junit_platform_junit_platform_engine_1_9_2.xml	
++++ /dev/null	
+@@ -1,14 +0,0 @@
+-<component name="libraryTable">
+-  <library name="Maven: org.junit.platform:junit-platform-engine:1.9.2" type="java-imported" external-system-id="Maven">
+-    <properties groupId="org.junit.platform" artifactId="junit-platform-engine" version="1.9.2" />
+-    <CLASSES>
+-      <root url="jar://$MAVEN_REPOSITORY$/org/junit/platform/junit-platform-engine/1.9.2/junit-platform-engine-1.9.2.jar!/" />
+-    </CLASSES>
+-    <JAVADOC>
+-      <root url="jar://$MAVEN_REPOSITORY$/org/junit/platform/junit-platform-engine/1.9.2/junit-platform-engine-1.9.2-javadoc.jar!/" />
+-    </JAVADOC>
+-    <SOURCES>
+-      <root url="jar://$MAVEN_REPOSITORY$/org/junit/platform/junit-platform-engine/1.9.2/junit-platform-engine-1.9.2-sources.jar!/" />
+-    </SOURCES>
+-  </library>
+-</component>
+\ No newline at end of file
+Index: .idea/libraries/Maven__org_openjfx_javafx_base_17_0_6.xml
+===================================================================
+diff --git a/.idea/libraries/Maven__org_openjfx_javafx_base_17_0_6.xml b/.idea/libraries/Maven__org_openjfx_javafx_base_17_0_6.xml
+deleted file mode 100644
+--- a/.idea/libraries/Maven__org_openjfx_javafx_base_17_0_6.xml	
++++ /dev/null	
+@@ -1,14 +0,0 @@
+-<component name="libraryTable">
+-  <library name="Maven: org.openjfx:javafx-base:17.0.6" type="java-imported" external-system-id="Maven">
+-    <properties groupId="org.openjfx" artifactId="javafx-base" version="17.0.6" />
+-    <CLASSES>
+-      <root url="jar://$MAVEN_REPOSITORY$/org/openjfx/javafx-base/17.0.6/javafx-base-17.0.6.jar!/" />
+-    </CLASSES>
+-    <JAVADOC>
+-      <root url="jar://$MAVEN_REPOSITORY$/org/openjfx/javafx-base/17.0.6/javafx-base-17.0.6-javadoc.jar!/" />
+-    </JAVADOC>
+-    <SOURCES>
+-      <root url="jar://$MAVEN_REPOSITORY$/org/openjfx/javafx-base/17.0.6/javafx-base-17.0.6-sources.jar!/" />
+-    </SOURCES>
+-  </library>
+-</component>
+\ No newline at end of file
+Index: .idea/shelf/Uncommitted_changes_before_Checkout_at_02_07_2023_20_37_[Changes]/shelved.patch
+===================================================================
+diff --git a/.idea/shelf/Uncommitted_changes_before_Checkout_at_02_07_2023_20_37_[Changes]/shelved.patch b/.idea/shelf/Uncommitted_changes_before_Checkout_at_02_07_2023_20_37_[Changes]/shelved.patch
+deleted file mode 100644
+--- a/.idea/shelf/Uncommitted_changes_before_Checkout_at_02_07_2023_20_37_[Changes]/shelved.patch	
++++ /dev/null	
+@@ -1,24 +0,0 @@
+-Index: .idea/workspace.xml
+-IDEA additional info:
+-Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+-<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"AutoImportSettings\">\r\n    <option name=\"autoReloadType\" value=\"SELECTIVE\" />\r\n  </component>\r\n  <component name=\"ChangeListManager\">\r\n    <list default=\"true\" id=\"220209df-59ba-4661-a75c-f0da5ee61152\" name=\"Changes\" comment=\"GUI update\">\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/workspace.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/workspace.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/GUI/src/main/java/com/example/gui/MenuApplication.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/GUI/src/main/java/com/example/gui/MenuApplication.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/GUI/src/main/java/com/example/gui/MenuController.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/GUI/src/main/java/com/example/gui/MenuController.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/GUI/src/main/resources/com/example/gui/hello-gui.fxml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/GUI/src/main/resources/com/example/gui/hello-gui.fxml\" afterDir=\"false\" />\r\n    </list>\r\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\r\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\r\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\r\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\r\n  </component>\r\n  <component name=\"Git.Settings\">\r\n    <option name=\"RECENT_BRANCH_BY_REPOSITORY\">\r\n      <map>\r\n        <entry key=\"$PROJECT_DIR$\" value=\"main\" />\r\n      </map>\r\n    </option>\r\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\r\n  </component>\r\n  <component name=\"MarkdownSettingsMigration\">\r\n    <option name=\"stateVersion\" value=\"1\" />\r\n  </component>\r\n  <component name=\"MavenImportPreferences\">\r\n    <option name=\"generalSettings\">\r\n      <MavenGeneralSettings>\r\n        <option name=\"useMavenConfig\" value=\"true\" />\r\n      </MavenGeneralSettings>\r\n    </option>\r\n  </component>\r\n  <component name=\"ProjectId\" id=\"2RhaPoz6u0Vwd8QMbu3APuiNRgJ\" />\r\n  <component name=\"ProjectViewState\">\r\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\r\n    <option name=\"showLibraryContents\" value=\"true\" />\r\n  </component>\r\n  <component name=\"PropertiesComponent\">{\r\n  &quot;keyToString&quot;: {\r\n    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,\r\n    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,\r\n    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,\r\n    &quot;last_opened_file_path&quot;: &quot;D:/Tetris/11/GUI/src/main/resources/com/example/gui&quot;,\r\n    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,\r\n    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,\r\n    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;\r\n  }\r\n}</component>\r\n  <component name=\"RecentsManager\">\r\n    <key name=\"CopyFile.RECENT_KEYS\">\r\n      <recent name=\"D:\\Tetris\\11\\GUI\\src\\main\\resources\\com\\example\\gui\" />\r\n      <recent name=\"D:\\Tetris\\11\\GUI\\src\\main\\resources\\image\" />\r\n    </key>\r\n    <key name=\"MoveFile.RECENT_KEYS\">\r\n      <recent name=\"D:\\Tetris\\11\\GUI\\src\\main\\resources\\com\\example\\gui\" />\r\n      <recent name=\"D:\\Tetris\\11\\GUI\\src\\main\\java\\com\\example\\gui\" />\r\n    </key>\r\n  </component>\r\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\r\n  <component name=\"TaskManager\">\r\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\r\n      <changelist id=\"220209df-59ba-4661-a75c-f0da5ee61152\" name=\"Changes\" comment=\"\" />\r\n      <created>1687704753734</created>\r\n      <option name=\"number\" value=\"Default\" />\r\n      <option name=\"presentableId\" value=\"Default\" />\r\n      <updated>1687704753734</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00001\" summary=\"GUI\">\r\n      <created>1687717747296</created>\r\n      <option name=\"number\" value=\"00001\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00001\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1687717747296</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00002\" summary=\"GUI\">\r\n      <created>1687717760384</created>\r\n      <option name=\"number\" value=\"00002\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00002\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1687717760384</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00003\" summary=\"GUI update\">\r\n      <created>1687723993468</created>\r\n      <option name=\"number\" value=\"00003\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00003\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1687723993469</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00004\" summary=\"GUI update\">\r\n      <created>1687726837220</created>\r\n      <option name=\"number\" value=\"00004\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00004\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1687726837220</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00005\" summary=\"GUI update\">\r\n      <created>1687731381465</created>\r\n      <option name=\"number\" value=\"00005\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00005\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1687731381465</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00006\" summary=\"GUI update\">\r\n      <created>1688311653493</created>\r\n      <option name=\"number\" value=\"00006\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00006\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1688311653493</updated>\r\n    </task>\r\n    <option name=\"localTasksCounter\" value=\"7\" />\r\n    <servers />\r\n  </component>\r\n  <component name=\"Vcs.Log.Tabs.Properties\">\r\n    <option name=\"TAB_STATES\">\r\n      <map>\r\n        <entry key=\"MAIN\">\r\n          <value>\r\n            <State>\r\n              <option name=\"FILTERS\">\r\n                <map>\r\n                  <entry key=\"branch\">\r\n                    <value>\r\n                      <list>\r\n                        <option value=\"origin/GUI\" />\r\n                      </list>\r\n                    </value>\r\n                  </entry>\r\n                </map>\r\n              </option>\r\n            </State>\r\n          </value>\r\n        </entry>\r\n      </map>\r\n    </option>\r\n  </component>\r\n  <component name=\"VcsManagerConfiguration\">\r\n    <MESSAGE value=\"GUI\" />\r\n    <MESSAGE value=\"GUI update\" />\r\n    <option name=\"LAST_COMMIT_MESSAGE\" value=\"GUI update\" />\r\n  </component>\r\n</project>
+-Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+-<+>UTF-8
+-===================================================================
+-diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+---- a/.idea/workspace.xml	(revision 63a4b9a202dc4bee3e0228f8510e6a1c900ca63a)
+-+++ b/.idea/workspace.xml	(date 1688323034937)
+-@@ -4,12 +4,7 @@
+-     <option name="autoReloadType" value="SELECTIVE" />
+-   </component>
+-   <component name="ChangeListManager">
+--    <list default="true" id="220209df-59ba-4661-a75c-f0da5ee61152" name="Changes" comment="GUI update">
+--      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+--      <change beforePath="$PROJECT_DIR$/GUI/src/main/java/com/example/gui/MenuApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/src/main/java/com/example/gui/MenuApplication.java" afterDir="false" />
+--      <change beforePath="$PROJECT_DIR$/GUI/src/main/java/com/example/gui/MenuController.java" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/src/main/java/com/example/gui/MenuController.java" afterDir="false" />
+--      <change beforePath="$PROJECT_DIR$/GUI/src/main/resources/com/example/gui/hello-gui.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/src/main/resources/com/example/gui/hello-gui.fxml" afterDir="false" />
+--    </list>
+-+    <list default="true" id="220209df-59ba-4661-a75c-f0da5ee61152" name="Changes" comment="" />
+-     <option name="SHOW_DIALOG" value="false" />
+-     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+-     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />

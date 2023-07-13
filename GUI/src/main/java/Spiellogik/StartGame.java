@@ -12,6 +12,8 @@ public class StartGame {
     //private ScheduledExecutorService scheduler = Executors.newSingleThreadScheduledExecutor();
     private Tetromino next_tet;
     private int points;
+    public boolean isTetOnGround = false;
+    public boolean isFullRowPoints = false;
 
     public StartGame(int length, int height){
         this.gameboard = new BoardStatus[height][length];
@@ -47,7 +49,6 @@ public class StartGame {
     public Tetromino randomTet(){
         Random rand = new Random();
         int random_int = rand.nextInt(7);
-
         switch (random_int){
             case 0:
                 return new TeeWee();
@@ -66,7 +67,6 @@ public class StartGame {
             default:
                 return new Hero();
         }
-
     }
     public void removeTet (){
         Coords [] coords = this.tet.getCoords();
@@ -223,12 +223,35 @@ public class StartGame {
         }
 
     }
+    public void addRow(){
+        Random rand = new Random();
+        int random_int = rand.nextInt(10);
+        for(int i = 0; i < this.gameboard.length - 1; i++ ){
+            for (int j = 0; j < this.gameboard[i].length; j++){
+                if(this.gameboard[i+1][j] != BoardStatus.PLAYER && this.gameboard[i][j] != BoardStatus.PLAYER){
+                    this.gameboard[i][j] = this.gameboard[i+1][j];
+                }
+
+            }
+        }
+        for (int k = 0; k < this.gameboard[13].length; k++){
+            if ( random_int != k){
+                this.gameboard[13][k] = BoardStatus.SET;
+            } else {
+                this.gameboard[13][k] = BoardStatus.AIR;
+            }
+        }
+        this.isOnGround();
+
+    }
     public void isOnGround(){
         Coords[] coords = this.tet.getCoords();
         for (int i = 0; i < coords.length; i++){
             if (coords[i].getX() == 13 || this.gameboard[coords[i].getX() + 1][coords[i].getY()] == BoardStatus.SET){
                 this.tet.setOn_ground(true);
                 this.tetOnGround();
+                this.isTetOnGround = true;
+                return;
             }
         }
     }
@@ -242,6 +265,7 @@ public class StartGame {
         for (int j = 0; j < gameboard.length; j++){
             if (FullRow(j)){
                 removeRow(j);
+                this.isFullRowPoints = true;
             }
         }
         this.isGameOver();

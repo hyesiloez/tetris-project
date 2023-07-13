@@ -21,6 +21,8 @@ public class MenuController {
     @FXML
     private AnchorPane scenePane;
 
+    TetrisController tetrisController;
+    MultiplayerController multiplayerController;
     Stage stage;
 
     public void logout(ActionEvent event) {
@@ -34,86 +36,42 @@ public class MenuController {
             stage = (Stage) scenePane.getScene().getWindow();
             System.out.println("Log out!");
             stage.close();
-        }
-    }
-    @FXML
-    void backToMainMenu(KeyEvent event) throws IOException {
-        if(event.getCode() == KeyCode.ESCAPE){
-            System.out.println("Escape pressed!");
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("hello-gui.fxml"));
-            root = loader.load();
-            stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-            scene = new Scene(root, stage.getWidth(), stage.getHeight());
-            stage.setScene(scene);
-            stage.show();
-        }
-    }
-
-    public void toMainMenu(ActionEvent e) throws IOException {
-        System.out.println("TO Main Menu");
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("hello-gui.fxml"));
-        root = loader.load();
-        stage = (Stage) ((Node) e.getSource()).getScene().getWindow();
-        scene = new Scene(root, stage.getWidth(), stage.getHeight());
-        stage.setScene(scene);
-        stage.show();
-    }
-
-    @FXML
-    void backToSingleplayer(KeyEvent event) throws IOException {
-        if(event.getCode() == KeyCode.ESCAPE){
-            System.out.println("Escape pressed!");
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("singleplayer.fxml"));
-            root = loader.load();
-            stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-            scene = new Scene(root, stage.getWidth(), stage.getHeight());
-            stage.setScene(scene);
-            stage.show();
-        }
-    }
-    @FXML
-    void backToMultiplayer(KeyEvent event) throws IOException {
-        if(event.getCode() == KeyCode.ESCAPE){
-            System.out.println("Escape pressed!");
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("multiplayer.fxml"));
-            root = loader.load();
-            stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-            scene = new Scene(root, stage.getWidth(), stage.getHeight());
-            stage.setScene(scene);
-            stage.show();
+            System.exit(0);
         }
     }
     private Scene scene;
     private Parent root;
-
-    public void singleplayer(ActionEvent e) throws IOException {
-        System.out.println("Singleplayer");
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("singleplayer.fxml"));
-        root = loader.load();
-        stage = (Stage) ((Node) e.getSource()).getScene().getWindow();
-        scene = new Scene(root, stage.getWidth(), stage.getHeight());
-        stage.setScene(scene);
-        stage.show();
-    }
-
-    public void multiplayer(ActionEvent e) throws IOException {
-        System.out.println("Multiplayer");
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("multiplayer.fxml"));
-        root = loader.load();
-        stage = (Stage) ((Node) e.getSource()).getScene().getWindow();
-        scene = new Scene(root, stage.getWidth(), stage.getHeight());
-        stage.setScene(scene);
-        stage.show();
-    }
-
     public void playSingle (ActionEvent e) throws IOException {
         System.out.println("Play Singleplayer");
         FXMLLoader loader = new FXMLLoader(getClass().getResource("play_single.fxml"));
         root = loader.load();
         stage = (Stage) ((Node) e.getSource()).getScene().getWindow();
-        scene = new Scene(root, stage.getWidth(), stage.getHeight());
+        scene = new Scene(root, stage.getScene().getWidth(), stage.getScene().getHeight());
         stage.setScene(scene);
         stage.show();
+        tetrisController = loader.getController();
+        scene.setOnKeyPressed(new EventHandler<KeyEvent>(){
+            @Override
+            public void handle(KeyEvent keyEvent) {
+                switch (keyEvent.getCode()){
+                    case W:
+                        tetrisController.rotate2();
+                        break;
+                    case S:
+                        tetrisController.dropTet2();
+                        break;
+                    case A:
+                        tetrisController.moveLeft2();
+                        break;
+                    case D :
+                        tetrisController.moveRight2();
+                        break;
+                    default:
+                        break;
+                }
+
+            }
+        });
     }
 
     public void playMulti (ActionEvent e) throws IOException {
@@ -121,9 +79,44 @@ public class MenuController {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("play_multi.fxml"));
         root = loader.load();
         stage = (Stage) ((Node) e.getSource()).getScene().getWindow();
-        scene = new Scene(root, stage.getWidth(), stage.getHeight());
+        scene = new Scene(root, stage.getScene().getWidth(), stage.getScene().getHeight());
         stage.setScene(scene);
         stage.show();
+        multiplayerController = loader.getController();
+        scene.setOnKeyPressed(new EventHandler<KeyEvent>(){
+            @Override
+            public void handle(KeyEvent keyEvent) {
+                switch (keyEvent.getCode()){
+                    case W:
+                        multiplayerController.rotateP1();
+                        break;
+                    case I:
+                        multiplayerController.rotateP2();
+                        break;
+                    case S:
+                        multiplayerController.dropTetP1();
+                        break;
+                    case K:
+                        multiplayerController.dropTetP2();
+                        break;
+                    case A:
+                        multiplayerController.moveLeftP1();
+                        break;
+                    case J:
+                        multiplayerController.moveLeftP2();
+                        break;
+                    case D :
+                        multiplayerController.moveRightP1();
+                        break;
+                    case L:
+                        multiplayerController.moveRightP2();
+                        break;
+                    default:
+                        break;
+                }
+
+            }
+        });
 
     }
 }
