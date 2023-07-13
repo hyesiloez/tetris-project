@@ -2,6 +2,8 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
@@ -67,18 +69,20 @@
                               <Font size="18.0" />
                            </font>
                         </Button>
-                        <AnchorPane fx:id="gameOverPopUp" prefHeight="600.0" prefWidth="800.0" style="-fx-background-color: red;" visible="false">
+                        <AnchorPane fx:id="gameOverPopUp" prefHeight="600.0" prefWidth="800.0" style="-fx-background-color: black;">
                            <children>
-                              <Label alignment="CENTER" layoutX="172.0" layoutY="210.0" prefHeight="180.0" prefWidth="457.0" text="GAME OVER">
+                              <ImageView fitHeight="600.0" fitWidth="818.0" layoutX="26.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@gameover.jpg" />
+                                 </image></ImageView>
+                              <Button layoutX="129.0" layoutY="506.0" mnemonicParsing="false" onAction="#toMainMenu" styleClass="buttonGameOver" text="Back to Main Menu" textFill="WHITE">
                                  <font>
-                                    <Font size="70.0" />
-                                 </font>
-                              </Label>
-                              <Label layoutX="509.0" layoutY="489.0" prefHeight="58.0" prefWidth="240.0" text="Only for test. Don't worry!;) ">
+                                    <Font size="20.0" />
+                                 </font></Button>
+                              <Button layoutX="586.0" layoutY="506.0" mnemonicParsing="false" onAction="#restart" styleClass="buttonGameOver" text="Restart" textFill="WHITE">
                                  <font>
-                                    <Font size="18.0" />
-                                 </font>
-                              </Label>
+                                    <Font size="20.0" />
+                                 </font></Button>
                            </children></AnchorPane>
                      </children></AnchorPane>
                   <VBox VBox.vgrow="ALWAYS" />

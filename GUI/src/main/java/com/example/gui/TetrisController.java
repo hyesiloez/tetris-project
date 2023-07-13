@@ -215,4 +215,10 @@ public class TetrisController {
 
         scoreLabel.setText("  Score:  " + score);
     }
+
+    public void restart () {
+
+        gameOverPopUp.setVisible(false);
+        startGame();
+    }
 }
