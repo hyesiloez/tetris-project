@@ -74,6 +74,7 @@ public class TetrisController {
     public void startGame() {
         game = new StartGame(10,14);
         tetFall(game);
+        updateGrid();
     }
 
 
@@ -204,16 +205,7 @@ public class TetrisController {
     }
     public void updateScore () {
 
-        if (game.isFullRowPoints) {
-            score += 100;
-            game.isFullRowPoints = false;
-        }
-        if (game.isTetOnGround) {
-            score += 10;
-            game.isTetOnGround = false;
-        }
-
-        scoreLabel.setText("  Score:  " + score);
+        scoreLabel.setText("  Score:  " + game.getPoints());
     }
 
     public void restart () {
