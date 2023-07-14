@@ -38,13 +38,17 @@ public class TetrisController {
     private Scene scene;
     private Parent root;
 
+
     private int score = 0;
+
+    private ScheduledExecutorService scheduler;
 
     public void initialize() {
         game = new StartGame(10, 14);
         gridButtons = new Button[14][10];
         gridPane.getRowConstraints().clear();
         gridPane.getColumnConstraints().clear();
+        scheduler = Executors.newSingleThreadScheduledExecutor();
         for (int i = 0; i < 14; i++) {
             for (int j = 0; j < 10; j++) {
                 Button button = new Button();
@@ -73,8 +77,9 @@ public class TetrisController {
     @FXML
     public void startGame() {
         game = new StartGame(10,14);
+        scheduler.shutdown();
         tetFall(game);
-        updateGrid();
+
     }
 
 
@@ -107,9 +112,23 @@ public class TetrisController {
     }
     public void rotate2() {
         System.out.println("Rotate!");
-        game.turn(game.gameboard);
-        updateGrid();
+        if (game.getIsGameOver()){
+            gameOverPopUp.setVisible(true);
+            return;
+        }
+        if (!(game.getTet().getOn_ground())) {
+            game.turn(game.gameboard);
+            //game.isOnGround();
+            updateGrid();
+        } else if (!game.getIsGameOver()){
+            game.changeTet(game.getNext_tet());
+            game.setTet();
+            updateGrid();
+            game.changenext_tet(game.randomTet());
+            updateGrid();
+        }
         System.out.println(game);
+        updateGrid();
     }
     public void moveRight(ActionEvent event)  {
         System.out.println("Right!");
@@ -119,9 +138,22 @@ public class TetrisController {
     }
     public void moveRight2()  {
         System.out.println("Right!");
-        game.goRight();
-        updateGrid();
+        if (game.getIsGameOver()){
+            gameOverPopUp.setVisible(true);
+            return;
+        }
+        if (!(game.getTet().getOn_ground())) {
+            game.goRight();
+            updateGrid();
+        } else if (!game.getIsGameOver()){
+            game.changeTet(game.getNext_tet());
+            game.setTet();
+            updateGrid();
+            game.changenext_tet(game.randomTet());
+            updateGrid();
+        }
         System.out.println(game);
+        updateGrid();
     }
 
     public void moveLeft(ActionEvent event) {
@@ -132,9 +164,23 @@ public class TetrisController {
     }
     public void moveLeft2() {
         System.out.println("Left!");
-        game.goLeft();
-        updateGrid();
+        if (game.getIsGameOver()){
+            gameOverPopUp.setVisible(true);
+            return;
+        }
+        if (!(game.getTet().getOn_ground())) {
+            game.goLeft();
+            //game.isOnGround();
+            updateGrid();
+        } else if (!game.getIsGameOver()){
+            game.changeTet(game.getNext_tet());
+            game.setTet();
+            updateGrid();
+            game.changenext_tet(game.randomTet());
+            updateGrid();
+        }
         System.out.println(game);
+        updateGrid();
     }
 
     public void dropTet(ActionEvent event) {
@@ -165,7 +211,6 @@ public class TetrisController {
         }
         if (!(game.getTet().getOn_ground())) {
             game.drop();
-            //game.isOnGround();
             updateGrid();
         } else if (!game.getIsGameOver()){
             game.changeTet(game.getNext_tet());
@@ -179,9 +224,8 @@ public class TetrisController {
         updateGrid();
     }
     public void tetFall(StartGame a){
-        ScheduledExecutorService scheduler = Executors.newSingleThreadScheduledExecutor();
-
-        scheduler.scheduleAtFixedRate(new Runnable(){
+        scheduler = Executors.newSingleThreadScheduledExecutor();
+        this.scheduler.scheduleAtFixedRate(new Runnable(){
             public void run() {
 
                 if (!(a.getTet().getOn_ground())) {
@@ -209,8 +253,7 @@ public class TetrisController {
     }
 
     public void restart () {
-
         gameOverPopUp.setVisible(false);
-        startGame();
+        this.startGame();
     }
 }

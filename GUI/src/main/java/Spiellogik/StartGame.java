@@ -103,7 +103,7 @@ public class StartGame {
         for(int i = 0; i < 4; i++){
             if(a[i].getY() == 9){
                 return;
-            } else if(this.gameboard[a[i].getX()][a[i].getY() + 1] == BoardStatus.SET ){
+            } else if(a[i].getX() >=  0 && this.gameboard[a[i].getX()][a[i].getY() + 1] == BoardStatus.SET ){
                 return;
             }
         }
@@ -118,7 +118,7 @@ public class StartGame {
         for(int i = 0; i < 4; i++){
             if(a[i].getY() == 0){
                 return;
-            } else if(this.gameboard[a[i].getX()][a[i].getY() - 1] == BoardStatus.SET ){
+            } else if(a[i].getX() >=  0 && this.gameboard[a[i].getX()][a[i].getY() - 1] == BoardStatus.SET ){
                 return;
             }
         }
