@@ -54,6 +54,7 @@ public class MultiplayerController {
                 button.setPrefSize(30, 30);
                 gridPaneP1.add(button, j, i);
                 gridButtons[i][j] = button;
+                gridButtons[i][j].setStyle("-fx-background-color: #FFFFFF; -fx-border-color: #04196C;");
             }
         }
         for (int x = 0; x < 14; x++) {
@@ -62,6 +63,7 @@ public class MultiplayerController {
                 button.setPrefSize(30, 30);
                 gridPaneP2.add(button, y, x);
                 gridButtonsP2[x][y] = button;
+                gridButtonsP2[x][y].setStyle("-fx-background-color: #FFFFFF; -fx-border-color: #04196C;");
             }
         }
     }
@@ -71,9 +73,9 @@ public class MultiplayerController {
         for (int i = 0; i < 14; i++) {
             for (int j = 0; j < 10; j++) {
                 if (board[i][j]) {
-                    gridButtons[i][j].setStyle("-fx-background-color: #000000;");
+                    gridButtons[i][j].setStyle("-fx-background-color: #000000; -fx-border-color: #04196C;");
                 } else {
-                    gridButtons[i][j].setStyle("-fx-background-color: #FFFFFF;");
+                    gridButtons[i][j].setStyle("-fx-background-color: #FFFFFF; -fx-border-color: #04196C;");
                 }
             }
         }
@@ -83,9 +85,9 @@ public class MultiplayerController {
         for (int i = 0; i < 14; i++) {
             for (int j = 0; j < 10; j++) {
                 if (boardP2[i][j]) {
-                    gridButtonsP2[i][j].setStyle("-fx-background-color: #000000;");
+                    gridButtonsP2[i][j].setStyle("-fx-background-color: #000000; -fx-border-color: #04196C;");
                 } else {
-                    gridButtonsP2[i][j].setStyle("-fx-background-color: #FFFFFF;");
+                    gridButtonsP2[i][j].setStyle("-fx-background-color: #FFFFFF; -fx-border-color: #04196C;");
                 }
             }
         }

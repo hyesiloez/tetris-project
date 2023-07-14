@@ -15,6 +15,7 @@ import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -31,6 +32,14 @@ public class TetrisController {
     private GridPane gridPane;
     @FXML
     private Label scoreLabel;
+    @FXML
+    private Label scoreLabelGameOver;
+    @FXML
+    private HBox hBoxGameOver1;
+    @FXML
+    private HBox hBoxGameOver2;
+    @FXML
+    private HBox hBoxGameOver3;
     private StartGame game;
     private Button[][] gridButtons;
     MenuController menuController;
@@ -41,6 +50,10 @@ public class TetrisController {
     private int score = 0;
 
     public void initialize() {
+        score = 0;
+        scoreLabel.setText("  Score:  " + score);
+        changeBackground(false);
+        gameOverPopUp.setVisible(false);
         game = new StartGame(10, 14);
         gridButtons = new Button[14][10];
         gridPane.getRowConstraints().clear();
@@ -51,6 +64,7 @@ public class TetrisController {
                 button.setPrefSize(30, 30);
                 gridPane.add(button, j, i);
                 gridButtons[i][j] = button;
+                gridButtons[i][j].setStyle("-fx-background-color: #FFFFFF; -fx-border-color: #04196C;");
             }
         }
     }
@@ -62,9 +76,9 @@ public class TetrisController {
         for (int i = 0; i < 14; i++) {
             for (int j = 0; j < 10; j++) {
                 if (board[i][j]) {
-                    gridButtons[i][j].setStyle("-fx-background-color: #000000;");
+                    gridButtons[i][j].setStyle("-fx-background-color: #000000; -fx-border-color: #04196C;");
                 } else {
-                    gridButtons[i][j].setStyle("-fx-background-color: #FFFFFF;");
+                    gridButtons[i][j].setStyle("-fx-background-color: #FFFFFF; -fx-border-color: #04196C;");
                 }
             }
         }
@@ -72,6 +86,8 @@ public class TetrisController {
     }
     @FXML
     public void startGame() {
+        score = 0;
+        scoreLabel.setText("  Score:  " + score);
         game = new StartGame(10,14);
         tetFall(game);
     }
@@ -139,6 +155,9 @@ public class TetrisController {
     public void dropTet(ActionEvent event) {
         System.out.println("Drop!");
         if (game.getIsGameOver()){
+            score = 0;
+            scoreLabel.setText("  Score:  " + score);
+            changeBackground(true);
             gameOverPopUp.setVisible(true);
             return;
         }
@@ -159,6 +178,9 @@ public class TetrisController {
     public void dropTet2() {
         System.out.println("Drop!");
         if (game.getIsGameOver()){
+            score = 0;
+            scoreLabel.setText("  Score:  " + score);
+            changeBackground(true);
             gameOverPopUp.setVisible(true);
             return;
         }
@@ -193,8 +215,11 @@ public class TetrisController {
                     a.setTet();
                     a.changenext_tet(a.randomTet());
                 } else {
-                    scheduler.shutdown();
+                    score = 0;
+                    scoreLabel.setText("  Score:  " + score);
+                    changeBackground(true);
                     gameOverPopUp.setVisible(true);
+                    scheduler.shutdown();
                     System.out.println("GAME OVER");
                 }
 
@@ -214,11 +239,24 @@ public class TetrisController {
         }
 
         scoreLabel.setText("  Score:  " + score);
+        int scoreGameOver = score;
+        scoreLabelGameOver.setText("Score:   " + scoreGameOver);
     }
 
     public void restart () {
-
+        changeBackground(false);
         gameOverPopUp.setVisible(false);
         startGame();
+    }
+    public void changeBackground(boolean color){
+        if(color){
+            hBoxGameOver1.setStyle("-fx-background-color: #000000;");
+            hBoxGameOver2.setStyle("-fx-background-color: #000000;");
+            hBoxGameOver3.setStyle("-fx-background-color: #000000;");
+        } else {
+            hBoxGameOver1.setStyle("-fx-background-color: transparent;");
+            hBoxGameOver2.setStyle("-fx-background-color: transparent;");
+            hBoxGameOver3.setStyle("-fx-background-color: transparent;");
+        }
     }
 }
