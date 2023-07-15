@@ -9,11 +9,13 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.Menu;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -25,11 +27,25 @@ import java.util.concurrent.ScheduledExecutorService;
 
 public class MultiplayerController {
     @FXML
-    private AnchorPane gameOverPopUp;
-    @FXML
     private GridPane gridPaneP1;
     @FXML
     private GridPane gridPaneP2;
+    @FXML
+    private Label scoreLabelP1;
+    @FXML
+    private Label scoreLabelP2;
+    @FXML
+    private Label scoreLabelGameOverP1;
+    @FXML
+    private Label scoreLabelGameOverP2;
+    @FXML
+    private AnchorPane gameOverPopUpMulti;
+    @FXML
+    private HBox hBoxGameOverMulti1;
+    @FXML
+    private HBox hBoxGameOverMulti2;
+    @FXML
+    private HBox hBoxGameOverMulti3;
     private StartGame gameP1;
     private StartGame gameP2;
     private Button[][] gridButtons;
@@ -38,8 +54,17 @@ public class MultiplayerController {
     Stage stage;
     private Scene scene;
     private Parent root;
+    private int scoreP1;
+    private int scoreP2;
+
 
     public void initialize() {
+        scoreP1 = 0;
+        scoreP2 = 0;
+        scoreLabelP1.setText("  Score: 0");
+        scoreLabelP2.setText("  Score: 0");
+        changeBackground(false);
+        gameOverPopUpMulti.setVisible(false);
         gameP1 = new StartGame(10, 14);
         gameP2 = new StartGame(10, 14);
         gridButtons = new Button[14][10];
@@ -79,6 +104,8 @@ public class MultiplayerController {
                 }
             }
         }
+        updateScoreP1();
+        updateScoreP2();
     }
     private void updateGridP2() {
         boolean[][] boardP2 = gameP2.convertToBooleanArray();
@@ -94,6 +121,8 @@ public class MultiplayerController {
     }
     @FXML
     public void startGame() {
+        scoreP1 = 0;
+        scoreP2 = 0;
         gameP1 = new StartGame(10,14);
         gameP2 = new StartGame(10,14);
         tetFall(gameP1);
@@ -169,6 +198,8 @@ public class MultiplayerController {
     public void dropTetP2() {
         System.out.println("Drop!");
         if (gameP2.getIsGameOver()){
+            changeBackground(true);
+            gameOverPopUpMulti.setVisible(true);
             return;
         }
         if (!(gameP2.getTet().getOn_ground())) {
@@ -192,6 +223,8 @@ public class MultiplayerController {
     public void dropTetP1() {
         System.out.println("Drop!");
         if (gameP1.getIsGameOver()){
+            changeBackground(true);
+            gameOverPopUpMulti.setVisible(true);
             return;
         }
         if (!(gameP1.getTet().getOn_ground())) {
@@ -230,6 +263,8 @@ public class MultiplayerController {
                     a.setTet();
                     a.changenext_tet(a.randomTet());
                 } else {
+                    changeBackground(true);
+                    gameOverPopUpMulti.setVisible(true);
                     scheduler.shutdown();
                     System.out.println("GAME OVER");
                 }
@@ -238,4 +273,53 @@ public class MultiplayerController {
         }, 0, 1000, TimeUnit.MILLISECONDS);
 
     }
+    public void updateScoreP1() {
+        if (gameP1.isFullRowPoints) {
+            scoreP1 += 100;
+            gameP1.isFullRowPoints = false;
+        }
+        if (gameP1.isTetOnGround) {
+            scoreP1 += 10;
+            gameP1.isTetOnGround = false;
+        }
+        scoreLabelP1.setText("  Score: " + scoreP1);
+        int scoreGameOverP1 = scoreP1;
+        scoreLabelGameOverP1.setText("Score: " + scoreGameOverP1);
+    }
+
+    public void updateScoreP2() {
+        if (gameP2.isFullRowPoints) {
+            scoreP2 += 100;
+            gameP2.isFullRowPoints = false;
+        }
+        if (gameP2.isTetOnGround) {
+            scoreP2 += 10;
+            gameP2.isTetOnGround = false;
+        }
+        scoreLabelP2.setText("  Score: " + scoreP2);
+        int scoreGameOverP2 = scoreP2;
+        scoreLabelGameOverP2.setText("Score: " + scoreGameOverP2);
+    }
+
+    public void restart() {
+        scoreP1 = 0;
+        scoreP2 = 0;
+        scoreLabelP1.setText("  Score: 0");
+        scoreLabelP2.setText("  Score: 0");
+        changeBackground(false);
+        gameOverPopUpMulti.setVisible(false);
+        this.startGame();
+    }
+    public void changeBackground(boolean color){
+        if(color){
+            hBoxGameOverMulti1.setStyle("-fx-background-color: #000000;");
+            hBoxGameOverMulti2.setStyle("-fx-background-color: #000000;");
+            hBoxGameOverMulti3.setStyle("-fx-background-color: #000000;");
+        } else {
+            hBoxGameOverMulti1.setStyle("-fx-background-color: transparent;");
+            hBoxGameOverMulti2.setStyle("-fx-background-color: transparent;");
+            hBoxGameOverMulti3.setStyle("-fx-background-color: transparent;");
+        }
+    }
 }
+
