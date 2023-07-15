@@ -19,6 +19,7 @@ public class StartGame {
     private int points; /**points variable for blocks set */
     public boolean isTetOnGround = false;  /**variable to tell if tet is on ground*/
     public boolean isFullRowPoints = false; /**variable for points received when Tetris*/
+    private int fullrowcounter;
 
     /**
      * constructor which sets length and height of gameboard  and fills every gameboard position with AIR
@@ -38,6 +39,14 @@ public class StartGame {
             }
         }
         this.setTet();
+        this.fullrowcounter = 0;
+    }
+
+    public int getFullrowcounter(){
+        return this.fullrowcounter;
+    }
+    public void setFullrowcounter(int fullrowcounter){
+        this.fullrowcounter = fullrowcounter;
     }
 
     public int getPoints() {
@@ -183,7 +192,7 @@ public class StartGame {
         Coords[] coords = this.tet.getCoords();
 
         for (int i = 0; i < coords.length; i++){
-            if(coords[i].getX() == 13 || gameboard[coords[i].getX()+1][coords[i].getY()] == BoardStatus.SET){
+            if(coords[i].getX() == 13 || (coords[i].getX() != -2 && this.gameboard[coords[i].getX() + 1][coords[i].getY()] == BoardStatus.SET)){
                 return;
             }
         }
@@ -277,6 +286,7 @@ public class StartGame {
     public void removeRow(int row ) {
         if(this.FullRow(row))  {
             this.points += 100;
+            this.fullrowcounter += 1;
             for(int i = row; i > 0; i--) {
                 for(int j = 0; j < this.gameboard[row].length; j++) {
                     this.gameboard[i][j] = this.gameboard[i - 1] [j];
@@ -325,7 +335,7 @@ public class StartGame {
     public void isOnGround(){
         Coords[] coords = this.tet.getCoords();
         for (int i = 0; i < coords.length; i++){
-            if (coords[i].getX() == 13 || this.gameboard[coords[i].getX() + 1][coords[i].getY()] == BoardStatus.SET){
+            if (coords[i].getX() == 13 || (coords[i].getX() != -2 && this.gameboard[coords[i].getX() + 1][coords[i].getY()] == BoardStatus.SET)){
                 this.points += 10;
                 this.tet.setOn_ground(true);
                 this.tetOnGround();

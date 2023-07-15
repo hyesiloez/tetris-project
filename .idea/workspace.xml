@@ -14,17 +14,8 @@
       <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_07_07_2023_14_27_[Changes]/shelved.patch" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_07_07_2023_14_27__Changes_.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GUI/src/main/java/Spiellogik/BRicky.java" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/src/main/java/Spiellogik/BRicky.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GUI/src/main/java/Spiellogik/BoardStatus.java" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/src/main/java/Spiellogik/BoardStatus.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GUI/src/main/java/Spiellogik/CleveLandZ.java" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/src/main/java/Spiellogik/CleveLandZ.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GUI/src/main/java/Spiellogik/Coords.java" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/src/main/java/Spiellogik/Coords.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GUI/src/main/java/Spiellogik/Hero.java" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/src/main/java/Spiellogik/Hero.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GUI/src/main/java/Spiellogik/OrangeRicky.java" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/src/main/java/Spiellogik/OrangeRicky.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GUI/src/main/java/Spiellogik/RhodeIslandZ.java" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/src/main/java/Spiellogik/RhodeIslandZ.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GUI/src/main/java/Spiellogik/SmashBoy.java" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/src/main/java/Spiellogik/SmashBoy.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/GUI/src/main/java/Spiellogik/StartGame.java" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/src/main/java/Spiellogik/StartGame.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GUI/src/main/java/Spiellogik/TeeWee.java" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/src/main/java/Spiellogik/TeeWee.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GUI/src/main/java/Spiellogik/Tetromino.java" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/src/main/java/Spiellogik/Tetromino.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GUI/src/main/java/com/example/gui/MultiplayerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/src/main/java/com/example/gui/MultiplayerController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -63,24 +54,24 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "C:/Tetris/11/GUI/src/main/resources/com/example/gui",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.0",
-    "settings.editor.selected.configurable": "preferences.pluginManager",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Tetris/11/GUI/src/main/resources/com/example/gui&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Tetris\11\GUI\src\main\resources\com\example\gui" />

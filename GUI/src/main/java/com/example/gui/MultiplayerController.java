@@ -77,6 +77,14 @@ public class MultiplayerController {
                 }
             }
         }
+        while(gameP1.getFullrowcounter() > 0){
+            gameP2.addRow();
+            gameP1.setFullrowcounter(gameP1.getFullrowcounter() -1);
+        }
+        while(gameP2.getFullrowcounter() > 0){
+            gameP1.addRow();
+            gameP2.setFullrowcounter(gameP2.getFullrowcounter() -1);
+        }
     }
     private void updateGridP2() {
         boolean[][] boardP2 = gameP2.convertToBooleanArray();
@@ -95,7 +103,7 @@ public class MultiplayerController {
         gameP1 = new StartGame(10,14);
         gameP2 = new StartGame(10,14);
         tetFall(gameP1);
-        tetFall(gameP2);
+        tetFallP2(gameP2);
     }
 
 
@@ -229,6 +237,30 @@ public class MultiplayerController {
                     a.changenext_tet(a.randomTet());
                 } else {
                     scheduler.shutdown();
+                    System.out.println("GAME OVER");
+                }
+
+            }
+        }, 0, 1000, TimeUnit.MILLISECONDS);
+
+    }
+    public void tetFallP2(StartGame a){
+        ScheduledExecutorService schedulerP2 = Executors.newSingleThreadScheduledExecutor();
+
+        schedulerP2.scheduleAtFixedRate(new Runnable(){
+            public void run() {
+
+                if (!(a.getTet().getOn_ground())) {
+                    a.drop();
+                    System.out.println(a);
+                    //a.isOnGround();
+                    updateGridP2();
+                } else if (!a.getIsGameOver()){
+                    a.changeTet(a.getNext_tet());
+                    a.setTet();
+                    a.changenext_tet(a.randomTet());
+                } else {
+                    schedulerP2.shutdown();
                     System.out.println("GAME OVER");
                 }
 
