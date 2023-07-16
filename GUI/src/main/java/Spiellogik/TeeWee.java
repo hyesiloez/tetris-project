@@ -16,7 +16,7 @@ public class TeeWee implements Tetromino {
         this.coords = new Coords[4];
         this.on_ground = false;
         this.turn_counter = 0;
-
+//Tim war hier
         this.coords[0] = new Coords(0,4);
         this.coords[1] = new Coords(0,5);
         this.coords[2] = new Coords(-1,5);

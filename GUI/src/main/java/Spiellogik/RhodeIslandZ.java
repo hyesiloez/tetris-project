@@ -51,7 +51,7 @@ public class RhodeIslandZ implements Tetromino {
         if(!(x >= -2 && x < 14 && y >= 0 && y < 10 )) return false;
         return true;
     }
-
+//Tim war hier
     public boolean CheckForCollision(int x, int y, BoardStatus[][] gameboard){
         if(x >= 0 && x < 14 && y >= 0 && y < 10){
             if(gameboard[x][y] == BoardStatus.SET) return false;

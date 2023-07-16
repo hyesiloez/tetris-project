@@ -43,7 +43,7 @@ public class OrangeRicky implements Tetromino{
     public boolean CheckOutOfBounds (int x , int y, BoardStatus[][] gameboard) {
         if(!(x >= -2 && x < 14 && y >= 0 && y < 10 )) return false;
         return true;
-    }
+    }//Tim war hier
     /**
      * Method forbids block to turn outside of gameboard or into other blocks set
      * @param x: needs to be within -2 and 14 which is gameboard's vertical size

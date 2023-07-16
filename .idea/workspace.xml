@@ -4,13 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="220209df-59ba-4661-a75c-f0da5ee61152" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GUI/src/main/java/Spiellogik/BRicky.java" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/src/main/java/Spiellogik/BRicky.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GUI/src/main/java/Spiellogik/CleveLandZ.java" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/src/main/java/Spiellogik/CleveLandZ.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GUI/src/main/java/Spiellogik/RhodeIslandZ.java" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/src/main/java/Spiellogik/RhodeIslandZ.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GUI/src/main/java/Spiellogik/TeeWee.java" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/src/main/java/Spiellogik/TeeWee.java" afterDir="false" />
-    </list>
+    <list default="true" id="220209df-59ba-4661-a75c-f0da5ee61152" name="Changes" comment="Walljump BR,CLZ,RIZ,TW" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -207,7 +201,14 @@
       <option name="project" value="LOCAL" />
       <updated>1689214058511</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="Walljump BR,CLZ,RIZ,TW">
+      <created>1689513377974</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1689513377974</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -244,6 +245,7 @@
     <MESSAGE value="Bug Fixing" />
     <MESSAGE value="GameOver first version added" />
     <MESSAGE value="Multiplayer AlphaTest" />
-    <option name="LAST_COMMIT_MESSAGE" value="Multiplayer AlphaTest" />
+    <MESSAGE value="Walljump BR,CLZ,RIZ,TW" />
+    <option name="LAST_COMMIT_MESSAGE" value="Walljump BR,CLZ,RIZ,TW" />
   </component>
 </project>
