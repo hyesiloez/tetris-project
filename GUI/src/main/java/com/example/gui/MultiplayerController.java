@@ -77,6 +77,14 @@ public class MultiplayerController {
                 }
             }
         }
+        while(gameP1.getFullrowcounter() > 0){
+            gameP2.addRow();
+            gameP1.setFullrowcounter(gameP1.getFullrowcounter() -1);
+        }
+        while(gameP2.getFullrowcounter() > 0){
+            gameP1.addRow();
+            gameP2.setFullrowcounter(gameP2.getFullrowcounter() -1);
+        }
     }
     private void updateGridP2() {
         boolean[][] boardP2 = gameP2.convertToBooleanArray();
@@ -95,7 +103,7 @@ public class MultiplayerController {
         gameP1 = new StartGame(10,14);
         gameP2 = new StartGame(10,14);
         tetFall(gameP1);
-        tetFall(gameP2);
+        tetFallP2(gameP2);
     }
 
 
@@ -122,46 +130,118 @@ public class MultiplayerController {
     }
     public void rotateP2() {
         System.out.println("Rotate!");
-        gameP2.turn(gameP2.gameboard);
-        updateGrid();
-        updateGridP2();
+        if (gameP2.getIsGameOver()){
+            return;
+        }
+        if (!(gameP2.getTet().getOn_ground())) {
+            gameP2.turn(gameP2.gameboard);
+            //game.isOnGround();
+            updateGridP2();
+        } else if (!gameP2.getIsGameOver()){
+            gameP2.changeTet(gameP2.getNext_tet());
+            gameP2.setTet();
+            updateGridP2();
+            gameP2.changenext_tet(gameP2.randomTet());
+            updateGridP2();
+        }
         System.out.println(gameP2);
+        updateGridP2();
     }
     public void rotateP1() {
         System.out.println("Rotate!");
-        gameP1.turn(gameP1.gameboard);
-        updateGrid();
-        updateGridP2();
+        if (gameP1.getIsGameOver()){
+
+            return;
+        }
+        if (!(gameP1.getTet().getOn_ground())) {
+            gameP1.turn(gameP1.gameboard);
+            //game.isOnGround();
+            updateGrid();
+        } else if (!gameP1.getIsGameOver()){
+            gameP1.changeTet(gameP1.getNext_tet());
+            gameP1.setTet();
+            updateGrid();
+            gameP1.changenext_tet(gameP1.randomTet());
+            updateGrid();
+        }
         System.out.println(gameP1);
+        updateGrid();
     }
     public void moveRightP2()  {
         System.out.println("Right!");
-        gameP2.goRight();
-        updateGrid();
-        updateGridP2();
+        if (gameP2.getIsGameOver()){
+            return;
+        }
+        if (!(gameP2.getTet().getOn_ground())) {
+            gameP2.goRight();
+            //game.isOnGround();
+            updateGridP2();
+        } else if (!gameP2.getIsGameOver()){
+            gameP2.changeTet(gameP2.getNext_tet());
+            gameP2.setTet();
+            updateGridP2();
+            gameP2.changenext_tet(gameP2.randomTet());
+            updateGridP2();
+        }
         System.out.println(gameP2);
+        updateGridP2();
     }
     public void moveRightP1()  {
         System.out.println("Right!");
-        gameP1.goRight();
-        updateGrid();
-        updateGridP2();
+        if (gameP1.getIsGameOver()){
+            return;
+        }
+        if (!(gameP1.getTet().getOn_ground())) {
+            gameP1.goRight();
+            //game.isOnGround();
+            updateGrid();
+        } else if (!gameP1.getIsGameOver()){
+            gameP1.changeTet(gameP1.getNext_tet());
+            gameP1.setTet();
+            updateGrid();
+            gameP1.changenext_tet(gameP1.randomTet());
+            updateGrid();
+        }
         System.out.println(gameP1);
+        updateGrid();
     }
 
     public void moveLeftP2() {
         System.out.println("Left!");
-        gameP2.goLeft();
-        updateGrid();
-        updateGridP2();
+        if (gameP2.getIsGameOver()){
+            return;
+        }
+        if (!(gameP2.getTet().getOn_ground())) {
+            gameP2.goLeft();
+            updateGridP2();
+        } else if (!gameP2.getIsGameOver()){
+            gameP2.changeTet(gameP2.getNext_tet());
+            gameP2.setTet();
+            updateGridP2();
+            gameP2.changenext_tet(gameP2.randomTet());
+            updateGridP2();
+        }
         System.out.println(gameP2);
+        updateGridP2();
     }
     public void moveLeftP1() {
         System.out.println("Left!");
-        gameP1.goLeft();
-        updateGrid();
-        updateGridP2();
+        if (gameP1.getIsGameOver()){
+            return;
+        }
+        if (!(gameP1.getTet().getOn_ground())) {
+            gameP1.goLeft();
+            //game.isOnGround();
+            updateGrid();
+        } else if (!gameP1.getIsGameOver()){
+            gameP1.changeTet(gameP1.getNext_tet());
+            gameP1.setTet();
+            updateGrid();
+            gameP1.changenext_tet(gameP1.randomTet());
+            updateGrid();
+        }
         System.out.println(gameP1);
+        updateGrid();
     }
 
     public void dropTetP2() {
@@ -171,20 +251,15 @@ public class MultiplayerController {
         }
         if (!(gameP2.getTet().getOn_ground())) {
             gameP2.drop();
-            //game.isOnGround();
-            updateGrid();
             updateGridP2();
         } else if (!gameP2.getIsGameOver()){
             gameP2.changeTet(gameP2.getNext_tet());
             gameP2.setTet();
-            updateGrid();
             updateGridP2();
             gameP2.changenext_tet(gameP2.randomTet());
-            updateGrid();
             updateGridP2();
         }
         System.out.println(gameP2);
-        updateGrid();
         updateGridP2();
     }
     public void dropTetP1() {
@@ -196,20 +271,17 @@ public class MultiplayerController {
             gameP1.drop();
             //game.isOnGround();
             updateGrid();
-            updateGridP2();
         } else if (!gameP1.getIsGameOver()){
             gameP1.changeTet(gameP1.getNext_tet());
             updateGrid();
-            updateGridP2();
             gameP1.setTet();
             gameP1.changenext_tet(gameP1.randomTet());
             updateGrid();
-            updateGridP2();
         }
 
         System.out.println(gameP1);
         updateGrid();
-        updateGridP2();
+
     }
     public void tetFall(StartGame a){
         ScheduledExecutorService scheduler = Executors.newSingleThreadScheduledExecutor();
@@ -229,6 +301,30 @@ public class MultiplayerController {
                     a.changenext_tet(a.randomTet());
                 } else {
                     scheduler.shutdown();
+                    System.out.println("GAME OVER");
+                }
+
+            }
+        }, 0, 1000, TimeUnit.MILLISECONDS);
+
+    }
+    public void tetFallP2(StartGame a){
+        ScheduledExecutorService schedulerP2 = Executors.newSingleThreadScheduledExecutor();
+
+        schedulerP2.scheduleAtFixedRate(new Runnable(){
+            public void run() {
+
+                if (!(a.getTet().getOn_ground())) {
+                    a.drop();
+                    System.out.println(a);
+                    //a.isOnGround();
+                    updateGridP2();
+                } else if (!a.getIsGameOver()){
+                    a.changeTet(a.getNext_tet());
+                    a.setTet();
+                    a.changenext_tet(a.randomTet());
+                } else {
+                    schedulerP2.shutdown();
                     System.out.println("GAME OVER");
                 }
 
