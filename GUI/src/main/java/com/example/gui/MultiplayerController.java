@@ -2,6 +2,7 @@ package com.example.gui;
 
 import Spiellogik.*;
 import javafx.event.ActionEvent;
+import javafx.application.Platform;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -161,175 +162,191 @@ public class MultiplayerController {
         }
     }
     public void rotateP2() {
-        System.out.println("Rotate!");
-        if (gameP2.getIsGameOver()){
-            changeBackground(true);
-            gameOverPopUpMulti.setVisible(true);
-            return;
-        }
-        if (!(gameP2.getTet().getOn_ground())) {
-            gameP2.turn(gameP2.gameboard);
-            //game.isOnGround();
+        Platform.runLater(() -> {
+            System.out.println("Rotate!");
+            if (gameP2.getIsGameOver()) {
+                changeBackground(true);
+                gameOverPopUpMulti.setVisible(true);
+                return;
+            }
+            if (!(gameP2.getTet().getOn_ground())) {
+                gameP2.turn(gameP2.gameboard);
+                //game.isOnGround();
+                updateGridP2();
+            } else if (!gameP2.getIsGameOver()) {
+                gameP2.changeTet(gameP2.getNext_tet());
+                gameP2.setTet();
+                updateGridP2();
+                gameP2.changenext_tet(gameP2.randomTet());
+                updateGridP2();
+            }
+            System.out.println(gameP2);
             updateGridP2();
-        } else if (!gameP2.getIsGameOver()){
-            gameP2.changeTet(gameP2.getNext_tet());
-            gameP2.setTet();
-            updateGridP2();
-            gameP2.changenext_tet(gameP2.randomTet());
-            updateGridP2();
-        }
-        System.out.println(gameP2);
-        updateGridP2();
+        });
     }
     public void rotateP1() {
-        System.out.println("Rotate!");
-        if (gameP1.getIsGameOver()){
-            changeBackground(true);
-            gameOverPopUpMulti.setVisible(true);
-            return;
-        }
-        if (!(gameP1.getTet().getOn_ground())) {
-            gameP1.turn(gameP1.gameboard);
-            //game.isOnGround();
+        Platform.runLater(() -> {
+            System.out.println("Rotate!");
+            if (gameP1.getIsGameOver()) {
+                changeBackground(true);
+                gameOverPopUpMulti.setVisible(true);
+                return;
+            }
+            if (!(gameP1.getTet().getOn_ground())) {
+                gameP1.turn(gameP1.gameboard);
+                //game.isOnGround();
+                updateGrid();
+            } else if (!gameP1.getIsGameOver()) {
+                gameP1.changeTet(gameP1.getNext_tet());
+                gameP1.setTet();
+                updateGrid();
+                gameP1.changenext_tet(gameP1.randomTet());
+                updateGrid();
+            }
+            System.out.println(gameP1);
             updateGrid();
-        } else if (!gameP1.getIsGameOver()){
-            gameP1.changeTet(gameP1.getNext_tet());
-            gameP1.setTet();
-            updateGrid();
-            gameP1.changenext_tet(gameP1.randomTet());
-            updateGrid();
-        }
-        System.out.println(gameP1);
-        updateGrid();
+        });
     }
     public void moveRightP2()  {
-        System.out.println("Right!");
-        if (gameP2.getIsGameOver()){
-            changeBackground(true);
-            gameOverPopUpMulti.setVisible(true);
-            return;
-        }
-        if (!(gameP2.getTet().getOn_ground())) {
-            gameP2.goRight();
-            //game.isOnGround();
+        Platform.runLater(() -> {
+            System.out.println("Right!");
+            if (gameP2.getIsGameOver()) {
+                changeBackground(true);
+                gameOverPopUpMulti.setVisible(true);
+                return;
+            }
+            if (!(gameP2.getTet().getOn_ground())) {
+                gameP2.goRight();
+                //game.isOnGround();
+                updateGridP2();
+            } else if (!gameP2.getIsGameOver()) {
+                gameP2.changeTet(gameP2.getNext_tet());
+                gameP2.setTet();
+                updateGridP2();
+                gameP2.changenext_tet(gameP2.randomTet());
+                updateGridP2();
+            }
+            System.out.println(gameP2);
             updateGridP2();
-        } else if (!gameP2.getIsGameOver()){
-            gameP2.changeTet(gameP2.getNext_tet());
-            gameP2.setTet();
-            updateGridP2();
-            gameP2.changenext_tet(gameP2.randomTet());
-            updateGridP2();
-        }
-        System.out.println(gameP2);
-        updateGridP2();
+        });
     }
     public void moveRightP1()  {
-        System.out.println("Right!");
-        if (gameP1.getIsGameOver()){
-            changeBackground(true);
-            gameOverPopUpMulti.setVisible(true);
-            return;
-        }
-        if (!(gameP1.getTet().getOn_ground())) {
-            gameP1.goRight();
-            //game.isOnGround();
+        Platform.runLater(() -> {
+            System.out.println("Right!");
+            if (gameP1.getIsGameOver()) {
+                changeBackground(true);
+                gameOverPopUpMulti.setVisible(true);
+                return;
+            }
+            if (!(gameP1.getTet().getOn_ground())) {
+                gameP1.goRight();
+                //game.isOnGround();
+                updateGrid();
+            } else if (!gameP1.getIsGameOver()) {
+                gameP1.changeTet(gameP1.getNext_tet());
+                gameP1.setTet();
+                updateGrid();
+                gameP1.changenext_tet(gameP1.randomTet());
+                updateGrid();
+            }
+            System.out.println(gameP1);
             updateGrid();
-        } else if (!gameP1.getIsGameOver()){
-            gameP1.changeTet(gameP1.getNext_tet());
-            gameP1.setTet();
-            updateGrid();
-            gameP1.changenext_tet(gameP1.randomTet());
-            updateGrid();
-        }
-        System.out.println(gameP1);
-        updateGrid();
+        });
     }
 
     public void moveLeftP2() {
-        System.out.println("Left!");
-        if (gameP2.getIsGameOver()){
-            changeBackground(true);
-            gameOverPopUpMulti.setVisible(true);
-            return;
-        }
-        if (!(gameP2.getTet().getOn_ground())) {
-            gameP2.goLeft();
+        Platform.runLater(() -> {
+            System.out.println("Left!");
+            if (gameP2.getIsGameOver()) {
+                changeBackground(true);
+                gameOverPopUpMulti.setVisible(true);
+                return;
+            }
+            if (!(gameP2.getTet().getOn_ground())) {
+                gameP2.goLeft();
+                updateGridP2();
+            } else if (!gameP2.getIsGameOver()) {
+                gameP2.changeTet(gameP2.getNext_tet());
+                gameP2.setTet();
+                updateGridP2();
+                gameP2.changenext_tet(gameP2.randomTet());
+                updateGridP2();
+            }
+            System.out.println(gameP2);
             updateGridP2();
-        } else if (!gameP2.getIsGameOver()){
-            gameP2.changeTet(gameP2.getNext_tet());
-            gameP2.setTet();
-            updateGridP2();
-            gameP2.changenext_tet(gameP2.randomTet());
-            updateGridP2();
-        }
-        System.out.println(gameP2);
-        updateGridP2();
+        });
     }
     public void moveLeftP1() {
-        System.out.println("Left!");
-        if (gameP1.getIsGameOver()){
-            changeBackground(true);
-            gameOverPopUpMulti.setVisible(true);
-            return;
-        }
-        if (!(gameP1.getTet().getOn_ground())) {
-            gameP1.goLeft();
-            //game.isOnGround();
+        Platform.runLater(() -> {
+            System.out.println("Left!");
+            if (gameP1.getIsGameOver()) {
+                changeBackground(true);
+                gameOverPopUpMulti.setVisible(true);
+                return;
+            }
+            if (!(gameP1.getTet().getOn_ground())) {
+                gameP1.goLeft();
+                //game.isOnGround();
+                updateGrid();
+            } else if (!gameP1.getIsGameOver()) {
+                gameP1.changeTet(gameP1.getNext_tet());
+                gameP1.setTet();
+                updateGrid();
+                gameP1.changenext_tet(gameP1.randomTet());
+                updateGrid();
+            }
+            System.out.println(gameP1);
             updateGrid();
-        } else if (!gameP1.getIsGameOver()){
-            gameP1.changeTet(gameP1.getNext_tet());
-            gameP1.setTet();
-            updateGrid();
-            gameP1.changenext_tet(gameP1.randomTet());
-            updateGrid();
-        }
-        System.out.println(gameP1);
-        updateGrid();
+        });
     }
 
     public void dropTetP2() {
-        System.out.println("Drop!");
-        if (gameP2.getIsGameOver()){
-            changeBackground(true);
-            gameOverPopUpMulti.setVisible(true);
-            return;
-        }
-        if (!(gameP2.getTet().getOn_ground())) {
-            gameP2.drop();
-            //game.isOnGround();
+        Platform.runLater(() -> {
+            System.out.println("Drop!");
+            if (gameP2.getIsGameOver()) {
+                changeBackground(true);
+                gameOverPopUpMulti.setVisible(true);
+                return;
+            }
+            if (!(gameP2.getTet().getOn_ground())) {
+                gameP2.drop();
+                //game.isOnGround();
+                updateGridP2();
+            } else if (!gameP2.getIsGameOver()) {
+                gameP2.changeTet(gameP2.getNext_tet());
+                gameP2.setTet();
+                updateGridP2();
+                gameP2.changenext_tet(gameP2.randomTet());
+                updateGrid();
+                updateGridP2();
+            }
+            System.out.println(gameP2);
             updateGridP2();
-        } else if (!gameP2.getIsGameOver()){
-            gameP2.changeTet(gameP2.getNext_tet());
-            gameP2.setTet();
-            updateGridP2();
-            gameP2.changenext_tet(gameP2.randomTet());
-            updateGrid();
-            updateGridP2();
-        }
-        System.out.println(gameP2);
-        updateGridP2();
+        });
     }
     public void dropTetP1() {
-        System.out.println("Drop!");
-        if (gameP1.getIsGameOver()){
-            changeBackground(true);
-            gameOverPopUpMulti.setVisible(true);
-            return;
-        }
-        if (!(gameP1.getTet().getOn_ground())) {
-            gameP1.drop();
-            //game.isOnGround();
-            updateGrid();
-        } else if (!gameP1.getIsGameOver()){
-            gameP1.changeTet(gameP1.getNext_tet());
-            updateGrid();
-            gameP1.setTet();
-            gameP1.changenext_tet(gameP1.randomTet());
-            updateGrid();
-        }
+        Platform.runLater(() -> {
+            System.out.println("Drop!");
+            if (gameP1.getIsGameOver()) {
+                changeBackground(true);
+                gameOverPopUpMulti.setVisible(true);
+                return;
+            }
+            if (!(gameP1.getTet().getOn_ground())) {
+                gameP1.drop();
+                //game.isOnGround();
+                updateGrid();
+            } else if (!gameP1.getIsGameOver()) {
+                gameP1.changeTet(gameP1.getNext_tet());
+                updateGrid();
+                gameP1.setTet();
+                gameP1.changenext_tet(gameP1.randomTet());
+                updateGrid();
+            }
 
-        System.out.println(gameP1);
-        updateGrid();
+            System.out.println(gameP1);
+            updateGrid();
+        });
     }
     public void tetFallP1(StartGame a){
         schedulerP1 = Executors.newSingleThreadScheduledExecutor();
@@ -387,32 +404,40 @@ public class MultiplayerController {
 
     }
     public void updateScoreP1() {
-        scoreLabelP1.setText("  Score P1: " + gameP1.getPoints());
-        int scoreGameOverP1 = gameP1.getPoints();
-        scoreLabelGameOverP1.setText("Score P1: " + scoreGameOverP1);
+        Platform.runLater(() -> {
+            scoreLabelP1.setText("  Score P1: " + gameP1.getPoints());
+            int scoreGameOverP1 = gameP1.getPoints();
+            scoreLabelGameOverP1.setText("Score P1: " + scoreGameOverP1);
+        });
     }
 
     public void updateScoreP2() {
-        scoreLabelP2.setText("  Score P2: " + gameP2.getPoints());
-        int scoreGameOverP2 = gameP2.getPoints();
-        scoreLabelGameOverP2.setText("Score P2: " + scoreGameOverP2);
+        Platform.runLater(() -> {
+            scoreLabelP2.setText("  Score P2: " + gameP2.getPoints());
+            int scoreGameOverP2 = gameP2.getPoints();
+            scoreLabelGameOverP2.setText("Score P2: " + scoreGameOverP2);
+        });
     }
 
     public void restart() {
-        changeBackground(false);
-        gameOverPopUpMulti.setVisible(false);
-        this.startGame();
+        Platform.runLater(() -> {
+            changeBackground(false);
+            gameOverPopUpMulti.setVisible(false);
+            this.startGame();
+        });
     }
     public void changeBackground(boolean color){
-        if(color){
-            hBoxGameOverMulti1.setStyle("-fx-background-color: #000000;");
-            hBoxGameOverMulti2.setStyle("-fx-background-color: #000000;");
-            hBoxGameOverMulti3.setStyle("-fx-background-color: #000000;");
-        } else {
-            hBoxGameOverMulti1.setStyle("-fx-background-color: transparent;");
-            hBoxGameOverMulti2.setStyle("-fx-background-color: transparent;");
-            hBoxGameOverMulti3.setStyle("-fx-background-color: transparent;");
-        }
+        Platform.runLater(() -> {
+            if (color) {
+                hBoxGameOverMulti1.setStyle("-fx-background-color: #000000;");
+                hBoxGameOverMulti2.setStyle("-fx-background-color: #000000;");
+                hBoxGameOverMulti3.setStyle("-fx-background-color: #000000;");
+            } else {
+                hBoxGameOverMulti1.setStyle("-fx-background-color: transparent;");
+                hBoxGameOverMulti2.setStyle("-fx-background-color: transparent;");
+                hBoxGameOverMulti3.setStyle("-fx-background-color: transparent;");
+            }
+        });
     }
 }
 

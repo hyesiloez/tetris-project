@@ -1,6 +1,7 @@
 package com.example.gui;
 
 import Spiellogik.StartGame;
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -262,9 +263,11 @@ public class TetrisController {
 
     }
     public void updateScore () {
+        Platform.runLater(() -> {
         scoreLabel.setText("  Score:  " + game.getPoints());
         int scoreGameOver = game.getPoints();
         scoreLabelGameOver.setText("Score:   " + scoreGameOver);
+    });
     }
 
     public void restart () {
