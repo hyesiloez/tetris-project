@@ -14,8 +14,8 @@
 
 <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" styleClass="backgroundImage" stylesheets="@GameStyle.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.gui.TetrisController">
    <children>
-      <HBox maxHeight="100.0" VBox.vgrow="ALWAYS" />
-      <HBox VBox.vgrow="ALWAYS">
+      <HBox fx:id="hBoxGameOver1" maxHeight="100.0" VBox.vgrow="ALWAYS" />
+      <HBox fx:id="hBoxGameOver2" VBox.vgrow="ALWAYS">
          <children>
             <HBox HBox.hgrow="ALWAYS" />
             <VBox maxWidth="800.0" HBox.hgrow="ALWAYS">
@@ -71,18 +71,23 @@
                         </Button>
                         <AnchorPane fx:id="gameOverPopUp" prefHeight="600.0" prefWidth="800.0" style="-fx-background-color: black;">
                            <children>
-                              <ImageView fitHeight="600.0" fitWidth="818.0" layoutX="26.0" pickOnBounds="true" preserveRatio="true">
+                              <ImageView fitHeight="323.0" fitWidth="542.0" layoutX="122.0" layoutY="47.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
-                                    <Image url="@gameover.jpg" />
+                                    <Image url="@GameOver.jpg" />
                                  </image></ImageView>
-                              <Button layoutX="129.0" layoutY="506.0" mnemonicParsing="false" onAction="#toMainMenu" styleClass="buttonGameOver" text="Back to Main Menu" textFill="WHITE">
+                              <Button layoutX="455.0" layoutY="387.0" mnemonicParsing="false" onAction="#toMainMenu" styleClass="buttonGameOver" text="Back to Main Menu" textFill="WHITE">
                                  <font>
-                                    <Font size="20.0" />
+                                    <Font size="24.0" />
                                  </font></Button>
-                              <Button layoutX="586.0" layoutY="506.0" mnemonicParsing="false" onAction="#restart" styleClass="buttonGameOver" text="Restart" textFill="WHITE">
+                              <Button layoutX="122.0" layoutY="387.0" mnemonicParsing="false" onAction="#restart" styleClass="buttonGameOver" text="Restart" textFill="WHITE">
                                  <font>
-                                    <Font size="20.0" />
+                                    <Font size="24.0" />
                                  </font></Button>
+                              <Label fx:id="scoreLabelGameOver" layoutX="302.0" layoutY="310.0" prefHeight="53.0" prefWidth="240.0" text="Score:" textFill="WHITE">
+                                 <font>
+                                    <Font size="36.0" />
+                                 </font>
+                              </Label>
                            </children></AnchorPane>
                      </children></AnchorPane>
                   <VBox VBox.vgrow="ALWAYS" />
@@ -91,6 +96,6 @@
             <HBox HBox.hgrow="ALWAYS" />
          </children>
       </HBox>
-      <HBox maxHeight="100.0" VBox.vgrow="ALWAYS" />
+      <HBox fx:id="hBoxGameOver3" maxHeight="100.0" VBox.vgrow="ALWAYS" />
    </children>
 </VBox>

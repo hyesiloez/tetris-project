@@ -5,28 +5,17 @@ import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
 import java.util.Random;
 
-/**
- * Startgame initializes and prints gameboard, spawns random blocks when set and consists of main logic
- * @version 07.07.2023
- * @author Erik Brinker, Halil Yesiloez, Tim Schwetje
- */
 public class StartGame {
-    public BoardStatus[][] gameboard; /**variable for gameboard*/
-    public boolean isGameOver; /** boolean to check for when game is over*/
-    private Tetromino tet; /** tetromino variable */
+    public BoardStatus[][] gameboard;
+    public boolean isGameOver;
+    private Tetromino tet;
     //private ScheduledExecutorService scheduler = Executors.newSingleThreadScheduledExecutor();
-    private Tetromino next_tet; /** variable for the next tet*/
-    private int points; /**points variable for blocks set */
-    public boolean isTetOnGround = false;  /**variable to tell if tet is on ground*/
-    public boolean isFullRowPoints = false; /**variable for points received when Tetris*/
+    private Tetromino next_tet;
+    private int points;
+    public boolean isTetOnGround = false;
+    public boolean isFullRowPoints = false;
     private int fullrowcounter;
 
-    /**
-     * constructor which sets length and height of gameboard  and fills every gameboard position with AIR
-     * current and next tetromino are created randomly by calling randomTet() function
-     * @param length : integer which represents the horizontal size of gameboard
-     * @param height : integer which represents the vertical size of gameboard
-     */
     public StartGame(int length, int height){
         this.gameboard = new BoardStatus[height][length];
         this.isGameOver = false;
@@ -41,14 +30,12 @@ public class StartGame {
         this.setTet();
         this.fullrowcounter = 0;
     }
-
     public int getFullrowcounter(){
         return this.fullrowcounter;
     }
     public void setFullrowcounter(int fullrowcounter){
         this.fullrowcounter = fullrowcounter;
     }
-
     public int getPoints() {
         return this.points;
     }
@@ -56,7 +43,6 @@ public class StartGame {
     public void setPoints(int points){
         this.points = points;
     }
-
     public Tetromino getNext_tet(){
         return this.next_tet;
     }
@@ -64,18 +50,9 @@ public class StartGame {
     public Tetromino getTet(){
         return this.tet;
     }
-
-    /**
-     * This method updates the current Tet to tetromino a
-     * @param a this.tet is now this Tetromino
-     */
     public void changeTet(Tetromino a){
         this.tet = a;
     }
-    /**
-     * This method updates the next Tet to Tetromino a
-     * @param a this.tet is now this Tetromino
-     */
     public void changenext_tet(Tetromino a){
         this.next_tet = a;
     }
@@ -83,12 +60,6 @@ public class StartGame {
     public boolean getIsGameOver(){
         return this.isGameOver;
     }
-
-    /**
-     * Method returns a new Tetromino randomly chosen by a random integer.
-     * @version 06.07.2023
-     * @return new random Tetromino
-     */
     public Tetromino randomTet(){
         Random rand = new Random();
         int random_int = rand.nextInt(7);
@@ -111,11 +82,6 @@ public class StartGame {
                 return new Hero();
         }
     }
-
-    /**
-     * This method removes the Tetromino by replacing the Boardgame position with AIR
-     * Done to illustrate a smooth movement of the stones, it is vital to replace the former position of the stones
-     */
     public void removeTet (){
         Coords [] coords = this.tet.getCoords();
         for (int i = 0; i < coords.length; i++) {
@@ -127,10 +93,6 @@ public class StartGame {
         }
     }
 
-    /**
-     * This method set the Tetromino at its new position
-     * Done to illustrate a smooth movement of the stones, it is vital to replace the former position of the stones
-     */
     public void setTet (){
         Coords [] coords = this.tet.getCoords();
         for (int i = 0; i < coords.length; i++){
@@ -142,11 +104,6 @@ public class StartGame {
         }
     }
 
-    /**
-     * This method realizes the movement of the stone in  right direction
-     * Its using remove- and setTet  function to realize the transition and checks if the stone is on ground at the end
-     * @version 07.07.2023
-     */
     public void goRight(){
         Coords[] a = this.tet.getCoords();
         for(int i = 0; i < 4; i++){
@@ -162,11 +119,6 @@ public class StartGame {
         this.isOnGround();
     }
 
-    /**
-     * This method realizes the movement of the stone in  left direction
-     * Its using remove- and setTet  function to realize the transition and checks if the stone is on ground at the end
-     * @version 07.07.2023
-     */
     public void goLeft(){
         Coords[] a = this.tet.getCoords();
         for(int i = 0; i < 4; i++){
@@ -183,11 +135,6 @@ public class StartGame {
         this.isOnGround();
     }
 
-    /**
-     * Drop method calls drop method of tetromino by checking if next position free to transition to
-     * Its using remove- and setTet  to do so
-     * @version 07.07.2023
-     */
     public void drop(){
         Coords[] coords = this.tet.getCoords();
 
@@ -202,11 +149,6 @@ public class StartGame {
         this.isOnGround();
     }
 
-    /**
-     * turn method calls turn method of tetromino
-     * Its using remove- and setTet to do so
-     * @version 07.07.2023
-     */
     public void turn( BoardStatus[][] gameboard){
         this.removeTet();
         this.tet.turn(gameboard);
@@ -238,10 +180,7 @@ public class StartGame {
 
     }*/
 
-    /**
-     * realizes the gameboard ín Terminal by assigning "0" to Air, "1" to set blocks and "2" to current Player
-     * @return String which represents the gameboard in string version
-     */
+
     public String toString(){
         String end = "";
         for(int i = 0; i < this.gameboard.length; i++){
@@ -261,7 +200,7 @@ public class StartGame {
 
     /**
      * Method checks if a given row is full
-     * @param  row: int to check the row where the Tetromino is placed, migth consider multiple rows depending on Tetromino
+     * @param int row: to check the row where the Tetromino is placed, migth consider multiple rows depending on Tetromino
      * @return boolean: true if row full, false if not
      * @version 02.07.2023
      * */
@@ -269,7 +208,7 @@ public class StartGame {
         //Coords[] coords = this.tet.getCoords();
 
         for(int i = 0; i < this.gameboard[row].length; i++) {
-            if(this.gameboard[row][i] == BoardStatus.AIR ||this.gameboard[row][i] == BoardStatus.PLAYER) {
+            if(this.gameboard[row][i] == BoardStatus.AIR) {
                 return false;
             }
         }
@@ -277,9 +216,9 @@ public class StartGame {
     }
 
     /**
-     * Method removes the row if it's full by dragging every row above 1 row down
-     * row 0 has to be manually changed cause there's no row above to be dragged. Row 0 is always empty if TETRIS happens.
-     * @param row:  integer to check the row where the Tetromino is placed, migth consider multiple rows depending on Tetromino
+     * Method removes the row if its full by dragging every row above 1 row down
+     * row 0 has to be manually changed cause theres no row above to be dragged. Row 0 is always empty if TETRIS happens.
+     * @param int row: to check the row where the Tetromino is placed, migth consider multiple rows depending on Tetromino
      * @return void
      * @version 02.07.2023
      * */
@@ -299,12 +238,6 @@ public class StartGame {
         }
 
     }
-
-    /**
-     * method updates board by shifting the values by one row
-     * Adds a new row to the bottom with a random cell set to AIR the rest filled with Set
-     * @version 07.07.2023
-     */
     public void addRow(){
         Random rand = new Random();
         int random_int = rand.nextInt(10);
@@ -326,16 +259,10 @@ public class StartGame {
         this.isOnGround();
 
     }
-
-    /**
-     * method checks if tetromino is on ground either when x is  row 13 or the s position below is SET
-     * if on ground its increasing points by 10
-     * @version 07.07.2023
-     */
     public void isOnGround(){
         Coords[] coords = this.tet.getCoords();
         for (int i = 0; i < coords.length; i++){
-            if (coords[i].getX() == 13 || (coords[i].getX() != -2 && this.gameboard[coords[i].getX() + 1][coords[i].getY()] == BoardStatus.SET)){
+            if (coords[i].getX() == 13 || this.gameboard[coords[i].getX() + 1][coords[i].getY()] == BoardStatus.SET){
                 this.points += 10;
                 this.tet.setOn_ground(true);
                 this.tetOnGround();
@@ -345,32 +272,23 @@ public class StartGame {
         }
     }
 
-    /**
-     * Sets current Tetromino and checks if this set causes a Tetris
-     * calls game over method to check if Set causes the game to stop
-     * @version 07.07.2023
-     */
     public void tetOnGround(){
         Coords[] coords = this.tet.getCoords();
         for (int i = 0; i < coords.length; i++) {
-            this.gameboard[coords[i].getX()][coords[i].getY()] = BoardStatus.SET;
+            if(coords[i].getX() >= 0) {
+                this.gameboard[coords[i].getX()][coords[i].getY()] = BoardStatus.SET;
+            }
         }
 
         for (int j = 0; j < gameboard.length; j++){
             if (FullRow(j)){
                 removeRow(j);
-                this.isFullRowPoints = false;
+                this.isFullRowPoints = true;
             }
         }
         this.isGameOver();
 
     }
-
-    /**
-     * if row 1 is set by any stone it's game over
-     * Done by iterating through every block in row 1
-     * @version 07.07.2023
-     */
     public void isGameOver(){
         for(int i = 0; i < this.gameboard[0].length; i++){
             if(this.gameboard[1][i] == BoardStatus.SET){
@@ -388,13 +306,6 @@ public class StartGame {
             }
         }*/
     }
-
-    /**
-     * Method converts gameborad to a boolean array by checking the whole field
-     * cell is placed with true if SET or PLAYER, false if AIR
-     * @return boolean[][]
-     * @version 07.07.2023
-     */
     public boolean[][] convertToBooleanArray() {
         boolean[][] res = new boolean[14][10];
         for (int i = 0; i < this.gameboard.length; i++) {
