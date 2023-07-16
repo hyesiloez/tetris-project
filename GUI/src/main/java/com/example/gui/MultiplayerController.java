@@ -56,7 +56,8 @@ public class MultiplayerController {
     private Parent root;
     private int scoreP1;
     private int scoreP2;
-
+    ScheduledExecutorService schedulerP1;
+    ScheduledExecutorService schedulerP2;
 
     public void initialize() {
         scoreP1 = 0;
@@ -91,6 +92,8 @@ public class MultiplayerController {
                 gridButtonsP2[x][y].setStyle("-fx-background-color: #FFFFFF; -fx-border-color: #04196C;");
             }
         }
+        schedulerP1 = Executors.newSingleThreadScheduledExecutor();
+        schedulerP2 = Executors.newSingleThreadScheduledExecutor();
     }
 
     private void updateGrid() {
@@ -129,12 +132,14 @@ public class MultiplayerController {
     }
     @FXML
     public void startGame() {
+        schedulerP1.shutdown();
+        schedulerP2.shutdown();
         scoreP1 = 0;
         scoreP2 = 0;
         gameP1 = new StartGame(10,14);
         gameP2 = new StartGame(10,14);
-        tetFall(gameP1);
-        tetFall(gameP2);
+        tetFallP1(gameP1);
+        tetFallP2(gameP2);
     }
 
 
@@ -326,10 +331,10 @@ public class MultiplayerController {
         updateGrid();
         updateGridP2();
     }
-    public void tetFall(StartGame a){
-        ScheduledExecutorService scheduler = Executors.newSingleThreadScheduledExecutor();
+    public void tetFallP1(StartGame a){
+        schedulerP1 = Executors.newSingleThreadScheduledExecutor();
 
-        scheduler.scheduleAtFixedRate(new Runnable(){
+        schedulerP1.scheduleAtFixedRate(new Runnable(){
             public void run() {
 
                 if (!(a.getTet().getOn_ground())) {
@@ -345,7 +350,35 @@ public class MultiplayerController {
                 } else {
                     changeBackground(true);
                     gameOverPopUpMulti.setVisible(true);
-                    scheduler.shutdown();
+                    schedulerP1.shutdown();
+                    System.out.println("GAME OVER");
+                }
+
+            }
+        }, 0, 1000, TimeUnit.MILLISECONDS);
+
+    }
+
+    public void tetFallP2(StartGame a){
+        schedulerP2 = Executors.newSingleThreadScheduledExecutor();
+
+        schedulerP2.scheduleAtFixedRate(new Runnable(){
+            public void run() {
+
+                if (!(a.getTet().getOn_ground())) {
+                    a.drop();
+                    System.out.println(a);
+                    //a.isOnGround();
+                    updateGrid();
+                    updateGridP2();
+                } else if (!a.getIsGameOver()){
+                    a.changeTet(a.getNext_tet());
+                    a.setTet();
+                    a.changenext_tet(a.randomTet());
+                } else {
+                    changeBackground(true);
+                    gameOverPopUpMulti.setVisible(true);
+                    schedulerP2.shutdown();
                     System.out.println("GAME OVER");
                 }
 
