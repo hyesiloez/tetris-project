@@ -1,6 +1,7 @@
 package com.example.gui;
 
 import Spiellogik.*;
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.application.Platform;
 import javafx.event.EventHandler;
@@ -94,38 +95,42 @@ public class MultiplayerController {
     }
 
     private void updateGrid() {
-        boolean[][] board = gameP1.convertToBooleanArray();
-        for (int i = 0; i < 14; i++) {
-            for (int j = 0; j < 10; j++) {
-                if (board[i][j]) {
-                    gridButtons[i][j].setStyle("-fx-background-color: #000000; -fx-border-color: #04196C;");
-                } else {
-                    gridButtons[i][j].setStyle("-fx-background-color: #FFFFFF; -fx-border-color: #04196C;");
+        Platform.runLater(() -> {
+            boolean[][] board = gameP1.convertToBooleanArray();
+            for (int i = 0; i < 14; i++) {
+                for (int j = 0; j < 10; j++) {
+                    if (board[i][j]) {
+                        gridButtons[i][j].setStyle("-fx-background-color: #000000; -fx-border-color: #04196C;");
+                    } else {
+                        gridButtons[i][j].setStyle("-fx-background-color: #FFFFFF; -fx-border-color: #04196C;");
+                    }
                 }
             }
-        }
-        while(gameP1.getFullrowcounter() > 0){
-            gameP2.addRow();
-            gameP1.setFullrowcounter(gameP1.getFullrowcounter() -1);
-        }
-        while(gameP2.getFullrowcounter() > 0){
-            gameP1.addRow();
-            gameP2.setFullrowcounter(gameP2.getFullrowcounter() -1);
-        }
-        updateScoreP1();
-        updateScoreP2();
+            while (gameP1.getFullrowcounter() > 0) {
+                gameP2.addRow();
+                gameP1.setFullrowcounter(gameP1.getFullrowcounter() - 1);
+            }
+            updateScoreP1();
+        });
     }
     private void updateGridP2() {
-        boolean[][] boardP2 = gameP2.convertToBooleanArray();
-        for (int i = 0; i < 14; i++) {
-            for (int j = 0; j < 10; j++) {
-                if (boardP2[i][j]) {
-                    gridButtonsP2[i][j].setStyle("-fx-background-color: #000000; -fx-border-color: #04196C;");
-                } else {
-                    gridButtonsP2[i][j].setStyle("-fx-background-color: #FFFFFF; -fx-border-color: #04196C;");
+        Platform.runLater(() -> {
+            boolean[][] boardP2 = gameP2.convertToBooleanArray();
+            for (int i = 0; i < 14; i++) {
+                for (int j = 0; j < 10; j++) {
+                    if (boardP2[i][j]) {
+                        gridButtonsP2[i][j].setStyle("-fx-background-color: #000000; -fx-border-color: #04196C;");
+                    } else {
+                        gridButtonsP2[i][j].setStyle("-fx-background-color: #FFFFFF; -fx-border-color: #04196C;");
+                    }
                 }
             }
-        }
+            while (gameP2.getFullrowcounter() > 0) {
+                gameP1.addRow();
+                gameP2.setFullrowcounter(gameP2.getFullrowcounter() - 1);
+            }
+            updateScoreP2();
+        });
     }
     @FXML
     public void startGame() {
