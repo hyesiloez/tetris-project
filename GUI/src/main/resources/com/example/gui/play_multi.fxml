@@ -67,7 +67,7 @@
                         </Label>
                         <AnchorPane fx:id="gameOverPopUpMulti" prefHeight="600.0" prefWidth="806.0" style="-fx-background-color: black;">
                            <children>
-                              <Label fx:id="scoreLabelGameOverP1" layoutX="103.0" layoutY="390.0" prefHeight="48.0" prefWidth="273.0" text="Score P1: " textFill="WHITE">
+                              <Label fx:id="scoreLabelGameOverP1" layoutX="103.0" layoutY="390.0" prefHeight="48.0" prefWidth="273.0" text="Score P1: 0 " textFill="WHITE">
                                  <font>
                                     <Font size="36.0" />
                                  </font></Label>
@@ -84,7 +84,7 @@
                                     <Image url="@GameOver.jpg" />
                                  </image>
                               </ImageView>
-                              <Label fx:id="scoreLabelGameOverP2" layoutX="499.0" layoutY="387.0" prefHeight="58.0" prefWidth="252.0" text="Score P2: " textFill="WHITE">
+                              <Label fx:id="scoreLabelGameOverP2" layoutX="499.0" layoutY="387.0" prefHeight="58.0" prefWidth="252.0" text="Score P2: 0" textFill="WHITE">
                                  <font>
                                     <Font size="36.0" />
                                  </font>

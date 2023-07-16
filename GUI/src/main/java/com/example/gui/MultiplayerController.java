@@ -54,20 +54,16 @@ public class MultiplayerController {
     Stage stage;
     private Scene scene;
     private Parent root;
-    private int scoreP1;
-    private int scoreP2;
     ScheduledExecutorService schedulerP1;
     ScheduledExecutorService schedulerP2;
 
     public void initialize() {
-        scoreP1 = 0;
-        scoreP2 = 0;
-        scoreLabelP1.setText("  Score: 0");
-        scoreLabelP2.setText("  Score: 0");
         changeBackground(false);
         gameOverPopUpMulti.setVisible(false);
         gameP1 = new StartGame(10, 14);
         gameP2 = new StartGame(10, 14);
+        scoreLabelP1.setText("  Score P1: " + gameP1.getPoints());
+        scoreLabelP2.setText("  Score P2: " + gameP2.getPoints());
         gridButtons = new Button[14][10];
         gridButtonsP2 = new Button[14][10];
         gridPaneP1.getRowConstraints().clear();
@@ -107,8 +103,6 @@ public class MultiplayerController {
                 }
             }
         }
-        updateScoreP1();
-        updateScoreP2();
         while(gameP1.getFullrowcounter() > 0){
             gameP2.addRow();
             gameP1.setFullrowcounter(gameP1.getFullrowcounter() -1);
@@ -117,6 +111,8 @@ public class MultiplayerController {
             gameP1.addRow();
             gameP2.setFullrowcounter(gameP2.getFullrowcounter() -1);
         }
+        updateScoreP1();
+        updateScoreP2();
     }
     private void updateGridP2() {
         boolean[][] boardP2 = gameP2.convertToBooleanArray();
@@ -134,10 +130,10 @@ public class MultiplayerController {
     public void startGame() {
         schedulerP1.shutdown();
         schedulerP2.shutdown();
-        scoreP1 = 0;
-        scoreP2 = 0;
         gameP1 = new StartGame(10,14);
         gameP2 = new StartGame(10,14);
+        scoreLabelP1.setText("  Score P1: " + gameP1.getPoints());
+        scoreLabelP2.setText("  Score P2: " + gameP2.getPoints());
         tetFallP1(gameP1);
         tetFallP2(gameP2);
     }
@@ -167,6 +163,8 @@ public class MultiplayerController {
     public void rotateP2() {
         System.out.println("Rotate!");
         if (gameP2.getIsGameOver()){
+            changeBackground(true);
+            gameOverPopUpMulti.setVisible(true);
             return;
         }
         if (!(gameP2.getTet().getOn_ground())) {
@@ -186,7 +184,8 @@ public class MultiplayerController {
     public void rotateP1() {
         System.out.println("Rotate!");
         if (gameP1.getIsGameOver()){
-
+            changeBackground(true);
+            gameOverPopUpMulti.setVisible(true);
             return;
         }
         if (!(gameP1.getTet().getOn_ground())) {
@@ -206,6 +205,8 @@ public class MultiplayerController {
     public void moveRightP2()  {
         System.out.println("Right!");
         if (gameP2.getIsGameOver()){
+            changeBackground(true);
+            gameOverPopUpMulti.setVisible(true);
             return;
         }
         if (!(gameP2.getTet().getOn_ground())) {
@@ -225,6 +226,8 @@ public class MultiplayerController {
     public void moveRightP1()  {
         System.out.println("Right!");
         if (gameP1.getIsGameOver()){
+            changeBackground(true);
+            gameOverPopUpMulti.setVisible(true);
             return;
         }
         if (!(gameP1.getTet().getOn_ground())) {
@@ -245,6 +248,8 @@ public class MultiplayerController {
     public void moveLeftP2() {
         System.out.println("Left!");
         if (gameP2.getIsGameOver()){
+            changeBackground(true);
+            gameOverPopUpMulti.setVisible(true);
             return;
         }
         if (!(gameP2.getTet().getOn_ground())) {
@@ -263,6 +268,8 @@ public class MultiplayerController {
     public void moveLeftP1() {
         System.out.println("Left!");
         if (gameP1.getIsGameOver()){
+            changeBackground(true);
+            gameOverPopUpMulti.setVisible(true);
             return;
         }
         if (!(gameP1.getTet().getOn_ground())) {
@@ -290,19 +297,16 @@ public class MultiplayerController {
         if (!(gameP2.getTet().getOn_ground())) {
             gameP2.drop();
             //game.isOnGround();
-            updateGrid();
             updateGridP2();
         } else if (!gameP2.getIsGameOver()){
             gameP2.changeTet(gameP2.getNext_tet());
             gameP2.setTet();
-            updateGrid();
             updateGridP2();
             gameP2.changenext_tet(gameP2.randomTet());
             updateGrid();
             updateGridP2();
         }
         System.out.println(gameP2);
-        updateGrid();
         updateGridP2();
     }
     public void dropTetP1() {
@@ -316,20 +320,16 @@ public class MultiplayerController {
             gameP1.drop();
             //game.isOnGround();
             updateGrid();
-            updateGridP2();
         } else if (!gameP1.getIsGameOver()){
             gameP1.changeTet(gameP1.getNext_tet());
             updateGrid();
-            updateGridP2();
             gameP1.setTet();
             gameP1.changenext_tet(gameP1.randomTet());
             updateGrid();
-            updateGridP2();
         }
 
         System.out.println(gameP1);
         updateGrid();
-        updateGridP2();
     }
     public void tetFallP1(StartGame a){
         schedulerP1 = Executors.newSingleThreadScheduledExecutor();
@@ -387,38 +387,18 @@ public class MultiplayerController {
 
     }
     public void updateScoreP1() {
-        if (gameP1.isFullRowPoints) {
-            scoreP1 += 100;
-            gameP1.isFullRowPoints = false;
-        }
-        if (gameP1.isTetOnGround) {
-            scoreP1 += 10;
-            gameP1.isTetOnGround = false;
-        }
-        scoreLabelP1.setText("  Score: " + gameP1.getPoints());
+        scoreLabelP1.setText("  Score P1: " + gameP1.getPoints());
         int scoreGameOverP1 = gameP1.getPoints();
-        scoreLabelGameOverP1.setText("Score: " + scoreGameOverP1);
+        scoreLabelGameOverP1.setText("Score P1: " + scoreGameOverP1);
     }
 
     public void updateScoreP2() {
-        if (gameP2.isFullRowPoints) {
-            scoreP2 += 100;
-            gameP2.isFullRowPoints = false;
-        }
-        if (gameP2.isTetOnGround) {
-            scoreP2 += 10;
-            gameP2.isTetOnGround = false;
-        }
-        scoreLabelP2.setText("  Score: " + gameP2.getPoints());
+        scoreLabelP2.setText("  Score P2: " + gameP2.getPoints());
         int scoreGameOverP2 = gameP2.getPoints();
-        scoreLabelGameOverP2.setText("Score: " + scoreGameOverP2);
+        scoreLabelGameOverP2.setText("Score P2: " + scoreGameOverP2);
     }
 
     public void restart() {
-        scoreP1 = 0;
-        scoreP2 = 0;
-        scoreLabelP1.setText("  Score: 0");
-        scoreLabelP2.setText("  Score: 0");
         changeBackground(false);
         gameOverPopUpMulti.setVisible(false);
         this.startGame();
