@@ -14,6 +14,7 @@ public class StartGame {
     private int points;
     public boolean isTetOnGround = false;
     public boolean isFullRowPoints = false;
+    private int fullrowcounter;
 
     public StartGame(int length, int height){
         this.gameboard = new BoardStatus[height][length];
@@ -27,8 +28,21 @@ public class StartGame {
             }
         }
         this.setTet();
+        this.fullrowcounter = 0;
+    }
+    public int getFullrowcounter(){
+        return this.fullrowcounter;
+    }
+    public void setFullrowcounter(int fullrowcounter){
+        this.fullrowcounter = fullrowcounter;
+    }
+    public int getPoints() {
+        return this.points;
     }
 
+    public void setPoints(int points){
+        this.points = points;
+    }
     public Tetromino getNext_tet(){
         return this.next_tet;
     }
@@ -95,7 +109,7 @@ public class StartGame {
         for(int i = 0; i < 4; i++){
             if(a[i].getY() == 9){
                 return;
-            } else if(this.gameboard[a[i].getX()][a[i].getY() + 1] == BoardStatus.SET ){
+            } else if(a[i].getX() >=  0 && this.gameboard[a[i].getX()][a[i].getY() + 1] == BoardStatus.SET ){
                 return;
             }
         }
@@ -110,7 +124,7 @@ public class StartGame {
         for(int i = 0; i < 4; i++){
             if(a[i].getY() == 0){
                 return;
-            } else if(this.gameboard[a[i].getX()][a[i].getY() - 1] == BoardStatus.SET ){
+            } else if(a[i].getX() >=  0 && this.gameboard[a[i].getX()][a[i].getY() - 1] == BoardStatus.SET ){
                 return;
             }
         }
@@ -125,7 +139,7 @@ public class StartGame {
         Coords[] coords = this.tet.getCoords();
 
         for (int i = 0; i < coords.length; i++){
-            if(coords[i].getX() == 13 || gameboard[coords[i].getX()+1][coords[i].getY()] == BoardStatus.SET){
+            if(coords[i].getX() == 13 || (coords[i].getX() != -2 && this.gameboard[coords[i].getX() + 1][coords[i].getY()] == BoardStatus.SET)){
                 return;
             }
         }
@@ -210,7 +224,8 @@ public class StartGame {
      * */
     public void removeRow(int row ) {
         if(this.FullRow(row))  {
-            points += 40;
+            this.points += 100;
+            this.fullrowcounter += 1;
             for(int i = row; i > 0; i--) {
                 for(int j = 0; j < this.gameboard[row].length; j++) {
                     this.gameboard[i][j] = this.gameboard[i - 1] [j];
@@ -248,6 +263,7 @@ public class StartGame {
         Coords[] coords = this.tet.getCoords();
         for (int i = 0; i < coords.length; i++){
             if (coords[i].getX() == 13 || this.gameboard[coords[i].getX() + 1][coords[i].getY()] == BoardStatus.SET){
+                this.points += 10;
                 this.tet.setOn_ground(true);
                 this.tetOnGround();
                 this.isTetOnGround = true;
@@ -259,7 +275,9 @@ public class StartGame {
     public void tetOnGround(){
         Coords[] coords = this.tet.getCoords();
         for (int i = 0; i < coords.length; i++) {
-            this.gameboard[coords[i].getX()][coords[i].getY()] = BoardStatus.SET;
+            if(coords[i].getX() >= 0) {
+                this.gameboard[coords[i].getX()][coords[i].getY()] = BoardStatus.SET;
+            }
         }
 
         for (int j = 0; j < gameboard.length; j++){
