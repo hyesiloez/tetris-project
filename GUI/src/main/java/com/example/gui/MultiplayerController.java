@@ -322,7 +322,6 @@ public class MultiplayerController {
                 gameP2.setTet();
                 updateGridP2();
                 gameP2.changenext_tet(gameP2.randomTet());
-                updateGrid();
                 updateGridP2();
             }
             System.out.println(gameP2);
