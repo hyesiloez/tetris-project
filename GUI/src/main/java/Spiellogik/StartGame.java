@@ -262,7 +262,7 @@ public class StartGame {
     public void isOnGround(){
         Coords[] coords = this.tet.getCoords();
         for (int i = 0; i < coords.length; i++){
-            if (coords[i].getX() == 13 || this.gameboard[coords[i].getX() + 1][coords[i].getY()] == BoardStatus.SET){
+            if (coords[i].getX() == 13 || (coords[i].getX() >= -1 && this.gameboard[coords[i].getX() + 1][coords[i].getY()] == BoardStatus.SET)){
                 this.points += 10;
                 this.tet.setOn_ground(true);
                 this.tetOnGround();

@@ -1,8 +1,8 @@
 package com.example.gui;
 
-import Spiellogik.*;
+import Spiellogik.StartGame;
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
@@ -10,7 +10,6 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.control.Menu;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
@@ -19,11 +18,9 @@ import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
 
 import java.io.IOException;
-import java.security.Key;
-import java.util.concurrent.TimeUnit;
-//Für das automatische Fallen
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
+import java.util.concurrent.TimeUnit;
 
 public class TetrisController {
     @FXML
@@ -47,15 +44,13 @@ public class TetrisController {
     private Scene scene;
     private Parent root;
 
-    private int score = 0;
     private ScheduledExecutorService scheduler;
 
     public void initialize() {
-        score = 0;
-        scoreLabel.setText("  Score:  " + score);
         changeBackground(false);
         gameOverPopUp.setVisible(false);
         game = new StartGame(10, 14);
+        scoreLabel.setText("  Score:  " + game.getPoints());
         gridButtons = new Button[14][10];
         gridPane.getRowConstraints().clear();
         gridPane.getColumnConstraints().clear();
@@ -89,9 +84,8 @@ public class TetrisController {
     @FXML
     public void startGame() {
         scheduler.shutdown();
-        score = 0;
-        scoreLabel.setText("  Score:  " + score);
         game = new StartGame(10,14);
+        scoreLabel.setText("  Score:  " + game.getPoints());
         tetFall(game);
     }
 
@@ -126,6 +120,7 @@ public class TetrisController {
     public void rotate2() {
         System.out.println("Rotate!");
         if (game.getIsGameOver()){
+            changeBackground(true);
             gameOverPopUp.setVisible(true);
             return;
         }
@@ -152,6 +147,7 @@ public class TetrisController {
     public void moveRight2()  {
         System.out.println("Right!");
         if (game.getIsGameOver()){
+            changeBackground(true);
             gameOverPopUp.setVisible(true);
             return;
         }
@@ -178,6 +174,7 @@ public class TetrisController {
     public void moveLeft2() {
         System.out.println("Left!");
         if (game.getIsGameOver()){
+            changeBackground(true);
             gameOverPopUp.setVisible(true);
             return;
         }
@@ -199,8 +196,6 @@ public class TetrisController {
     public void dropTet(ActionEvent event) {
         System.out.println("Drop!");
         if (game.getIsGameOver()){
-            score = 0;
-            scoreLabel.setText("  Score:  " + score);
             changeBackground(true);
             gameOverPopUp.setVisible(true);
             return;
@@ -222,8 +217,6 @@ public class TetrisController {
     public void dropTet2() {
         System.out.println("Drop!");
         if (game.getIsGameOver()){
-            score = 0;
-            scoreLabel.setText("  Score:  " + score);
             changeBackground(true);
             gameOverPopUp.setVisible(true);
             return;
@@ -259,11 +252,9 @@ public class TetrisController {
                     a.setTet();
                     a.changenext_tet(a.randomTet());
                 } else {
-                    score = 0;
-                    scoreLabel.setText("  Score:  " + score);
+                    scheduler.shutdown();
                     changeBackground(true);
                     gameOverPopUp.setVisible(true);
-                    scheduler.shutdown();
                     System.out.println("GAME OVER");
                 }
 
@@ -272,11 +263,11 @@ public class TetrisController {
 
     }
     public void updateScore () {
-
-
+        Platform.runLater(() -> {
         scoreLabel.setText("  Score:  " + game.getPoints());
         int scoreGameOver = game.getPoints();
         scoreLabelGameOver.setText("Score:   " + scoreGameOver);
+    });
     }
 
     public void restart () {
