@@ -13,8 +13,17 @@ import javafx.scene.input.KeyEvent;
 import javafx.stage.Stage;
 
 import java.io.IOException;
-
+/**
+ * The main class for the Menu Application.
+ * @version 19.07.2023
+ * @author Vladislav Gornet, Jonas Plankert
+ */
 public class MenuApplication extends Application  {
+    /**
+     * The entry point for the JavaFX application.
+     *
+     * @param stage The stage for this application, onto which the application scene can be set.
+     */
     @Override
     public void start(Stage stage) throws IOException {
         try {
@@ -39,7 +48,11 @@ public class MenuApplication extends Application  {
             e.printStackTrace();
         }
     }
-
+    /**
+     * Handles the logout process when the application is closed.
+     *
+     * @param stage The stage of the application.
+     */
     public void logout(Stage stage) {
 
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);

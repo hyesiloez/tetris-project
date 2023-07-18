@@ -14,6 +14,11 @@ import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import java.io.IOException;
 
+/**
+ * The controller class for the menu screen.
+ * @version 19.07.2023
+ * @author  Jonas Plankert, Vladislav Gornet
+ */
 public class MenuController {
 
     @FXML
@@ -24,7 +29,11 @@ public class MenuController {
     TetrisController tetrisController;
     MultiplayerController multiplayerController;
     Stage stage;
-
+    /**
+     * Handles the logout action.
+     *
+     * @param event The event triggered by clicking the exit button.
+     */
     public void logout(ActionEvent event) {
 
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
@@ -41,6 +50,11 @@ public class MenuController {
     }
     private Scene scene;
     private Parent root;
+    /**
+     * Opens the Single-player mode and handles the action of playing the single-player mode.
+     *
+     * @param e The event triggered by clicking the play single-player button.
+     */
     public void playSingle (ActionEvent e) throws IOException {
         System.out.println("Play Singleplayer");
         FXMLLoader loader = new FXMLLoader(getClass().getResource("play_single.fxml"));
@@ -73,7 +87,11 @@ public class MenuController {
             }
         });
     }
-
+    /**
+     * Opens the multiplayer mode and handles the action of playing the multiplayer mode.
+     *
+     * @param e The event triggered by clicking the play multiplayer button.
+     */
     public void playMulti (ActionEvent e) throws IOException {
         System.out.println("Play Multiplayer");
         FXMLLoader loader = new FXMLLoader(getClass().getResource("play_multi.fxml"));

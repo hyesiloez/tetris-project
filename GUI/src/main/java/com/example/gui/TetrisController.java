@@ -21,7 +21,11 @@ import java.io.IOException;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
-
+/**
+ * The controller class for the single-player game screen.
+ * @version 19.07.2023
+ * @author  Jonas Plankert, Vladislav Gornet
+ */
 public class TetrisController {
     @FXML
     private AnchorPane gameOverPopUp;
@@ -45,7 +49,9 @@ public class TetrisController {
     private Parent root;
 
     private ScheduledExecutorService scheduler;
-
+    /**
+     * Initializes the controller and sets up the game grid and UI components.
+     */
     public void initialize() {
         changeBackground(false);
         gameOverPopUp.setVisible(false);
@@ -66,7 +72,9 @@ public class TetrisController {
         }
     }
 
-
+    /**
+     * Updates the game grid.
+     */
     private void updateGrid() {
         boolean[][] board = game.convertToBooleanArray();
 
@@ -81,6 +89,9 @@ public class TetrisController {
         }
         updateScore();
     }
+    /**
+     * Starts the game.
+     */
     @FXML
     public void startGame() {
         scheduler.shutdown();
@@ -89,7 +100,11 @@ public class TetrisController {
         tetFall(game);
     }
 
-
+    /**
+     * Returns to the main menu screen.
+     *
+     * @param e The event triggered by clicking the "Back" button.
+     */
     public void toMainMenu(ActionEvent e) throws IOException {
         System.out.println("TO Main Menu");
         FXMLLoader loader = new FXMLLoader(getClass().getResource("hello-gui.fxml"));
@@ -99,6 +114,11 @@ public class TetrisController {
         stage.setScene(scene);
         stage.show();
     }
+    /**
+     * Returns to the main menu screen when the Escape key is pressed.
+     *
+     * @param event The event triggered by pressing a key.
+     */
     @FXML
     void backToMainMenu(KeyEvent event) throws IOException {
         if(event.getCode() == KeyCode.ESCAPE){
@@ -111,12 +131,18 @@ public class TetrisController {
             stage.show();
         }
     }
+    /**
+     * Rotates the Tetromino when you click the button on screen.
+     */
     public void rotate(ActionEvent event) throws IOException {
         System.out.println("Rotate!");
         game.turn(game.gameboard);
         updateGrid();
         System.out.println(game);
     }
+    /**
+     * Rotates the Tetromino.
+     */
     public void rotate2() {
         System.out.println("Rotate!");
         if (game.getIsGameOver()){
@@ -138,12 +164,18 @@ public class TetrisController {
         System.out.println(game);
         updateGrid();
     }
+    /**
+     * Moves the Tetromino to the right when you click the button on screen.
+     */
     public void moveRight(ActionEvent event)  {
         System.out.println("Right!");
         game.goRight();
         updateGrid();
         System.out.println(game);
     }
+    /**
+     * Moves the Tetromino to the right.
+     */
     public void moveRight2()  {
         System.out.println("Right!");
         if (game.getIsGameOver()){
@@ -164,13 +196,18 @@ public class TetrisController {
         System.out.println(game);
         updateGrid();
     }
-
+    /**
+     * Moves the Tetromino to the left when you click the button on screen.
+     */
     public void moveLeft(ActionEvent event) {
         System.out.println("Left!");
         game.goLeft();
         updateGrid();
         System.out.println(game);
     }
+    /**
+     * Moves the Tetromino to the left.
+     */
     public void moveLeft2() {
         System.out.println("Left!");
         if (game.getIsGameOver()){
@@ -192,7 +229,9 @@ public class TetrisController {
         System.out.println(game);
         updateGrid();
     }
-
+    /**
+     * Drops the Tetromino when you click the button on screen.
+     */
     public void dropTet(ActionEvent event) {
         System.out.println("Drop!");
         if (game.getIsGameOver()){
@@ -214,6 +253,9 @@ public class TetrisController {
         System.out.println(game);
         updateGrid();
     }
+    /**
+     * Drops the Tetromino.
+     */
     public void dropTet2() {
         System.out.println("Drop!");
         if (game.getIsGameOver()){
@@ -236,6 +278,11 @@ public class TetrisController {
         System.out.println(game);
         updateGrid();
     }
+    /**
+     * Handles the automatic falling of the Tetromino.
+     *
+     * @param a The StartGame instance.
+     */
     public void tetFall(StartGame a){
         this.scheduler = Executors.newSingleThreadScheduledExecutor();
 
@@ -262,6 +309,9 @@ public class TetrisController {
         }, 0, 1000, TimeUnit.MILLISECONDS);
 
     }
+    /**
+     * Updates the score label.
+     */
     public void updateScore () {
         Platform.runLater(() -> {
         scoreLabel.setText("  Score:  " + game.getPoints());
@@ -269,12 +319,19 @@ public class TetrisController {
         scoreLabelGameOver.setText("Score:   " + scoreGameOver);
     });
     }
-
+    /**
+     * Restarts the game after game over.
+     */
     public void restart () {
         changeBackground(false);
         gameOverPopUp.setVisible(false);
         this.startGame();
     }
+    /**
+     * Changes the background color when the game is over.
+     *
+     * @param color If true, sets the background color to black. If false, sets it to transparent.
+     */
     public void changeBackground(boolean color){
         if(color){
             hBoxGameOver1.setStyle("-fx-background-color: #000000;");

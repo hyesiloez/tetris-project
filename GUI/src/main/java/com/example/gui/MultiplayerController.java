@@ -26,7 +26,11 @@ import java.util.concurrent.TimeUnit;
 //Für das automatische Fallen
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
-
+/**
+ * The controller class for the multiplayer game screen.
+ * @version 19.07.2023
+ * @author  Vladislav Gornet, Jonas Plankert
+ */
 public class MultiplayerController {
     @FXML
     private GridPane gridPaneP1;
@@ -58,7 +62,9 @@ public class MultiplayerController {
     private Parent root;
     ScheduledExecutorService schedulerP1;
     ScheduledExecutorService schedulerP2;
-
+    /**
+     * Initializes the controller and sets up the game grid and UI components.
+     */
     public void initialize() {
         changeBackground(false);
         gameOverPopUpMulti.setVisible(false);
@@ -93,7 +99,9 @@ public class MultiplayerController {
         schedulerP1 = Executors.newSingleThreadScheduledExecutor();
         schedulerP2 = Executors.newSingleThreadScheduledExecutor();
     }
-
+    /**
+     * Updates the game grid for Player 1.
+     */
     private void updateGrid() {
         Platform.runLater(() -> {
             boolean[][] board = gameP1.convertToBooleanArray();
@@ -113,6 +121,9 @@ public class MultiplayerController {
             updateScoreP1();
         });
     }
+    /**
+     * Updates the game grid for Player 2.
+     */
     private void updateGridP2() {
         Platform.runLater(() -> {
             boolean[][] boardP2 = gameP2.convertToBooleanArray();
@@ -132,6 +143,9 @@ public class MultiplayerController {
             updateScoreP2();
         });
     }
+    /**
+     * Starts the game for both players.
+     */
     @FXML
     public void startGame() {
         schedulerP1.shutdown();
@@ -144,7 +158,11 @@ public class MultiplayerController {
         tetFallP2(gameP2);
     }
 
-
+    /**
+     * Returns to the main menu screen.
+     *
+     * @param e The event triggered by clicking the "Back" button.
+     */
     public void toMainMenu(ActionEvent e) throws IOException {
         System.out.println("TO Main Menu");
         FXMLLoader loader = new FXMLLoader(getClass().getResource("hello-gui.fxml"));
@@ -154,6 +172,11 @@ public class MultiplayerController {
         stage.setScene(scene);
         stage.show();
     }
+    /**
+     * Returns to the main menu screen when the Escape key is pressed.
+     *
+     * @param event The event triggered by pressing a key.
+     */
     @FXML
     void backToMainMenu(KeyEvent event) throws IOException {
         if(event.getCode() == KeyCode.ESCAPE){
@@ -166,6 +189,9 @@ public class MultiplayerController {
             stage.show();
         }
     }
+    /**
+     * Rotates the Tetromino for Player 2.
+     */
     public void rotateP2() {
         Platform.runLater(() -> {
             System.out.println("Rotate!");
@@ -189,6 +215,9 @@ public class MultiplayerController {
             updateGridP2();
         });
     }
+    /**
+     * Rotates the Tetromino for Player 1.
+     */
     public void rotateP1() {
         Platform.runLater(() -> {
             System.out.println("Rotate!");
@@ -212,6 +241,9 @@ public class MultiplayerController {
             updateGrid();
         });
     }
+    /**
+     * Moves the Tetromino to the right for Player 2.
+     */
     public void moveRightP2()  {
         Platform.runLater(() -> {
             System.out.println("Right!");
@@ -235,6 +267,9 @@ public class MultiplayerController {
             updateGridP2();
         });
     }
+    /**
+     * Moves the Tetromino to the right for Player 1.
+     */
     public void moveRightP1()  {
         Platform.runLater(() -> {
             System.out.println("Right!");
@@ -258,7 +293,9 @@ public class MultiplayerController {
             updateGrid();
         });
     }
-
+    /**
+     * Moves the Tetromino to the left for Player 2.
+     */
     public void moveLeftP2() {
         Platform.runLater(() -> {
             System.out.println("Left!");
@@ -281,6 +318,9 @@ public class MultiplayerController {
             updateGridP2();
         });
     }
+    /**
+     * Moves the Tetromino to the left for Player 1.
+     */
     public void moveLeftP1() {
         Platform.runLater(() -> {
             System.out.println("Left!");
@@ -304,7 +344,9 @@ public class MultiplayerController {
             updateGrid();
         });
     }
-
+    /**
+     * Drops the Tetromino for Player 2.
+     */
     public void dropTetP2() {
         Platform.runLater(() -> {
             System.out.println("Drop!");
@@ -328,6 +370,9 @@ public class MultiplayerController {
             updateGridP2();
         });
     }
+    /**
+     * Drops the Tetromino for Player 1.
+     */
     public void dropTetP1() {
         Platform.runLater(() -> {
             System.out.println("Drop!");
@@ -352,6 +397,11 @@ public class MultiplayerController {
             updateGrid();
         });
     }
+    /**
+     * Handles the automatic falling of the Tetromino for Player 1.
+     *
+     * @param a The StartGame instance for Player 1.
+     */
     public void tetFallP1(StartGame a){
         schedulerP1 = Executors.newSingleThreadScheduledExecutor();
 
@@ -379,7 +429,11 @@ public class MultiplayerController {
         }, 0, 1000, TimeUnit.MILLISECONDS);
 
     }
-
+    /**
+     * Handles the automatic falling of the Tetromino for Player 2.
+     *
+     * @param a The StartGame instance for Player 2.
+     */
     public void tetFallP2(StartGame a){
         schedulerP2 = Executors.newSingleThreadScheduledExecutor();
 
@@ -407,6 +461,9 @@ public class MultiplayerController {
         }, 0, 1000, TimeUnit.MILLISECONDS);
 
     }
+    /**
+     * Updates the score label for Player 1.
+     */
     public void updateScoreP1() {
         Platform.runLater(() -> {
             scoreLabelP1.setText("  Score P1: " + gameP1.getPoints());
@@ -414,7 +471,9 @@ public class MultiplayerController {
             scoreLabelGameOverP1.setText("Score P1: " + scoreGameOverP1);
         });
     }
-
+    /**
+     * Updates the score label for Player 2.
+     */
     public void updateScoreP2() {
         Platform.runLater(() -> {
             scoreLabelP2.setText("  Score P2: " + gameP2.getPoints());
@@ -422,7 +481,9 @@ public class MultiplayerController {
             scoreLabelGameOverP2.setText("Score P2: " + scoreGameOverP2);
         });
     }
-
+    /**
+     * Restarts the game for both players.
+     */
     public void restart() {
         Platform.runLater(() -> {
             changeBackground(false);
@@ -430,6 +491,11 @@ public class MultiplayerController {
             this.startGame();
         });
     }
+    /**
+     * Changes the background color when the game is over.
+     *
+     * @param color If true, sets the background color to black. If false, sets it to transparent.
+     */
     public void changeBackground(boolean color){
         Platform.runLater(() -> {
             if (color) {
